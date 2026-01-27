@@ -13,22 +13,22 @@ export default function Footer() {
             <h3 className="font-semibold mb-4">Menu</h3>
             <ul className="space-y-2 text-gray-400">
               <li>
-                <a href="#about" className="hover:text-red-600">
+                <a href="#about" className="hover:text-red-600 transition-colors duration-300">
                   Home
                 </a>
               </li>
               <li>
-                <a href="#about" className="hover:text-red-600">
+                <a href="#about" className="hover:text-red-600 transition-colors duration-300">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-red-600">
+                <a href="#services" className="hover:text-red-600 transition-colors duration-300">
                   Our Services
                 </a>
               </li>
               <li>
-                <a href="#faq" className="hover:text-red-600">
+                <a href="#faq" className="hover:text-red-600 transition-colors duration-300">
                   FAQ
                 </a>
               </li>
@@ -38,12 +38,12 @@ export default function Footer() {
             <h3 className="font-semibold mb-4">Legal</h3>
             <ul className="space-y-2 text-gray-400">
               <li>
-                <a href="#" className="hover:text-red-600">
+                <a href="#" className="hover:text-red-600 transition-colors duration-300">
                   Terms of Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-red-600">
+                <a href="#" className="hover:text-red-600 transition-colors duration-300">
                   Privacy Policy
                 </a>
               </li>
@@ -53,12 +53,12 @@ export default function Footer() {
             <h3 className="font-semibold mb-4">Social</h3>
             <ul className="space-y-2 text-gray-400">
               <li>
-                <a href="#" className="hover:text-red-600">
+                <a href="#" className="hover:text-red-600 transition-colors duration-300">
                   Instagram
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-red-600">
+                <a href="#" className="hover:text-red-600 transition-colors duration-300">
                   Email
                 </a>
               </li>

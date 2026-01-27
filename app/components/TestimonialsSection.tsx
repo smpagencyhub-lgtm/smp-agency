@@ -13,8 +13,8 @@ export default function TestimonialsSection() {
     >
       <div className="max-w-6xl mx-auto">
         <h2
-          className={`text-4xl sm:text-5xl font-bold text-center mb-4 ${
-            visibleSections.has('testimonials') ? 'opacity-100' : 'opacity-0'
+          className={`text-4xl sm:text-5xl font-bold text-center mb-4 transition-all duration-1000 ${
+            visibleSections.has('testimonials') ? 'animate-fade-in-up opacity-100' : 'opacity-0'
           }`}
         >
           <span className="text-white">BENEFITS</span>{' '}
@@ -24,11 +24,12 @@ export default function TestimonialsSection() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className={`bg-gray-900 p-6 rounded-lg border border-gray-800 hover:border-red-600 ${
+              className={`bg-gray-900 p-6 rounded-lg border border-gray-800 hover:border-red-600 transition-all duration-600 transform hover:scale-105 hover:-translate-y-2 hover:shadow-xl hover:shadow-red-600/20 ${
                 visibleSections.has('testimonials')
-                  ? 'opacity-100'
-                  : 'opacity-0'
+                  ? 'animate-fade-in-up opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-10'
               }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="text-red-600 text-2xl font-bold mb-2">{testimonial.name}</div>
               <p className="text-gray-300 mb-4 italic leading-relaxed">
