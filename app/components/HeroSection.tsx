@@ -1,0 +1,113 @@
+export default function HeroSection() {
+  return (
+    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16 overflow-hidden">
+      {/* Background gradient effects */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-red-600/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-red-600/5 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="relative z-10 w-full max-w-7xl mx-auto py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 xl:gap-12 items-center min-h-[70vh] lg:min-h-[80vh]">
+          {/* Left Side - Text and Image */}
+          <div className="flex flex-col items-center lg:items-start space-y-4 lg:space-y-6 order-2 lg:order-1">
+            {/* Left Heading */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif text-red-600 leading-[0.9] tracking-tight text-center lg:text-left">
+              <span className="block">LIFE</span>
+              <span className="block">IS A</span>
+              <span className="block">PARTY</span>
+            </h1>
+            
+            {/* Left Image - Oval */}
+            <div className="relative w-40 h-56 sm:w-48 sm:h-64 md:w-56 md:h-72 lg:w-64 lg:h-80 mt-4 lg:mt-8">
+              <div className="absolute inset-0 rounded-[40%] overflow-hidden border-2 border-red-600/30 shadow-2xl shadow-red-600/20">
+                <div className="w-full h-full bg-gradient-to-br from-gray-800 via-gray-800 to-gray-900 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-24 h-32 sm:w-28 sm:h-36 bg-gray-700 rounded-lg mb-2 mx-auto"></div>
+                    <span className="text-gray-500 text-xs sm:text-sm">Model Image</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Left Body Text */}
+            <p className="text-gray-400 text-xs sm:text-sm md:text-base lg:text-lg font-serif max-w-xs text-center lg:text-left">
+              Join the elite. Build your empire. Own your space.
+            </p>
+          </div>
+
+          {/* Center - Large Circular Image */}
+          <div className="flex justify-center items-center order-1 lg:order-2">
+            <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem]">
+              <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-red-600/40 shadow-2xl shadow-red-600/30">
+                <div className="w-full h-full bg-gradient-to-br from-gray-700 via-gray-800 to-gray-900 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-32 h-40 sm:w-40 sm:h-48 md:w-48 md:h-56 lg:w-56 lg:h-64 bg-gray-600 rounded-full mb-2 mx-auto"></div>
+                    <span className="text-gray-500 text-xs sm:text-sm">Center Model</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Side - Text and Image */}
+          <div className="flex flex-col items-center lg:items-end space-y-4 lg:space-y-6 order-3">
+            {/* Right Sub-heading */}
+            <p className="text-red-600/80 text-base sm:text-lg md:text-xl lg:text-2xl font-serif tracking-wider">
+              OASIS.
+            </p>
+            
+            {/* Right Heading */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif text-red-600 leading-[0.9] tracking-tight text-center lg:text-right">
+              <span className="block">DO IT</span>
+              <span className="block">IN</span>
+              <span className="block">STYLE</span>
+            </h1>
+            
+            {/* Right Image - Oval */}
+            <div className="relative w-40 h-56 sm:w-48 sm:h-64 md:w-56 md:h-72 lg:w-64 lg:h-80 mt-4 lg:mt-8">
+              <div className="absolute inset-0 rounded-[40%] overflow-hidden border-2 border-red-600/30 shadow-2xl shadow-red-600/20">
+                <div className="w-full h-full bg-gradient-to-br from-gray-800 via-gray-800 to-gray-900 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-24 h-32 sm:w-28 sm:h-36 bg-gray-700 rounded-lg mb-2 mx-auto"></div>
+                    <span className="text-gray-500 text-xs sm:text-sm">Model Image</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom CTA Section */}
+        <div className="absolute bottom-8 sm:bottom-12 lg:bottom-16 left-1/2 transform -translate-x-1/2 flex flex-col items-center space-y-4 sm:space-y-6 z-20">
+          {/* Apply Now Button - Circular */}
+          <a
+            href="#apply"
+            className="group relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 flex items-center justify-center rounded-full border-2 border-red-600 hover:border-red-500 bg-black/50 backdrop-blur-sm hover:bg-black/70"
+          >
+            <span className="text-red-600 font-serif text-xs sm:text-sm md:text-base lg:text-lg font-semibold tracking-wider group-hover:text-red-500 text-center leading-tight">
+              APPLY
+              <br />
+              NOW!
+            </span>
+          </a>
+
+          {/* Scroll Indicator */}
+          <div>
+            <svg
+              className="w-5 h-5 sm:w-6 sm:h-6 text-red-600"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
