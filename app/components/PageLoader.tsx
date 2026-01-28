@@ -38,29 +38,33 @@ export default function PageLoader() {
         }`}
         style={{ zIndex: 9999 }}
       >
-        {/* Background gradient effects */}
+        {/* Professional background effects */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/8 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-600/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-red-600/3 rounded-full blur-3xl"></div>
         </div>
+
+        {/* Grid pattern overlay */}
+        <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
 
         <div className="relative z-10 flex flex-col items-center justify-center">
           {/* Animated Logo/Text */}
-          <div className="mb-10 animate-fade-in">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight">
+          <div className="mb-12 animate-fade-in">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight">
               <span className="text-white inline-block animate-slide-in-left">FANS</span>{' '}
-              <span className="text-red-600 inline-block animate-slide-in-right animate-pulse">HUB</span>
+              <span className="text-red-600 inline-block animate-slide-in-right">HUB</span>
             </h1>
           </div>
 
-          {/* Loading Spinner */}
-          <div className="relative w-20 h-20 mb-8">
+          {/* Professional Loading Spinner */}
+          <div className="relative w-16 h-16 sm:w-20 sm:h-20 mb-8">
             {/* Outer ring */}
-            <div className="absolute inset-0 border-4 border-gray-800 rounded-full"></div>
+            <div className="absolute inset-0 border-2 border-gray-800/50 rounded-full"></div>
             
             {/* Animated red ring - smooth rotation */}
             <div 
-              className="absolute inset-0 border-4 border-transparent border-t-red-600 rounded-full"
+              className="absolute inset-0 border-2 border-transparent border-t-red-600 rounded-full"
               style={{
                 animation: 'spin 1s linear infinite'
               }}
@@ -68,7 +72,7 @@ export default function PageLoader() {
             
             {/* Secondary ring for depth */}
             <div 
-              className="absolute inset-2 border-4 border-transparent border-r-red-500/50 rounded-full"
+              className="absolute inset-2 border-2 border-transparent border-r-red-500/40 rounded-full"
               style={{
                 animation: 'spin 0.8s linear infinite reverse'
               }}
@@ -77,7 +81,7 @@ export default function PageLoader() {
             {/* Inner pulsing dot */}
             <div className="absolute inset-0 flex items-center justify-center">
               <div 
-                className="w-3 h-3 bg-red-600 rounded-full"
+                className="w-2 h-2 bg-red-600 rounded-full"
                 style={{
                   animation: 'pulse 1.5s ease-in-out infinite'
                 }}
@@ -87,16 +91,17 @@ export default function PageLoader() {
 
           {/* Loading text */}
           <p 
-            className="mt-4 text-gray-400 text-sm sm:text-base font-serif tracking-wider"
+            className="mt-4 text-gray-400 text-sm sm:text-base tracking-wider uppercase"
             style={{
-              animation: 'fadeInOut 2s ease-in-out infinite'
+              animation: 'fadeInOut 2s ease-in-out infinite',
+              letterSpacing: '0.1em'
             }}
           >
             Loading...
           </p>
 
-          {/* Progress bar */}
-          <div className="mt-8 w-56 sm:w-72 h-1 bg-gray-800 rounded-full overflow-hidden">
+          {/* Professional Progress bar */}
+          <div className="mt-8 w-56 sm:w-72 h-0.5 bg-gray-800/50 rounded-full overflow-hidden">
             <div 
               className="h-full bg-red-600 rounded-full"
               style={{

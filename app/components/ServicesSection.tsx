@@ -1,37 +1,91 @@
 'use client';
 
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { motion } from 'framer-motion';
 import { services } from '../data/services';
 
 export default function ServicesSection() {
-  const visibleSections = useScrollAnimation();
 
   return (
-    <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
-      <div className="max-w-6xl mx-auto">
-        <h2
-          className={`text-4xl sm:text-5xl font-bold text-center mb-4 transition-all duration-1000 ${
-            visibleSections.has('services') ? 'animate-fade-in-up opacity-100' : 'opacity-0'
-          }`}
+    <section id="services" className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-gray-900/30 to-black relative overflow-hidden">
+      {/* Background effects */}
+      <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-20"
         >
-          <span className="text-white">WHAT WE</span> <span className="text-red-600">OFFER</span>
-        </h2>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-16">
-          {services.map((service, index) => (
-            <div
+          <motion.h2 
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <span className="text-white">WHAT WE</span>{' '}
+            <span className="text-red-600">OFFER</span>
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, width: 0 }}
+            whileInView={{ opacity: 1, width: 96 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="h-1 bg-red-600 mx-auto"
+          ></motion.div>
+        </motion.div>
+
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
+          {services.map((service, index) => {
+            const isEven = index % 2 === 0;
+            return (
+            <motion.div
               key={index}
-              className={`bg-gray-900 p-8 rounded-lg border border-gray-800 hover:border-red-600 transition-all duration-600 transform hover:scale-105 hover:shadow-xl hover:shadow-red-600/30 hover:-translate-y-2 ${
-                visibleSections.has('services')
-                  ? 'animate-fade-in-up opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-10'
-              }`}
-              style={{ transitionDelay: `${index * 150}ms` }}
+              initial={{ 
+                opacity: 0, 
+                x: isEven ? -60 : 60,
+                rotateY: isEven ? -15 : 15,
+                scale: 0.9
+              }}
+              whileInView={{ 
+                opacity: 1, 
+                x: 0,
+                rotateY: 0,
+                scale: 1
+              }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ 
+                duration: 0.7, 
+                delay: index * 0.15,
+                ease: [0.16, 1, 0.3, 1]
+              }}
+              className="group relative bg-gray-900/60 backdrop-blur-sm border border-gray-800/50 rounded-lg p-8 lg:p-10 transition-all duration-500 hover:border-red-600/50 hover:bg-gray-900/80 hover:shadow-2xl hover:shadow-red-600/10 hover:-translate-y-2"
             >
-              <div className="text-5xl mb-4 animate-icon-bounce">{service.icon}</div>
-              <h3 className="text-2xl font-semibold mb-4 text-red-600">{service.title}</h3>
-              <p className="text-gray-400 leading-relaxed">{service.description}</p>
-            </div>
-          ))}
+              {/* Decorative elements */}
+              <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-red-600/20 group-hover:border-red-600/40 transition-colors duration-300"></div>
+              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-red-600/20 group-hover:border-red-600/40 transition-colors duration-300"></div>
+              
+              {/* Icon */}
+              <div className="text-5xl lg:text-6xl mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                {service.icon}
+              </div>
+              
+              {/* Title */}
+              <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-red-600 group-hover:text-red-500 transition-colors duration-300">
+                {service.title}
+              </h3>
+              
+              {/* Description */}
+              <p className="text-gray-400 leading-relaxed text-base lg:text-lg group-hover:text-gray-300 transition-colors duration-300">
+                {service.description}
+              </p>
+            </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

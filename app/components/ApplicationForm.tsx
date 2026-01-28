@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { motion } from 'framer-motion';
 
 export default function ApplicationForm() {
   const [formData, setFormData] = useState({
@@ -12,8 +12,6 @@ export default function ApplicationForm() {
     experience: '',
     message: '',
   });
-
-  const visibleSections = useScrollAnimation();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,34 +29,79 @@ export default function ApplicationForm() {
   };
 
   return (
-    <section id="apply" className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
-      <div className="max-w-2xl mx-auto">
-        <h2
-          className={`text-4xl sm:text-5xl font-bold text-center mb-4 transition-all duration-1000 ${
-            visibleSections.has('apply') ? 'animate-fade-in-up opacity-100' : 'opacity-0'
-          }`}
+    <section id="apply" className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-gray-900/20 to-black relative overflow-hidden">
+      {/* Background pattern */}
+      <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+      
+      <div className="max-w-3xl mx-auto relative z-10">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-16"
         >
-          <span className="text-white">START YOUR</span>{' '}
-          <span className="text-red-600">JOURNEY</span>
-        </h2>
-        <p
-          className={`text-gray-400 text-center mb-12 transition-all duration-1000 ${
-            visibleSections.has('apply') ? 'animate-fade-in-up opacity-100' : 'opacity-0'
-          }`}
-          style={{ transitionDelay: '200ms' }}
-        >
-          Fill out the form below and we&apos;ll get back to you within 24-48 hours
-        </p>
-
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div
-            className={`transition-all duration-700 ${
-              visibleSections.has('apply')
-                ? 'animate-fade-in-up opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-5'
-            }`}
+          <motion.h2 
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <label htmlFor="name" className="block text-sm font-medium mb-2">
+            <motion.span 
+              className="text-white"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              START YOUR
+            </motion.span>{' '}
+            <motion.span 
+              className="text-red-600"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              JOURNEY
+            </motion.span>
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, scaleX: 0 }}
+            whileInView={{ opacity: 1, scaleX: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="h-1 w-24 bg-red-600 mx-auto mb-6 origin-center"
+          ></motion.div>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="text-gray-400 text-base lg:text-lg"
+          >
+            Fill out the form below and we&apos;ll get back to you within 24-48 hours
+          </motion.p>
+        </motion.div>
+
+        {/* Form */}
+        <motion.form
+          initial={{ opacity: 0, y: 40, filter: 'blur(10px)', scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          onSubmit={handleSubmit}
+          className="bg-gray-900/60 backdrop-blur-sm border border-gray-800/50 rounded-lg p-8 lg:p-10 space-y-6"
+        >
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <label htmlFor="name" className="block text-sm font-semibold mb-2 text-gray-300">
               Full Name *
             </label>
             <input
@@ -68,20 +111,18 @@ export default function ApplicationForm() {
               required
               value={formData.name}
               onChange={handleChange}
-              className="w-full px-4 py-3 bg-gray-900 border border-gray-800 rounded-lg focus:outline-none focus:border-red-600 focus:ring-2 focus:ring-red-600/20 transition-all duration-300 focus:scale-[1.02] focus:shadow-lg focus:shadow-red-600/20"
+              className="w-full px-4 py-3 bg-black/50 border border-gray-800/50 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-red-600 focus:ring-2 focus:ring-red-600/20 transition-all duration-300"
               placeholder="Enter your full name"
             />
-          </div>
+          </motion.div>
 
-          <div
-            className={`transition-all duration-700 ${
-              visibleSections.has('apply')
-                ? 'animate-fade-in-up opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-5'
-            }`}
-            style={{ transitionDelay: '100ms' }}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            <label htmlFor="email" className="block text-sm font-medium mb-2">
+            <label htmlFor="email" className="block text-sm font-semibold mb-2 text-gray-300">
               Email Address *
             </label>
             <input
@@ -91,21 +132,19 @@ export default function ApplicationForm() {
               required
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-4 py-3 bg-gray-900 border border-gray-800 rounded-lg focus:outline-none focus:border-red-600 focus:ring-2 focus:ring-red-600/20 transition-all duration-300 focus:scale-[1.02] focus:shadow-lg focus:shadow-red-600/20"
+              className="w-full px-4 py-3 bg-black/50 border border-gray-800/50 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-red-600 focus:ring-2 focus:ring-red-600/20 transition-all duration-300"
               placeholder="your.email@example.com"
             />
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div
-              className={`transition-all duration-700 ${
-                visibleSections.has('apply')
-                  ? 'animate-fade-in-up opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-5'
-              }`}
-              style={{ transitionDelay: '200ms' }}
+            <motion.div
+              initial={{ opacity: 0, x: -20, scale: 0.95 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             >
-              <label htmlFor="age" className="block text-sm font-medium mb-2">
+              <label htmlFor="age" className="block text-sm font-semibold mb-2 text-gray-300">
                 Age *
               </label>
               <input
@@ -116,20 +155,18 @@ export default function ApplicationForm() {
                 min="18"
                 value={formData.age}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-gray-900 border border-gray-800 rounded-lg focus:outline-none focus:border-red-600 focus:ring-2 focus:ring-red-600/20 transition-all duration-300 focus:scale-[1.02] focus:shadow-lg focus:shadow-red-600/20"
+                className="w-full px-4 py-3 bg-black/50 border border-gray-800/50 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-red-600 focus:ring-2 focus:ring-red-600/20 transition-all duration-300"
                 placeholder="18+"
               />
-            </div>
+            </motion.div>
 
-            <div
-              className={`transition-all duration-700 ${
-                visibleSections.has('apply')
-                  ? 'animate-fade-in-up opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-5'
-              }`}
-              style={{ transitionDelay: '300ms' }}
+            <motion.div
+              initial={{ opacity: 0, x: 20, scale: 0.95 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
             >
-              <label htmlFor="experience" className="block text-sm font-medium mb-2">
+              <label htmlFor="experience" className="block text-sm font-semibold mb-2 text-gray-300">
                 Experience Level *
               </label>
               <select
@@ -138,25 +175,23 @@ export default function ApplicationForm() {
                 required
                 value={formData.experience}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-gray-900 border border-gray-800 rounded-lg focus:outline-none focus:border-red-600 focus:ring-2 focus:ring-red-600/20 transition-all duration-300 focus:scale-[1.02] focus:shadow-lg focus:shadow-red-600/20"
+                className="w-full px-4 py-3 bg-black/50 border border-gray-800/50 rounded-md text-white focus:outline-none focus:border-red-600 focus:ring-2 focus:ring-red-600/20 transition-all duration-300"
               >
-                <option value="">Select experience</option>
-                <option value="beginner">Beginner</option>
-                <option value="intermediate">Intermediate</option>
-                <option value="experienced">Experienced</option>
+                <option value="" className="bg-gray-900">Select experience</option>
+                <option value="beginner" className="bg-gray-900">Beginner</option>
+                <option value="intermediate" className="bg-gray-900">Intermediate</option>
+                <option value="experienced" className="bg-gray-900">Experienced</option>
               </select>
-            </div>
+            </motion.div>
           </div>
 
-          <div
-            className={`transition-all duration-700 ${
-              visibleSections.has('apply')
-                ? 'animate-fade-in-up opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-5'
-            }`}
-            style={{ transitionDelay: '400ms' }}
+          <motion.div
+            initial={{ opacity: 0, y: 20, filter: 'blur(5px)' }}
+            whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
           >
-            <label htmlFor="socialMedia" className="block text-sm font-medium mb-2">
+            <label htmlFor="socialMedia" className="block text-sm font-semibold mb-2 text-gray-300">
               Social Media Handles
             </label>
             <input
@@ -165,20 +200,18 @@ export default function ApplicationForm() {
               name="socialMedia"
               value={formData.socialMedia}
               onChange={handleChange}
-              className="w-full px-4 py-3 bg-gray-900 border border-gray-800 rounded-lg focus:outline-none focus:border-red-600 focus:ring-2 focus:ring-red-600/20 transition-all duration-300 focus:scale-[1.02] focus:shadow-lg focus:shadow-red-600/20"
+              className="w-full px-4 py-3 bg-black/50 border border-gray-800/50 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-red-600 focus:ring-2 focus:ring-red-600/20 transition-all duration-300"
               placeholder="@yourhandle"
             />
-          </div>
+          </motion.div>
 
-          <div
-            className={`transition-all duration-700 ${
-              visibleSections.has('apply')
-                ? 'animate-fade-in-up opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-5'
-            }`}
-            style={{ transitionDelay: '500ms' }}
+          <motion.div
+            initial={{ opacity: 0, y: 20, filter: 'blur(5px)' }}
+            whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            <label htmlFor="message" className="block text-sm font-medium mb-2">
+            <label htmlFor="message" className="block text-sm font-semibold mb-2 text-gray-300">
               Tell Us About Yourself *
             </label>
             <textarea
@@ -188,27 +221,31 @@ export default function ApplicationForm() {
               rows={5}
               value={formData.message}
               onChange={handleChange}
-              className="w-full px-4 py-3 bg-gray-900 border border-gray-800 rounded-lg focus:outline-none focus:border-red-600 focus:ring-2 focus:ring-red-600/20 transition-all duration-300 focus:scale-[1.02] focus:shadow-lg focus:shadow-red-600/20 resize-none"
+              className="w-full px-4 py-3 bg-black/50 border border-gray-800/50 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-red-600 focus:ring-2 focus:ring-red-600/20 transition-all duration-300 resize-none"
               placeholder="Share your background, interests, and why you want to join..."
             />
-          </div>
+          </motion.div>
 
-          <div
-            className={`transition-all duration-700 ${
-              visibleSections.has('apply')
-                ? 'animate-fade-in-up opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-5'
-            }`}
-            style={{ transitionDelay: '600ms' }}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ 
+              duration: 0.6, 
+              delay: 0.7,
+              ease: [0.34, 1.56, 0.64, 1]
+            }}
           >
-            <button
+            <motion.button
               type="submit"
-              className="w-full px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-all duration-400 transform hover:scale-105 hover:shadow-xl hover:shadow-red-600/50 active:scale-100"
+              whileHover={{ scale: 1.02, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-md transition-all duration-300 hover:shadow-xl hover:shadow-red-600/40 uppercase tracking-wider"
             >
               Submit Application
-            </button>
-          </div>
-        </form>
+            </motion.button>
+          </motion.div>
+        </motion.form>
       </div>
     </section>
   );

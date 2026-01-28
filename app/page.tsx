@@ -35,7 +35,7 @@ export default function Home() {
     <>
       <PageLoader />
       <div 
-        className={`min-h-screen bg-black text-white overflow-hidden transition-opacity duration-700 ease-in-out ${
+        className={`min-h-screen bg-[#1a1a1a] text-white overflow-hidden transition-opacity duration-700 ease-in-out ${
           isLoading ? 'opacity-0' : 'opacity-100'
         }`}
       >
