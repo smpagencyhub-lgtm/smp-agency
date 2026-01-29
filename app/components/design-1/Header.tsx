@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useScroll } from '../hooks/useScroll';
+import { useState } from "react";
+import { useScroll } from "../../hooks/useScroll";
 
 export default function Header() {
   const scrolled = useScroll();
@@ -11,8 +11,8 @@ export default function Header() {
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-black/98 backdrop-blur-xl border-b border-gray-800/50 shadow-xl shadow-red-600/5'
-          : 'bg-black/90 backdrop-blur-lg border-b border-gray-800/30'
+          ? "bg-black/98 backdrop-blur-xl border-b border-gray-800/50 shadow-xl shadow-red-600/5"
+          : "bg-black/90 backdrop-blur-lg border-b border-gray-800/30"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,8 +20,12 @@ export default function Header() {
           {/* Logo */}
           <a href="#" className="flex items-center space-x-2 group">
             <div className="text-2xl sm:text-3xl font-bold tracking-tight">
-              <span className="text-white transition-colors duration-300 group-hover:text-gray-200">Fans</span>
-              <span className="text-red-600 transition-colors duration-300 group-hover:text-red-500">Hub</span>
+              <span className="text-white transition-colors duration-300 group-hover:text-gray-200">
+                Fans
+              </span>
+              <span className="text-red-600 transition-colors duration-300 group-hover:text-red-500">
+                Hub
+              </span>
             </div>
           </a>
 

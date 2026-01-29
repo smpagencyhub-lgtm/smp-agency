@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { faqs } from '../data/faqs';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { faqs } from "../../data/faqs";
 
 export default function FAQSection() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -18,7 +18,7 @@ export default function FAQSection() {
     >
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-      
+
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Section Header */}
         <motion.div
@@ -28,7 +28,7 @@ export default function FAQSection() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-16"
         >
-          <motion.h2 
+          <motion.h2
             className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -51,23 +51,23 @@ export default function FAQSection() {
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
-              initial={{ 
-                opacity: 0, 
+              initial={{
+                opacity: 0,
                 y: 30,
-                filter: 'blur(8px)',
-                scale: 0.95
+                filter: "blur(8px)",
+                scale: 0.95,
               }}
-              whileInView={{ 
-                opacity: 1, 
+              whileInView={{
+                opacity: 1,
                 y: 0,
-                filter: 'blur(0px)',
-                scale: 1
+                filter: "blur(0px)",
+                scale: 1,
               }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ 
-                duration: 0.6, 
+              transition={{
+                duration: 0.6,
                 delay: index * 0.08,
-                ease: [0.16, 1, 0.3, 1]
+                ease: [0.16, 1, 0.3, 1],
               }}
               className="group bg-gray-900/60 backdrop-blur-sm border border-gray-800/50 rounded-lg overflow-hidden transition-all duration-500 hover:border-red-600/50 hover:shadow-xl hover:shadow-red-600/5"
             >
@@ -80,18 +80,28 @@ export default function FAQSection() {
                 </span>
                 <span
                   className={`text-red-600 text-xl lg:text-2xl flex-shrink-0 transition-transform duration-300 ${
-                    openFaq === index ? 'rotate-180' : ''
+                    openFaq === index ? "rotate-180" : ""
                   }`}
                 >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
                   </svg>
                 </span>
               </button>
               {openFaq === index && (
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
+                  animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3 }}
                   className="px-6 lg:px-8 pb-5 lg:pb-6 text-gray-300 leading-relaxed text-base lg:text-lg border-t border-gray-800/50"

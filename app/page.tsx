@@ -1,16 +1,26 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import HeroSection from './components/HeroSection';
-import StatsSection from './components/StatsSection';
-import ServicesSection from './components/ServicesSection';
-import TestimonialsSection from './components/TestimonialsSection';
-import AboutSection from './components/AboutSection';
-import FAQSection from './components/FAQSection';
-import ApplicationForm from './components/ApplicationForm';
-import PageLoader from './components/PageLoader';
+// React
+import { useState, useEffect } from "react";
+
+// Page Loader
+import PageLoader from "./components/design-1/PageLoader";
+
+// Header And Footer
+import Header from "./components/design-1/Header";
+import Footer from "./components/design-1/Footer";
+
+// ** Design 1 **
+// import HeroSection from "./components/design-1/HeroSection";
+// import StatsSection from "./components/design-1/StatsSection";
+// import ServicesSection from "./components/design-1/ServicesSection";
+// import TestimonialsSection from "./components/design-1/TestimonialsSection";
+// import AboutSection from "./components/design-1/AboutSection";
+// import FAQSection from "./components/design-1/FAQSection";
+// import ApplicationForm from "./components/design-1/ApplicationForm";
+
+// ** Design 2 **
+import HeroSection2 from "./components/design-2/HeroSection2";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -23,30 +33,38 @@ export default function Home() {
       }, 1000); // Delay to allow loader animation to complete smoothly
     };
 
-    if (document.readyState === 'complete') {
+    if (document.readyState === "complete") {
       handleLoad();
     } else {
-      window.addEventListener('load', handleLoad);
-      return () => window.removeEventListener('load', handleLoad);
+      window.addEventListener("load", handleLoad);
+      return () => window.removeEventListener("load", handleLoad);
     }
   }, []);
 
   return (
     <>
       <PageLoader />
-      <div 
+      <div
         className={`min-h-screen bg-[#1a1a1a] text-white overflow-hidden transition-opacity duration-700 ease-in-out ${
-          isLoading ? 'opacity-0' : 'opacity-100'
+          isLoading ? "opacity-0" : "opacity-100"
         }`}
       >
         <Header />
-        <HeroSection />
-        <StatsSection />
-        <ServicesSection />
-        <TestimonialsSection />
-        <AboutSection />
-        <FAQSection />
-        <ApplicationForm />
+
+        {/* DESIGN 1 */}
+        {/* 
+              <HeroSection />
+              <StatsSection />
+              <ServicesSection />
+              <TestimonialsSection />
+              <AboutSection />
+              <FAQSection />
+              <ApplicationForm /> 
+        */}
+
+        {/* DESIGN 2 */}
+        <HeroSection2 />
+
         <Footer />
       </div>
     </>
