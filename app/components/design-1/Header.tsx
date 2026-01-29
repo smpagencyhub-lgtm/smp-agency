@@ -11,7 +11,7 @@ export default function Header() {
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-black/98 backdrop-blur-xl border-b border-gray-800/50 shadow-xl shadow-red-600/5"
+          ? "bg-black/98 backdrop-blur-xl border-b border-gray-800/50 shadow-xl shadow-[#8e0807]/5"
           : "bg-black/90 backdrop-blur-lg border-b border-gray-800/30"
       }`}
     >
@@ -23,7 +23,7 @@ export default function Header() {
               <span className="text-white transition-colors duration-300 group-hover:text-gray-200">
                 Fans
               </span>
-              <span className="text-red-600 transition-colors duration-300 group-hover:text-red-500">
+              <span className="text-[#8e0807] transition-colors duration-300 group-hover:text-red-500">
                 Hub
               </span>
             </div>
@@ -36,28 +36,28 @@ export default function Header() {
               className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors duration-300 relative group"
             >
               About
-              <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-3/4"></span>
+              <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-[#8e0807] transition-all duration-300 group-hover:w-3/4"></span>
             </a>
             <a
               href="#services"
               className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors duration-300 relative group"
             >
               Services
-              <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-3/4"></span>
+              <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-[#8e0807] transition-all duration-300 group-hover:w-3/4"></span>
             </a>
             <a
               href="#testimonials"
               className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors duration-300 relative group"
             >
               Testimonials
-              <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-3/4"></span>
+              <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-[#8e0807] transition-all duration-300 group-hover:w-3/4"></span>
             </a>
             <a
               href="#faq"
               className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors duration-300 relative group"
             >
               FAQ
-              <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-3/4"></span>
+              <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-[#8e0807] transition-all duration-300 group-hover:w-3/4"></span>
             </a>
           </div>
 
@@ -65,7 +65,7 @@ export default function Header() {
           <div className="hidden lg:block">
             <a
               href="#apply"
-              className="px-6 py-2.5 bg-red-600 hover:bg-red-700 text-white text-sm font-semibold rounded-md transition-all duration-300 hover:shadow-lg hover:shadow-red-600/30 hover:-translate-y-0.5 active:translate-y-0"
+              className="px-6 py-2.5 bg-[#8e0807] hover:bg-red-700 text-white text-sm font-semibold rounded-md transition-all duration-300 hover:shadow-lg hover:shadow-[#8e0807]/30 hover:-translate-y-0.5 active:translate-y-0"
             >
               Apply Now
             </a>
@@ -130,7 +130,7 @@ export default function Header() {
               <a
                 href="#apply"
                 onClick={() => setMobileMenuOpen(false)}
-                className="mx-4 mt-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white text-center font-semibold rounded-md transition-all duration-300"
+                className="mx-4 mt-2 px-6 py-3 bg-[#8e0807] hover:bg-red-700 text-white text-center font-semibold rounded-md transition-all duration-300"
               >
                 Apply Now
               </a>
