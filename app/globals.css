@@ -17,6 +17,12 @@
   --gray-700: #374151;
   --gray-800: #1f2937;
   --gray-900: #111827;
+
+  /* Design 2 color theme */
+  --theme-bg: #1a1a1a;
+  --theme-brand: #8e0807;
+  --theme-brand-hover: #a80908;
+  --theme-brand-muted: #b50a0a;
 }
 
 @theme inline {
@@ -25,6 +31,12 @@
   --font-sans: var(--font-montserrat);
   --font-mono: var(--font-montserrat);
   --font-cursive: var(--font-dancing-script);
+
+  /* Design 2 theme - use as bg-theme-bg, text-theme-brand, etc. */
+  --color-theme-bg: var(--theme-bg);
+  --color-theme-brand: var(--theme-brand);
+  --color-theme-brand-hover: var(--theme-brand-hover);
+  --color-theme-brand-muted: var(--theme-brand-muted);
 }
 
 body {
