@@ -1,141 +1,121 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Plus, Minus } from 'lucide-react';
 
-const slideUp = {
-  initial: { y: 32, opacity: 0.25 },
-  animate: {
-    y: 0,
-    opacity: 1,
-    transition: { type: "spring", stiffness: 120, damping: 14 },
-  },
-};
-
-const viewportScroll = { once: false, amount: 0.15, margin: "-40px" };
-
-const stagger = {
-  animate: {
-    transition: { staggerChildren: 0.06, delayChildren: 0.08 },
-  },
-};
-
+// Fallback data in case the import path isn't ready. 
+// You can remove this and uncomment your import if you prefer.
+// import { faqs } from "../../data/faqs";
 const faqs = [
   {
-    question: "How does OnlyFans management work?",
-    answer:
-      "We handle account setup, content strategy, subscriber engagement, and growth campaigns so you can focus on creating. Our team manages day-to-day operations and works with you to align everything with your brand and goals.",
+    question: "How quickly can I see results?",
+    answer: "Every creator is different, but most of our partners see a significant uptake in engagement and revenue within the first 30 days of implementing our audit strategies and chat management systems."
   },
   {
-    question: "What services are included?",
-    answer:
-      "Our full-service offering includes marketing and audience growth, content planning and production support, 24/7 management and engagement, and anti-piracy protection. We tailor the mix to your needs and scale as you grow.",
+    question: "Do I lose control of my account?",
+    answer: "Absolutely not. We work as an extension of your brand. You maintain full ownership of your account, content, and earnings. We simply handle the heavy lifting of management, chatting, and strategy."
   },
   {
-    question: "Who is the management team?",
-    answer:
-      "Our team is predominantly women, with experience in creator economy, social media, and brand strategy. We prioritize discretion, professionalism, and a collaborative approach so you feel supported at every step.",
+    question: "What platforms do you support?",
+    answer: "We specialize primarily in OnlyFans, but our marketing strategies encompass Instagram, Twitter (X), TikTok, and Reddit to drive traffic to your main monetization channels."
   },
   {
-    question: "How do I get started?",
-    answer:
-      "Fill out our application form and we’ll review your profile. If we’re a good fit, we’ll reach out to discuss your goals and put together a custom plan. There’s no long-term commitment until you’re ready to move forward.",
-  },
+    question: "Is there a long-term contract?",
+    answer: "We believe in earning your business every month. While we have agreements to protect both parties, we prioritize results-based relationships over locking you into long-term handcuffs."
+  }
 ];
 
-export default function FAQSection2() {
+export default function FAQSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
   return (
-    <section
-      id="faq"
-      className="relative py-20 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-[var(--theme-bg)] overflow-hidden"
-    >
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 xl:gap-20 items-start">
-          {/* Left column: decorative graphic — stems + soft shapes */}
-          <motion.div
-            className="relative lg:col-span-4 hidden lg:block min-h-[320px]"
-            initial={{ opacity: 0, x: -24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={viewportScroll}
-            transition={{ type: "spring", stiffness: 100, damping: 16 }}
-            aria-hidden
+    // 1. Matched Background Gradient
+    <section className="relative overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#1a0000] via-black to-black py-24 font-sans">
+      
+      {/* Decorative Red Glow */}
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-red-900 rounded-full mix-blend-multiply filter blur-[120px] opacity-20 pointer-events-none" />
+
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
+
+        {/* TITLE */}
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex flex-col sm:flex-row justify-center items-center gap-3 mb-16"
+        >
+          <h2 className="text-3xl md:text-5xl font-light text-white tracking-wider uppercase">
+            FREQUENTLY ASKED
+          </h2>
+          <motion.div 
+            whileHover={{ scale: 1.05, skewX: -12 }}
+            className="bg-red-600 px-4 py-1 shadow-[0_0_20px_rgba(220,38,38,0.5)] transform -skew-x-6 cursor-default rounded-md"
           >
-            {/* Soft amorphous blobs */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div
-                className="w-48 h-64 rounded-full opacity-20 blur-3xl"
-                style={{ background: "var(--theme-brand-muted)" }}
-              />
-              <div
-                className="absolute w-40 h-56 rounded-full opacity-15 blur-2xl -translate-y-4 translate-x-8"
-                style={{ background: "var(--theme-brand-muted)" }}
-              />
-              <div
-                className="absolute w-32 h-44 rounded-full opacity-10 blur-xl translate-y-12 -translate-x-4"
-                style={{ background: "var(--theme-brand-muted)" }}
-              />
-            </div>
-            {/* Stylized stems */}
-            <svg
-              viewBox="0 0 120 280"
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-64 text-[var(--theme-brand-muted)] opacity-60"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            >
-              <path d="M40 260 Q50 180 55 120 Q58 70 60 40 L62 20" />
-              <path d="M60 260 Q62 200 65 140 Q68 90 70 50 L72 25" />
-              <path d="M80 260 Q78 190 76 130 Q74 80 74 45 L75 22" />
-            </svg>
+            <h2 className="text-3xl md:text-5xl font-serif font-bold text-white tracking-wider uppercase italic transform skew-x-6">
+              QUESTIONS
+            </h2>
           </motion.div>
+        </motion.div>
 
-          {/* Right column: title + FAQ list */}
-          <motion.div
-            className="lg:col-span-8"
-            initial="initial"
-            whileInView="animate"
-            viewport={viewportScroll}
-            variants={stagger}
-          >
-            <motion.h2
-              className="font-sans font-bold text-white text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-tight mb-12 lg:mb-16"
-              variants={slideUp}
+        {/* ACCORDION */}
+        <div className="space-y-4">
+          {faqs.map((faq, index) => (
+            <motion.div 
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className={`border-b transition-colors duration-300 ${
+                openIndex === index ? 'border-red-600' : 'border-neutral-800'
+              }`}
             >
-              Frequently Asked Questions
-            </motion.h2>
+              {/* QUESTION BUTTON */}
+              <button
+                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                className="w-full flex justify-between items-center py-6 text-left group"
+              >
+                <span className={`text-lg md:text-xl font-medium transition-colors duration-300 ${
+                  openIndex === index ? 'text-red-500' : 'text-white group-hover:text-red-400'
+                }`}>
+                  {faq.question}
+                </span>
 
-            <motion.ul
-              className="space-y-10 lg:space-y-12 list-none pl-0"
-              variants={stagger}
-            >
-              {faqs.map((faq, index) => (
-                <motion.li
-                  key={index}
-                  className="flex gap-4 sm:gap-5"
-                  variants={slideUp}
+                {/* ANIMATED ICON *
+                <motion.span 
+                  animate={{ rotate: openIndex === index ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                  className={`text-2xl p-2 rounded-full transition-colors ${
+                    openIndex === index ? 'text-red-500 bg-red-500/10' : 'text-gray-400 group-hover:text-white'
+                  }`}
                 >
-                  {/* Circular icon with question mark */}
-                  <div
-                    className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-[var(--theme-brand-muted)] bg-[var(--theme-brand-muted)] flex items-center justify-center"
-                    aria-hidden
+                  {openIndex === index ? <Minus size={20} /> : <Plus size={20} />}
+                </motion.span>4
+                */}
+              </button>
+
+              {/* ANSWER DRAWER */}
+              <AnimatePresence>
+                {openIndex === index && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="overflow-hidden"
                   >
-                    <span className="font-sans font-bold text-white text-lg sm:text-xl">
-                      ?
-                    </span>
-                  </div>
-                  <div className="min-w-0 pt-0.5">
-                    <h3 className="font-sans font-bold text-white text-base sm:text-lg lg:text-xl leading-snug mb-2">
-                      {faq.question}
-                    </h3>
-                    <p className="font-sans text-white/90 text-sm sm:text-base leading-relaxed">
+                    <p className="pb-8 text-gray-400 leading-relaxed max-w-3xl text-sm md:text-base">
                       {faq.answer}
                     </p>
-                  </div>
-                </motion.li>
-              ))}
-            </motion.ul>
-          </motion.div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+            </motion.div>
+          ))}
         </div>
+
       </div>
     </section>
   );

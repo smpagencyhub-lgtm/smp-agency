@@ -1,70 +1,77 @@
-"use client";
+'use client';
 
-import Button2 from "./Button2";
+import React, { useState } from 'react';
+import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 
-const headerContent = {
-  brand: "Fanmous Only",
-  tagline: "OnlyFans Management",
-  nav: {
-    left: [
-      { label: "Home", href: "#hero" },
-      { label: "About Us", href: "#about" },
-      { label: "Services", href: "#services" },
-    ],
-    right: [
-      { label: "Blog", href: "#blog" },
-      { label: "Contact Us", href: "#contact" },
-    ],
-  },
-  cta: "Apply Now!",
-};
+const navLinks = [
+  { name: "Home", href: "#" },
+  { name: "The Team", href: "#" },
+  { name: "Our Services", href: "#" },
+  { name: "FAQ's", href: "#" },
+  { name: "Blog", href: "#" },
+];
 
-export default function Header2() {
+export default function Header() {
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = useState(false);
+
+  // Hook to detect scroll direction
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() ?? 0;
+    // Hide if scrolling down more than 150px, Show if scrolling up
+    if (latest > previous && latest > 150) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  });
+
   return (
-    <nav className="relative z-20 py-4 lg:py-5" aria-label="Main navigation">
-      <div className="relative max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Left links */}
-        <div className="flex items-center gap-6 lg:gap-8 text-white text-sm font-medium tracking-wide uppercase">
-          {headerContent.nav.left.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent rounded"
+    // The animated container
+    <motion.header
+      variants={{
+        visible: { y: 0, opacity: 1 },
+        hidden: { y: "-200%", opacity: 0 },
+      }}
+      animate={hidden ? "hidden" : "visible"}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
+      className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4"
+    >
+      {/* The "Capsule" Navigation Bar 
+        - bg-neutral-900/60: Dark semi-transparent background
+        - backdrop-blur-md: The "Frosted Glass" effect
+        - border-neutral-800: Subtle border to separate from background
+      */}
+      <nav className="flex items-center justify-between w-full max-w-5xl px-6 py-3 bg-neutral-900/70 backdrop-blur-lg border border-neutral-700/50 rounded-full shadow-2xl">
+        
+        {/* LEFT: Logo */}
+        <div className="flex items-center gap-1 cursor-pointer group">
+          <span className="text-xl font-bold text-white tracking-tight group-hover:text-gray-200 transition-colors">
+            Fans<span className="bg-red-600 text-black px-1 ml-0.5 rounded-sm">Hub</span>
+          </span>
+        </div>
+
+        {/* CENTER: Navigation Links (Hidden on mobile) */}
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <a 
+              key={link.name} 
+              href={link.href}
+              className="text-sm font-medium text-gray-300 hover:text-white transition-colors relative group"
             >
-              {item.label}
+              {link.name}
+              {/* Hover Underline Animation */}
+              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-red-600 transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
         </div>
 
-        {/* Center - Logo */}
-        <a
-          href="#hero"
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
-        >
-          <span className="font-cursive text-2xl lg:text-3xl font-medium text-[var(--theme-brand)]">
-            {headerContent.brand}
-          </span>
-          <span className="text-white text-xs lg:text-sm font-normal normal-case tracking-normal mt-0.5">
-            {headerContent.tagline}
-          </span>
-        </a>
+        {/* RIGHT: CTA Button */}
+        <button className="bg-white text-black hover:bg-red-600 hover:text-white px-6 py-2 rounded-full text-sm font-bold transition-all duration-300 shadow-lg transform hover:scale-105">
+          Apply Now
+        </button>
 
-        {/* Right - Links + CTA */}
-        <div className="flex items-center gap-6 lg:gap-8">
-          {headerContent.nav.right.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="text-white text-sm font-medium tracking-wide uppercase hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent rounded hidden sm:inline"
-            >
-              {item.label}
-            </a>
-          ))}
-          <Button2 href="#apply" variant="primary" size="sm">
-            {headerContent.cta}
-          </Button2>
-        </div>
-      </div>
-    </nav>
+      </nav>
+    </motion.header>
   );
 }

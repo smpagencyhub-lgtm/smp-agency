@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 // Page Loader
 import PageLoader from "./components/design-1/PageLoader";
-
+import Header from "./components/design-2/Header2";
 // Header And Footer
 import Footer from "./components/design-1/Footer";
 
@@ -20,10 +20,15 @@ import Footer from "./components/design-1/Footer";
 
 // ** Design 2 **
 import HeroSection2 from "./components/design-2/HeroSection2";
+import WhoWeAreSection from "./components/design-2/WhoWeAreSection";
 import AboutSection2 from "./components/design-2/AboutSection2";
 import ServicesSection2 from "./components/design-2/ServicesSection2";
+import StatsSection2 from "./components/design-2/StatsSection2";
+import WorkWithUs from "./components/design-2/WorkWithUs";
 import TestimonialsSection2 from "./components/design-2/TestimonialsSection2";
+
 import FAQSection2 from "./components/design-2/FAQSection2";
+
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -48,7 +53,7 @@ export default function Home() {
     <>
       <PageLoader />
       <div
-        className={`min-h-screen bg-[var(--theme-bg)] text-white overflow-hidden transition-opacity duration-700 ease-in-out ${
+        className={`min-h-screen bg-[var(--theme-bg)]relative overflow-hidden bg-gradient-to-br from-[#180000] via-black to-[#5e0e0e]  transition-opacity duration-700 ease-in-out ${
           isLoading ? "opacity-0" : "opacity-100"
         }`}
       >
@@ -66,9 +71,13 @@ export default function Home() {
         */}
 
         {/* DESIGN 2 */}
+        <Header/>
         <HeroSection2 />
+        <WhoWeAreSection/>
         <AboutSection2 />
         <ServicesSection2 />
+        <StatsSection2/>
+        <WorkWithUs/>
         <TestimonialsSection2 />
         <FAQSection2 />
 

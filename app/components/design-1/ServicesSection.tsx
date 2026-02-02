@@ -22,7 +22,7 @@ export default function ServicesSection() {
           className="text-center mb-20"
         >
           <motion.h2
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4"
+            className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold mb-4"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}

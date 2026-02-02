@@ -1,133 +1,176 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import Image from "next/image";
-import Button2 from "./Button2";
 
-const aboutContent = {
-  label: "About Us",
-  headline:
-    "As the premier management agency focused on OnlyFans, we dedicate ourselves to nurturing authentic audience expansion.",
-  introParagraphs: [
-    "Picture yourself jet-setting across the globe in luxury, residing in lavish 5-star lodgings, and indulging in exclusive gatherings. You're realizing your aspirations of owning your dream car or house, supporting your dear ones, and authentically embracing your optimal lifestyle.",
-    "Explore these possibilities and beyond by teaming up with Fanmous Only, the foremost OnlyFans management agency on the Sunshine Coast. We empower content creators and influencers globally to optimize their income potential.",
-  ],
-  wrapParagraphs: [
-    "Interested in what distinguishes us as the premier OnlyFans agency? We manage all aspects, from initial setup and account audits to content planning and maintaining subscriber interaction. Moreover, we offer a lucrative referral program, exclusive luxury perks, and unmatched networking opportunities not available elsewhere.",
-    "Moreover, be confident that our team, consisting of 95% women, will treat your content with utmost care and respect, providing you with peace of mind.",
-  ],
-  embeddedImageSrc: "/images/model2.jpg",
-  embeddedImageAlt: "Fanmous Only - Creator lifestyle",
-  cta: "KNOW MORE",
+import { Instagram } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+// Data
+const testimonials = [
+  {
+    id: 1,
+    name: "CHLOE",
+    handle: "@Itschloeamber",
+    quote: "I was honestly close to quitting",
+    text: "Before FansHub, I was exhausted trying to do everything myself - chatting, posting, marketing, all of it. I felt behind constantly. Since joining FansHub, I can finally breathe again. My income has grown and I don't feel burnt out anymore.",
+    imageSrc: "/images/model1.jpg"
+  },
+  {
+    id: 2,
+    name: "JESSICA",
+    handle: "@Jessicafit",
+    quote: "My revenue doubled in 3 months",
+    text: "I didn't realize how much money I was leaving on the table. The team optimized my pricing strategies and handled all the DMs. Now I just focus on content creation and the rest runs on autopilot.",
+    imageSrc: "/images/model2.jpg"
+  },
+  {
+    id: 3,
+    name: "SARAH",
+    handle: "@SarahDreams",
+    quote: "Finally got my freedom back",
+    text: "The systems they put in place are incredible. I used to spend 12 hours a day on my phone. Now I work 3-4 hours and make more than I did before. Best decision I ever made.",
+    imageSrc: "/images/model3.jpg"
+  }
+];
+
+// Animation Variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.6, ease: "easeOut" } 
+  }
 };
 
 export default function AboutSection2() {
   return (
-    <section
-      id="about"
-      className="relative py-20 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-[var(--theme-bg)] overflow-hidden"
-    >
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-20 items-stretch min-h-112">
-          {/* Left column - Large dominant image, no overlay */}
-          <motion.div
-            initial={{ opacity: 0, x: -56, scale: 0.97 }}
-            whileInView={{ opacity: 1, x: 0, scale: 1 }}
-            viewport={{ once: false, amount: 0.2, margin: "-50px" }}
-            transition={{
-              type: "spring",
-              stiffness: 100,
-              damping: 16,
-              mass: 0.8,
-            }}
-            className="relative order-2 lg:order-1 min-h-80 lg:min-h-0"
-          >
-            <div className="relative w-full h-full min-h-80 lg:min-h-128 rounded-lg overflow-hidden">
-              <Image
-                src="/images/model1.jpg"
-                alt="Fanmous Only - Premier OnlyFans management"
-                fill
-                className="object-cover object-center"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority={false}
-              />
-              {/* Subtle gradient for logo readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
-              {/* Circular logo overlay - bottom left */}
-              <div className="absolute bottom-6 left-6 z-10 flex items-center gap-2">
-                <div className="flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-white/90 bg-black/30 backdrop-blur-sm shadow-xl">
-                  <span className="font-cursive text-white text-lg sm:text-xl font-medium tracking-wide text-center leading-tight px-1">
-                    Fanmous Only
+    
+   <section className="relative overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#1a0000] via-black to-black py-24 font-sans">
+      
+      {/* Optional: Subtle animated background noise or glow could go here */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-red-900/10 rounded-full blur-[100px] pointer-events-none" />
+      {/* Decorative Red Glow */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-red-900 rounded-full mix-blend-multiply filter blur-[100px] opacity-20 animate-pulse pointer-events-none"></div>
+
+      {/* Decorative Diamond Shape - Now Animated */}
+      <motion.div 
+        className="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/4 pointer-events-none"
+        animate={{ 
+          rotate: [45, 50, 45], // Gentle breathing rotation
+          scale: [1, 1.05, 1] 
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <div className="w-96 h-96 border border-red-600 rounded-[3rem] opacity-20"></div>
+      </motion.div>
+
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
+        
+        {/* Header Section */}
+        <motion.div 
+          className="text-center mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={containerVariants}
+        >
+          <h2 className="text-3xl md:text-5xl font-light uppercase tracking-wide text-white flex flex-col md:block items-center justify-center gap-2">
+            
+            {/* 'BENEFITS' Box - Interactive Hover */}
+            <motion.span 
+              variants={itemVariants}
+              className="bg-red-600 text-white px-4 py-1 italic font-bold inline-block transform -skew-x-6 mr-0 md:mr-3 shadow-[0_0_15px_rgba(220,38,38,0.5)] cursor-default rounded-md"
+              whileHover={{ scale: 1.05, skewX: -12 }}
+            >
+              BENEFITS
+            </motion.span>
+            
+            <motion.span variants={itemVariants} className="text-gray-200">
+              OF WORKING WITH
+            </motion.span>
+            
+            {/* 'FANSHUB' Box - Interactive Hover */}
+            <motion.span 
+              variants={itemVariants}
+              className="bg-red-600 text-white px-4 py-1 italic font-bold inline-block transform -skew-x-6 ml-0 md:ml-3 shadow-[0_0_15px_rgba(220,38,38,0.5)] cursor-default rounded-md"
+              whileHover={{ scale: 1.05, skewX: -12 }}
+            >
+              FANSHUB
+            </motion.span>
+          </h2>
+        </motion.div>
+
+        {/* Horizontal Scroll Container */}
+        {/* Note: We apply motion to the inner items, not the scroll container itself, to preserve scroll mechanics */}
+        <div className="flex overflow-x-auto snap-x snap-mandatory pb-12 gap-8 hide-scrollbar px-4 md:px-0">
+          
+          {testimonials.map((item, index) => (
+            <motion.div 
+              key={item.id}
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.2 }} // Staggered entry based on scroll
+              whileHover={{ y: -10 }} // Float up effect
+              className="flex-shrink-0 w-full md:w-[600px] snap-center bg-neutral-900/80 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border border-neutral-800 flex flex-col md:flex-row hover:border-red-900 transition-colors duration-300 group"
+            >
+              
+              {/* Text Content */}
+              <div className="flex-1 p-8 flex flex-col justify-center">
+                <div className="mb-4">
+                  <span className="bg-red-600 text-white text-xs font-bold px-3 py-1 uppercase tracking-widest inline-block transform -skew-x-12 shadow-sm">
+                    {item.name}
                   </span>
                 </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right column - Label, headline, paragraphs, embedded image block, CTA */}
-          <motion.div
-            initial={{ opacity: 0, x: 56, scale: 0.97 }}
-            whileInView={{ opacity: 1, x: 0, scale: 1 }}
-            viewport={{ once: false, amount: 0.2, margin: "-50px" }}
-            transition={{
-              type: "spring",
-              stiffness: 100,
-              damping: 16,
-              mass: 0.8,
-              delay: 0.08,
-            }}
-            className="flex flex-col justify-center order-1 lg:order-2"
-          >
-            {/* Section header — same pattern as Services */}
-            <div className="flex items-center gap-2 mb-3">
-              <span
-                className="w-1.5 h-1.5 rounded-full bg-[var(--theme-brand-muted)]"
-                aria-hidden
-              />
-              <span className="font-sans text-white/80 text-xs font-medium uppercase tracking-[0.2em]">
-                {aboutContent.label}
-              </span>
-            </div>
-            <h2 className="font-sans font-bold text-white text-2xl sm:text-3xl lg:text-4xl tracking-tight max-w-2xl mb-6">
-              {aboutContent.headline}
-            </h2>
-
-            {/* First paragraph block - full width */}
-            <div className="space-y-4 text-white/90 text-sm sm:text-base leading-relaxed mb-6">
-              {aboutContent.introParagraphs.map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
-              ))}
-            </div>
-
-            {/* Second block: text wrapping around oval embedded image */}
-            <div className="flow-root">
-              <div className="float-right ml-4 mb-4 w-40 sm:w-48 lg:w-56 shrink-0">
-                <div className="relative aspect-[3/4] rounded-[50%] overflow-hidden">
-                  <Image
-                    src={aboutContent.embeddedImageSrc}
-                    alt={aboutContent.embeddedImageAlt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 640px) 160px, 224px"
-                  />
+                
+                <h3 className="text-white font-bold text-xl mb-3 leading-tight">
+                  "{item.quote}"
+                </h3>
+                
+                <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                  {item.text}
+                </p>
+                
+                <div className="flex items-center text-gray-300 font-medium text-sm cursor-pointer">
+                  <Instagram className="w-4 h-4 mr-2 text-red-500 group-hover:text-red-400 transition-colors" />
+                  <span className="group-hover:text-red-400 transition-colors">{item.handle}</span>
                 </div>
               </div>
-              <div className="space-y-4 text-white/90 text-sm sm:text-base leading-relaxed">
-                {aboutContent.wrapParagraphs.map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
-                ))}
-              </div>
-            </div>
 
-            {/* CTA Button - left aligned */}
-            {/* <div className="mt-8 sm:mt-10">
-              <Button2 href="#services" variant="primary">
-                {aboutContent.cta}
-              </Button2>
-            </div> */}
-          </motion.div>
+              {/* Image Side */}
+              <div className="w-full md:w-5/12 h-64 md:h-auto bg-neutral-800 relative overflow-hidden">
+                {/* Red Overlay on Hover */}
+                <div className="absolute inset-0 bg-red-600 opacity-0 group-hover:opacity-20 transition-opacity duration-500 mix-blend-overlay z-10"></div>
+                
+                <img 
+                  src={item.imageSrc} 
+                  alt={item.name} 
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110"
+                />
+              </div>
+            </motion.div>
+          ))}
+
         </div>
       </div>
+
+      <style jsx>{`
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .hide-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
     </section>
   );
 }
