@@ -91,7 +91,7 @@ export default function FAQSection() {
                   }`}
                 >
                   {openIndex === index ? <Minus size={20} /> : <Plus size={20} />}
-                </motion.span>4
+                </motion.span>
                 
               </button>
 
