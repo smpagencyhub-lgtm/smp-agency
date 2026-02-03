@@ -77,7 +77,7 @@ export default function HeroSection2() {
 
       </div>
 
-      {/* 3. SCROLL INDICATOR (Mouse Animation) */}
+      {/* 3. SCROLL INDICATOR (Mouse Animation) 
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -92,7 +92,7 @@ export default function HeroSection2() {
             className="w-1.5 h-1.5 bg-red-600 rounded-full"
           />
         </div>
-      </motion.div>
+      </motion.div> */}
 
     </section>
   );

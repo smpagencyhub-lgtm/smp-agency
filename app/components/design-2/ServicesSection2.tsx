@@ -108,7 +108,7 @@ export default function ServiceSection() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          <div className="text-center">
+          {/* <div className="text-center">
             <h2 className="text-2xl md:text-4xl text-gray-300 font-light uppercase tracking-wide">
               Latest 
               <motion.span 
@@ -118,7 +118,7 @@ export default function ServiceSection() {
                 STORIES
               </motion.span>
             </h2>
-          </div>
+          </div> */}
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <StoryCard 

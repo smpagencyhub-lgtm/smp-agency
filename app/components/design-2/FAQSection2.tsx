@@ -36,7 +36,7 @@ export default function FAQSection() {
       {/* Decorative Red Glow */}
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-red-900 rounded-full mix-blend-multiply filter blur-[120px] opacity-20 pointer-events-none" />
 
-      <div className="max-w-4xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
 
         {/* TITLE */}
         <motion.div 
@@ -82,7 +82,7 @@ export default function FAQSection() {
                   {faq.question}
                 </span>
 
-                {/* ANIMATED ICON *
+                {/* ANIMATED ICON */}
                 <motion.span 
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
@@ -92,7 +92,7 @@ export default function FAQSection() {
                 >
                   {openIndex === index ? <Minus size={20} /> : <Plus size={20} />}
                 </motion.span>4
-                */}
+                
               </button>
 
               {/* ANSWER DRAWER */}
