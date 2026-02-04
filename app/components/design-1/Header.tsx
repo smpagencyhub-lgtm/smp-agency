@@ -21,10 +21,10 @@ export default function Header() {
           <a href="#" className="flex items-center space-x-2 group">
             <div className="text-2xl sm:text-3xl font-bold tracking-tight">
               <span className="text-white transition-colors duration-300 group-hover:text-gray-200">
-                Fans
+                SMP
               </span>
               <span className="text-[#8e0807] transition-colors duration-300 group-hover:text-red-500">
-                Hub
+                MARKETING
               </span>
             </div>
           </a>

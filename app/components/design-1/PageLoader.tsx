@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 export default function PageLoader() {
   const [isLoading, setIsLoading] = useState(true);
@@ -20,11 +20,11 @@ export default function PageLoader() {
     };
 
     // Check if page is already loaded
-    if (document.readyState === 'complete') {
+    if (document.readyState === "complete") {
       handleLoad();
     } else {
-      window.addEventListener('load', handleLoad);
-      return () => window.removeEventListener('load', handleLoad);
+      window.addEventListener("load", handleLoad);
+      return () => window.removeEventListener("load", handleLoad);
     }
   }, []);
 
@@ -34,14 +34,17 @@ export default function PageLoader() {
     <>
       <div
         className={`fixed inset-0 bg-black flex items-center justify-center transition-opacity duration-600 ease-in-out ${
-          isFadingOut ? 'opacity-0' : 'opacity-100'
+          isFadingOut ? "opacity-0" : "opacity-100"
         }`}
         style={{ zIndex: 9999 }}
       >
         {/* Professional background effects */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/8 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-600/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div
+            className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-600/5 rounded-full blur-3xl animate-pulse"
+            style={{ animationDelay: "1s" }}
+          ></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-red-600/3 rounded-full blur-3xl"></div>
         </div>
 
@@ -52,8 +55,12 @@ export default function PageLoader() {
           {/* Animated Logo/Text */}
           <div className="mb-12 animate-fade-in">
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight">
-              <span className="text-white inline-block animate-slide-in-left">FANS</span>{' '}
-              <span className="text-red-600 inline-block animate-slide-in-right">HUB</span>
+              <span className="text-white inline-block animate-slide-in-left">
+                SMP
+              </span>{" "}
+              <span className="text-red-600 inline-block animate-slide-in-right">
+                MARKETING
+              </span>
             </h1>
           </div>
 
@@ -61,40 +68,40 @@ export default function PageLoader() {
           <div className="relative w-16 h-16 sm:w-20 sm:h-20 mb-8">
             {/* Outer ring */}
             <div className="absolute inset-0 border-2 border-gray-800/50 rounded-full"></div>
-            
+
             {/* Animated red ring - smooth rotation */}
-            <div 
+            <div
               className="absolute inset-0 border-2 border-transparent border-t-red-600 rounded-full"
               style={{
-                animation: 'spin 1s linear infinite'
+                animation: "spin 1s linear infinite",
               }}
             ></div>
-            
+
             {/* Secondary ring for depth */}
-            <div 
+            <div
               className="absolute inset-2 border-2 border-transparent border-r-red-500/40 rounded-full"
               style={{
-                animation: 'spin 0.8s linear infinite reverse'
+                animation: "spin 0.8s linear infinite reverse",
               }}
             ></div>
-            
+
             {/* Inner pulsing dot */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div 
+              <div
                 className="w-2 h-2 bg-red-600 rounded-full"
                 style={{
-                  animation: 'pulse 1.5s ease-in-out infinite'
+                  animation: "pulse 1.5s ease-in-out infinite",
                 }}
               ></div>
             </div>
           </div>
 
           {/* Loading text */}
-          <p 
+          <p
             className="mt-4 text-gray-400 text-sm sm:text-base tracking-wider uppercase"
             style={{
-              animation: 'fadeInOut 2s ease-in-out infinite',
-              letterSpacing: '0.1em'
+              animation: "fadeInOut 2s ease-in-out infinite",
+              letterSpacing: "0.1em",
             }}
           >
             Loading...
@@ -102,11 +109,11 @@ export default function PageLoader() {
 
           {/* Professional Progress bar */}
           <div className="mt-8 w-56 sm:w-72 h-0.5 bg-gray-800/50 rounded-full overflow-hidden">
-            <div 
+            <div
               className="h-full bg-red-600 rounded-full"
               style={{
-                width: '0%',
-                animation: 'progress 2s ease-in-out infinite'
+                width: "0%",
+                animation: "progress 2s ease-in-out infinite",
               }}
             ></div>
           </div>
@@ -148,7 +155,8 @@ export default function PageLoader() {
         }
 
         @keyframes fadeInOut {
-          0%, 100% {
+          0%,
+          100% {
             opacity: 0.5;
           }
           50% {
@@ -178,7 +186,8 @@ export default function PageLoader() {
         }
 
         @keyframes pulse {
-          0%, 100% {
+          0%,
+          100% {
             opacity: 1;
             transform: scale(1);
           }

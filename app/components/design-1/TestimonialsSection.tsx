@@ -44,7 +44,7 @@ export default function TestimonialsSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              OF WORKING WITH FANSHUB
+              OF WORKING WITH SMP MARKETING
             </motion.span>
           </motion.h2>
           <motion.div
