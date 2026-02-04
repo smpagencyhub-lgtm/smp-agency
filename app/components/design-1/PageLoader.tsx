@@ -59,7 +59,7 @@ export default function PageLoader() {
                 SMP
               </span>{" "}
               <span className="text-red-600 inline-block animate-slide-in-right">
-                MARKETING
+                MANAGEMENT
               </span>
             </h1>
           </div>

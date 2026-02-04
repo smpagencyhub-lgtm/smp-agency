@@ -48,7 +48,7 @@ export default function Header() {
           <span className="text-xl font-bold text-white tracking-tight group-hover:text-gray-200 transition-colors">
             SMP
             <span className="bg-red-600 text-black px-1 ml-0.5 rounded-sm">
-              MARKETING
+              MANAGEMENT
             </span>
           </span>
         </div>

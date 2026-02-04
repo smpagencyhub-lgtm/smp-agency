@@ -7,12 +7,12 @@ import { motion } from "framer-motion";
 const services = [
   {
     title: "Marketing",
-    text: "Marketing is where most creators get stuck. At SMP MARKETING, we build custom strategies around your brand, niche, and goals – no copy-and-paste approach. With access to 20+ promotion methods, including social media, a 3,000+ page meme network, podcasts, and influencer collaborations, we handle the strategy and execution so you don't have to.",
+    text: "Marketing is where most creators get stuck. At SMP MANAGEMENT, we build custom strategies around your brand, niche, and goals – no copy-and-paste approach. With access to 20+ promotion methods, including social media, a 3,000+ page meme network, podcasts, and influencer collaborations, we handle the strategy and execution so you don't have to.",
     image: "/images/model3.jpg",
   },
   {
     title: "Chatting",
-    text: "Chatting is the real revenue driver on OnlyFans, and so it is vital that it is done correctly. Our UK / USA chat team undergo vigorous training to ensure they can authentically match the creator's brand and understand the psychology in fan interactions. This drives revenue, increases renewals and ensures long term trust, but at SMP MARKETING, results speak louder than promises.",
+    text: "Chatting is the real revenue driver on OnlyFans, and so it is vital that it is done correctly. Our UK / USA chat team undergo vigorous training to ensure they can authentically match the creator's brand and understand the psychology in fan interactions. This drives revenue, increases renewals and ensures long term trust, but at SMP MANAGEMENT, results speak louder than promises.",
     image: "/images/model2.jpg",
   },
   {

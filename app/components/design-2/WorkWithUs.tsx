@@ -79,7 +79,7 @@ export default function WorkWithUs() {
             className="mt-8 max-w-md text-sm leading-relaxed text-gray-300"
             variants={textItemVariants}
           >
-            At SMP MARKETING, our global team spans the UK, US, and beyond,
+            At SMP MANAGEMENT, our global team spans the UK, US, and beyond,
             bringing together top tier experts in influencer marketing,
             management, and digital growth. We&apos;re the engine behind 80+
             thriving creators, models, and influencers.

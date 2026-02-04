@@ -10,7 +10,7 @@ const testimonials = [
     name: "CHLOE",
     handle: "@Itschloeamber",
     quote: "I was honestly close to quitting",
-    text: "Before SMP MARKETING, I was exhausted trying to do everything myself - chatting, posting, marketing, all of it. I felt behind constantly. Since joining SMP MARKETING, I can finally breathe again. My income has grown and I don't feel burnt out anymore.",
+    text: "Before SMP MANAGEMENT, I was exhausted trying to do everything myself - chatting, posting, marketing, all of it. I felt behind constantly. Since joining SMP MANAGEMENT, I can finally breathe again. My income has grown and I don't feel burnt out anymore.",
     imageSrc: "/images/model1.jpg",
   },
   {
@@ -92,13 +92,13 @@ export default function AboutSection2() {
               OF WORKING WITH
             </motion.span>
 
-            {/* 'SMP MARKETING' Box - Interactive Hover */}
+            {/* 'SMP MANAGEMENT' Box - Interactive Hover */}
             <motion.span
               variants={itemVariants}
               className="bg-red-600 mt-5 text-white px-4 py-1 italic font-bold inline-block transform -skew-x-6 ml-0 md:ml-3 shadow-[0_0_15px_rgba(220,38,38,0.5)] cursor-default rounded-md"
               whileHover={{ scale: 1.05, skewX: -12 }}
             >
-              SMP MARKETING
+              SMP MANAGEMENT
             </motion.span>
           </h2>
         </motion.div>

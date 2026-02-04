@@ -34,8 +34,8 @@ export default function AboutSection() {
                 transition={{ duration: 0.6, delay: 0.2 }}
               ></motion.div>
               <p className="text-gray-300 text-base sm:text-lg lg:text-xl leading-relaxed">
-                At SMP MARKETING, we&apos;re not just another management agency.
-                We&apos;re a powerhouse full-service team delivering
+                At SMP MANAGEMENT, we&apos;re not just another management
+                agency. We&apos;re a powerhouse full-service team delivering
                 cutting-edge social media management, seamless brand building,
                 and revenue optimization. Our mission is to elevate your
                 content, supercharge your growth, and unlock your full

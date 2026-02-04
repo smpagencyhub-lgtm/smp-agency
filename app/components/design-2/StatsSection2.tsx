@@ -113,7 +113,7 @@ export default function StatsSection2() {
           className="text-center mb-20"
         >
           <h2 className="text-white text-4xl sm:text-5xl font-light tracking-wide flex flex-col sm:block items-center justify-center gap-3">
-            <span>SMP MARKETING AT A</span>
+            <span>SMP MANAGEMENT AT A</span>
 
             {/* 'GLANCE' Box - Matched Style */}
             <motion.span

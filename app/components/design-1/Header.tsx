@@ -24,7 +24,7 @@ export default function Header() {
                 SMP
               </span>
               <span className="text-[#8e0807] transition-colors duration-300 group-hover:text-red-500">
-                MARKETING
+                MANAGEMENT
               </span>
             </div>
           </a>
