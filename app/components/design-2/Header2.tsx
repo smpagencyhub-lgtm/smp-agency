@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
+import React, { useState } from "react";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 
 const navLinks = [
   { name: "Home", href: "#" },
@@ -43,19 +43,21 @@ export default function Header() {
         - border-neutral-800: Subtle border to separate from background
       */}
       <nav className="flex items-center justify-between w-full max-w-5xl px-6 py-3 bg-neutral-900/70 backdrop-blur-lg border border-neutral-700/50 rounded-full shadow-2xl">
-        
         {/* LEFT: Logo */}
         <div className="flex items-center gap-1 cursor-pointer group">
           <span className="text-xl font-bold text-white tracking-tight group-hover:text-gray-200 transition-colors">
-            Fans<span className="bg-red-600 text-black px-1 ml-0.5 rounded-sm">Hub</span>
+            SMP
+            <span className="bg-red-600 text-black px-1 ml-0.5 rounded-sm">
+              MARKETING
+            </span>
           </span>
         </div>
 
         {/* CENTER: Navigation Links (Hidden on mobile) */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a 
-              key={link.name} 
+            <a
+              key={link.name}
               href={link.href}
               className="text-sm font-medium text-gray-300 hover:text-white transition-colors relative group"
             >
@@ -70,7 +72,6 @@ export default function Header() {
         <button className="bg-white text-black hover:bg-red-600 hover:text-white px-6 py-2 rounded-full text-sm font-bold transition-all duration-300 shadow-lg transform hover:scale-105">
           Apply Now
         </button>
-
       </nav>
     </motion.header>
   );
