@@ -101,14 +101,18 @@ export default function StatsSection2() {
           className="text-center mb-20"
         >
           <h2 className="text-white text-4xl sm:text-5xl font-light tracking-wide flex flex-col sm:block items-center justify-center gap-3">
-            <span>FANSHUB AT A</span>
-            
-            {/* 'GLANCE' Box - Matched Style */}
             <motion.span 
               whileHover={{ scale: 1.05, skewX: -12 }}
               className="bg-red-600 text-white px-4 py-1 ml-0 sm:ml-3 font-serif font-bold inline-block transform -skew-x-6 shadow-[0_0_20px_rgba(220,38,38,0.5)] cursor-default rounded-md"
             >
-              GLANCE
+            <span>SMP</span>
+            </motion.span>
+            {/* 'GLANCE' Box - Matched Style */}
+            <motion.span 
+              whileHover={{ scale: 1.05, skewX: -12 }}
+              className=" text-white px-4 py-1 ml-0 sm:ml-3 font-serif font-bold inline-block transform  cursor-default rounded-md"
+            >
+              AT A GLANCE
             </motion.span>
           </h2>
         </motion.div>

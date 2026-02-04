@@ -52,8 +52,10 @@ export default function PageLoader() {
           {/* Animated Logo/Text */}
           <div className="mb-12 animate-fade-in">
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight">
-              <span className="text-white inline-block animate-slide-in-left">FANS</span>{' '}
-              <span className="text-red-600 inline-block animate-slide-in-right">HUB</span>
+              <span className="text-white inline-block animate-slide-in-left">S</span>{' '}
+              <span className="text-red-600 inline-block animate-slide-in-right">M</span>
+              <span className="text-white inline-block animate-slide-in-left">P</span>{' '}
+              
             </h1>
           </div>
 

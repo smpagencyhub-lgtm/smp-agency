@@ -9,8 +9,10 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="text-2xl lg:text-3xl font-bold mb-6">
-              <span className="text-white">Fans</span>
-              <span className="text-red-600">Hub</span>
+              <span className="text-white">S</span>
+              <span className="text-red-600">M</span>
+              <span className="text-white">P</span>
+              
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
               Empowering creators to build their empire and own their space in

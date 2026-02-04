@@ -103,7 +103,7 @@ export default function AboutSection2() {
               className="bg-red-600 text-white px-4 py-1 italic font-bold inline-block transform -skew-x-6 ml-0 md:ml-3 shadow-[0_0_15px_rgba(220,38,38,0.5)] cursor-default rounded-md"
               whileHover={{ scale: 1.05, skewX: -12 }}
             >
-              FANSHUB
+              SMP
             </motion.span>
           </h2>
         </motion.div>

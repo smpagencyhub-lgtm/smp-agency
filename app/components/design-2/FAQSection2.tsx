@@ -27,11 +27,15 @@ const faqs = [
 ];
 
 export default function FAQSection() {
+  
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
+    
     // 1. Matched Background Gradient
-    <section className="relative overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#1a0000] via-black to-black py-24 font-sans">
+    <section 
+    id="faq"
+    className="relative overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#1a0000] via-black to-black py-24 font-sans">
       
       {/* Decorative Red Glow */}
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-red-900 rounded-full mix-blend-multiply filter blur-[120px] opacity-20 pointer-events-none" />

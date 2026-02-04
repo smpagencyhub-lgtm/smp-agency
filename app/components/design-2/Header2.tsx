@@ -3,12 +3,13 @@
 import React, { useState } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 
+// UPDATED: IDs are kept so scrolling works
 const navLinks = [
-  { name: "Home", href: "#" },
-  { name: "The Team", href: "#" },
-  { name: "Our Services", href: "#" },
-  { name: "FAQ's", href: "#" },
-  { name: "Blog", href: "#" },
+  { name: "Home", href: "/" },            // Changed from "#home" to "/" (Main Page)
+  { name: "The Team", href: "/the-team" },// Changed from "#the-team" to "/the-team" (New Page)
+  { name: "Our Services", href: "/our-services" }, // Keeps scrolling on Home, but works from other pages
+  { name: "FAQ's", href: "/#faq" },
+  { name: "Blog", href: "/blog" },
 ];
 
 export default function Header() {
@@ -35,23 +36,24 @@ export default function Header() {
       }}
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
-      className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4"
+      // Added pointer-events-none so the fixed container doesn't block clicks on the sides
+      className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none"
     >
       {/* The "Capsule" Navigation Bar 
-        - bg-neutral-900/60: Dark semi-transparent background
-        - backdrop-blur-md: The "Frosted Glass" effect
-        - border-neutral-800: Subtle border to separate from background
+          - Reverted to max-w-5xl and py-3 (Original Size)
+          - Added pointer-events-auto so you can click the links
       */}
-      <nav className="flex items-center justify-between w-full max-w-5xl px-6 py-3 bg-neutral-900/70 backdrop-blur-lg border border-neutral-700/50 rounded-full shadow-2xl">
+      <nav className="pointer-events-auto flex items-center justify-between w-full max-w-5xl px-6 py-3 bg-neutral-900/70 backdrop-blur-lg border border-neutral-700/50 rounded-full shadow-2xl">
         
-        {/* LEFT: Logo */}
+        {/* LEFT: Logo (SMP - Original Size) */}
         <div className="flex items-center gap-1 cursor-pointer group">
-          <span className="text-xl font-bold text-white tracking-tight group-hover:text-gray-200 transition-colors">
-            Fans<span className="bg-red-600 text-black px-1 ml-0.5 rounded-sm">Hub</span>
+          <span className="text-xl font-bold text-white tracking-tight group-hover:text-gray-200 transition-colors flex items-center">
+             <span className="text-white px-1 ml-0.5 rounded-sm">SMP</span>
+             <span className="text-red-600 px-1 ml-0.5 rounded-sm">Management</span>
           </span>
         </div>
 
-        {/* CENTER: Navigation Links (Hidden on mobile) */}
+        {/* CENTER: Navigation Links (Original Size) */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a 
@@ -66,7 +68,7 @@ export default function Header() {
           ))}
         </div>
 
-        {/* RIGHT: CTA Button */}
+        {/* RIGHT: CTA Button (Original Size) */}
         <button className="bg-white text-black hover:bg-red-600 hover:text-white px-6 py-2 rounded-full text-sm font-bold transition-all duration-300 shadow-lg transform hover:scale-105">
           Apply Now
         </button>
