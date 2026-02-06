@@ -8,27 +8,27 @@ import { motion } from 'framer-motion';
 const testimonials = [
   {
     id: 1,
-    name: "CHLOE",
-    handle: "@Itschloeamber",
+    name: "James Hardy",
+    handle: "@James",
     quote: "I was honestly close to quitting",
     text: "Before FansHub, I was exhausted trying to do everything myself - chatting, posting, marketing, all of it. I felt behind constantly. Since joining FansHub, I can finally breathe again. My income has grown and I don't feel burnt out anymore.",
-    imageSrc: "/images/model1.jpg"
+    imageSrc: "/images/b-model (4).jpg"
   },
   {
     id: 2,
-    name: "JESSICA",
-    handle: "@Jessicafit",
+    name: "Rialle",
+    handle: "rialle",
     quote: "My revenue doubled in 3 months",
     text: "I didn't realize how much money I was leaving on the table. The team optimized my pricing strategies and handled all the DMs. Now I just focus on content creation and the rest runs on autopilot.",
-    imageSrc: "/images/model2.jpg"
+    imageSrc: "/images/g-model (7).jpg"
   },
   {
     id: 3,
-    name: "SARAH",
-    handle: "@SarahDreams",
+    name: "HAYES ROCKWELL",
+    handle: "@HAYES",
     quote: "Finally got my freedom back",
     text: "The systems they put in place are incredible. I used to spend 12 hours a day on my phone. Now I work 3-4 hours and make more than I did before. Best decision I ever made.",
-    imageSrc: "/images/model3.jpg"
+    imageSrc: "/images/b-model (8).jpg"
   }
 ];
 

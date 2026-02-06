@@ -11,55 +11,55 @@ const blogPosts = [
     category: "Growth",
     title: "Scaling Creator Income",
     excerpt: "Discover the proven strategies management teams use to consistently increase creator earnings while maintaining long term subscriber value.",
-    image: "/images/model1.jpg", // Placeholder - match your file names
+    image: "/images/allaya (2).JPG", // Placeholder - match your file names
   },
   {
     category: "Engagement",
     title: "The Art Of Fan Engagement",
     excerpt: "Learn how personalized messaging and smart interaction systems turn casual followers into loyal, high-spending fans.",
-    image: "/images/model2.jpg",
+    image: "/images/allaya4.jpg",
   },
   {
     category: "Monetization",
     title: "Turning Content Into Revenue",
     excerpt: "Content alone doesn't sell; strategy does. Explore how structured funnels and pricing models maximize every post.",
-    image: "/images/model3.jpg",
+    image: "/images/b-model (6).JPG",
   },
   {
     category: "Security",
     title: "Protecting Creators & Brands",
     excerpt: "From privacy safeguards to account compliance, see how professional management keeps creators protected while scaling fast.",
-    image: "/images/model4.jpg",
+    image: "/images/b-model (2).JPG",
   },
   {
     category: "Analytics",
     title: "Data-Driven Growth Models",
     excerpt: "Understand how performance metrics and behavioral data guide smarter decisions and predictable account growth.",
-    image: "/images/model5.jpg",
+    image: "/images/g-model (1).JPEG",
   },
   {
     category: "Branding",
     title: "Building A Marketable Persona",
     excerpt: "Strong branding creates emotional connection. Learn how curated personas help creators stand out in crowded markets.",
-    image: "/images/model6.jpg",
+    image: "/images/g-model (2).jpg",
   },
   {
     category: "Operations",
     title: "Systems That Scale",
     excerpt: "Automation, scheduling, and team workflows are key to growth. Here's how agencies streamline daily operations.",
-    image: "/images/model7.jpg",
+    image: "/images/g-model (3).jpg",
   },
   {
     category: "Traffic",
     title: "Organic & Paid Traffic",
     excerpt: "Explore how balanced traffic strategies bring in high quality subscribers without sacrificing account health.",
-    image: "/images/jack.jpg",
+    image: "/images/g-model (7).jpg",
   },
   {
     category: "Retention",
     title: "Retention Over Acquisition",
     excerpt: "Keeping subscribers is just as important as gaining them. Learn the techniques that reduce churn and boost lifetime value.",
-    image: "/images/sam.jpg",
+    image: "/images/allaya3.jpg",
   }
 ];
 
@@ -103,7 +103,7 @@ export default function BlogSection() {
         {/* ==========================
             2. BLOG GRID
            ========================== */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {blogPosts.map((post, index) => (
                 <motion.div 
                     key={index}
