@@ -15,19 +15,19 @@ const testimonials = [
   },
   {
     id: 2,
-    name: "Rialle",
-    handle: "rialle",
+    name: "Olga",
+    handle: "olga",
     quote: "My revenue doubled in 3 months",
     text: "I didn't realize how much money I was leaving on the table. The team optimized my pricing strategies and handled all the DMs. Now I just focus on content creation and the rest runs on autopilot.",
-    imageSrc: "/images/g-model (7).jpg"
+    imageSrc: "/images/g-model (6).jpg"
   },
   {
     id: 3,
-    name: "HAYES ROCKWELL",
-    handle: "@HAYES",
+    name: "Allaya",
+    handle: "@Allaya",
     quote: "Finally got my freedom back",
     text: "The systems they put in place are incredible. I used to spend 12 hours a day on my phone. Now I work 3-4 hours and make more than I did before. Best decision I ever made.",
-    imageSrc: "/images/b-model (8).jpg"
+    imageSrc: "/images/allaya5.jpg"
   }
 ];
 
