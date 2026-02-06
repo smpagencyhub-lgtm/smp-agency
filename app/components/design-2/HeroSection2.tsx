@@ -39,9 +39,9 @@ export default function HeroSection2() {
         >
           {/* Headline */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tighter uppercase leading-none">
-            Unlock Your <br />
-            <span className="relative inline-block mt-2">
-              <span className="relative z-10 italic pr-2">Full Potential</span>
+             Unlock Your<br />
+            <span className="relative inline-block mt-2">Full Potential
+              <span className="relative z-10 italic pr-2"></span>
               {/* Red Underline/Highlight 
               <motion.div 
                 initial={{ width: 0 }}
@@ -58,8 +58,8 @@ export default function HeroSection2() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
             className="text-lg md:text-2xl text-gray-200 max-w-2xl mx-auto font-light tracking-wide"
-          >
-            The elite agency for creators who want to scale revenue, build a brand, and own their future.
+          >The elite agency for creators who want to scale revenue, build a brand, and own their future.
+            
           </motion.p>
 
           {/* CTA Button */}

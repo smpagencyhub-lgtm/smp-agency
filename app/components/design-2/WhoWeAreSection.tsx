@@ -6,13 +6,13 @@ import { motion } from 'framer-motion';
 
 // Defined all 7 images as requested
 const teamImages = [
-  "/images/model1.jpg",
-  "/images/model2.jpg",
-  "/images/model3.jpg",
-  "/images/model4.jpg",
-  "/images/model5.jpg",
-  "/images/model6.jpg",
-  "/images/model7.jpg",
+  "/images/g-model (1).JPEG",
+  "/images/b-model (1).jpg",
+  "/images/g-model (2).jpg",
+  "/images/b-model (2).jpg",
+  "/images/g-model (3).jpg",
+  "/images/b-model (3).jpg",
+  "/images/g-model (4).jpg",
 ];
 
 // Duplicate the array to create the seamless infinite loop effect

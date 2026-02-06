@@ -18,42 +18,42 @@ const services = [
     title: "MARKETING",
     icon: <BarChart3 className="w-6 h-6 text-white" />,
     description: "Marketing is often the biggest question mark for both creators and agencies. Most people understand the chatting side, but driving consistent traffic to a creator's page is where many struggle. At SMP, we focus on discovering which platforms and campaigns work best for you as an individual creator – there's no copy-and-paste approach here. Every creator needs a strategy built around their brand, niche, and goals. Our marketing account managers support you at every step, giving you access to over 20 active promotion methods, from social media marketing and our 3,000+ page meme network to podcasts and influencer collaborations.",
-    image: "/images/tyler.jpg", // REPLACE WITH YOUR IMAGE
+    image: "/images/service (1).jpg", // REPLACE WITH YOUR IMAGE
     align: "right" // Image on the right
   },
   {
     title: "CHATTING",
     icon: <MessageCircle className="w-6 h-6 text-white" />,
     description: "Everyone knows that chatting is the real revenue driver on OnlyFans, and so handing that responsibility to the wrong team can be damaging. Poor communication, lack of cultural understanding, and generic messaging all show in your results. That's why SMP's UK / USA chat team go through vigorous training in order to represent creators with authenticity, emotional intelligence and care. The outcome is higher spend per fan, fewer chargebacks, increased renewals, and long-term trust. Our bespoke creator profile mapping system ensures that all creators receive the ultimate service, and with that, boost their earnings.",
-    image: "/images/tom.jpg", // REPLACE WITH YOUR IMAGE
+    image: "/images/service (2).jpg", // REPLACE WITH YOUR IMAGE
     align: "left" // Image on the left
   },
   {
     title: "CONTENT STRATEGY & PRODUCTION",
     icon: <Video className="w-6 h-6 text-white" />,
     description: "In such a fast-paced industry, the biggest question we hear is: what content should I be posting? The truth is, there isn't a one-size-fits-all answer. Finding the right content strategy is the first thing we work on with our creators, because redefining your brand and niche is often the difference between earning $10k and $100k a month. The industry is moving faster than ever, with over five million creators competing for attention. We help you understand what the market is actively responding to, while also shaping content that's unique to you, converts well, and drives real results.",
-    image: "/images/sam.jpg", // REPLACE WITH YOUR IMAGE
+    image: "/images/allaya (2).JPG", // REPLACE WITH YOUR IMAGE
     align: "right"
   },
   {
     title: "DMCA & CONTENT REMOVALS",
     icon: <ShieldCheck className="w-6 h-6 text-white" />,
     description: "When growing your brand as a content creator, the last thing you should be worrying about is your content being leaked. At SMP, we have an in-house team dedicated to monitoring the web for stolen or reposted content. While leaks can't always be prevented, we take a proactive approach to removing them as quickly as possible. We use advanced AI tools to detect and auto-flag leaked content, alongside preparing and issuing DMCA notices to pages hosting our creators' material. This helps protect your income, your brand, and your long-term growth.",
-    image: "/images/leo.jpg", // REPLACE WITH YOUR IMAGE
+    image: "/images/service (4).jpg", // REPLACE WITH YOUR IMAGE
     align: "left"
   },
   {
     title: "OFTV",
     icon: <Tv className="w-6 h-6 text-white" />,
     description: "OFTV is one of the largest sources to drive fans to creators' pages, but getting featured on it is a difficult and daunting process. At SMP, we help with the full process, from content ideation, through to the videography and editing of videos. Our creative team will guide creators through every step, and deliver the pitch and application to our partners at OFTV.",
-    image: "/images/leon.jpg", // REPLACE WITH YOUR IMAGE
+    image: "/images/service (3).jpg", // REPLACE WITH YOUR IMAGE
     align: "right"
   },
   {
     title: "FORWARD PLANNING & TAX ADVICE",
     icon: <FileText className="w-6 h-6 text-white" />,
     description: "Working alongside SMP doesn't just help you grow your OnlyFans revenue – it helps protect it. Wherever you're based, we work with trusted local partners who support creators with forward financial planning, so you keep and grow what you earn. From tax and VAT guidance to relocation planning, you'll have access to reliable, expert advice tailored to your situation. This means fewer mistakes, less stress, and smarter decisions long term. With the financial side handled properly, you're free to focus on building your brand and income without constant worry.",
-    image: "/images/jack.jpg", // REPLACE WITH YOUR IMAGE
+    image: "/images/service1.jpg", // REPLACE WITH YOUR IMAGE
     align: "left"
   }
 ];

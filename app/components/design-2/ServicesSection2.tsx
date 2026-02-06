@@ -98,7 +98,7 @@ export default function ServiceSection() {
         </motion.h1>
       </div>
 
-      <main className="max-w-6xl mx-auto px-4 pb-24 space-y-32 relative z-10">
+      <main className="max-w-6xl  mx-auto px-4 pb-24 space-y-32 relative z-10">
         
         {/* 2. Latest Stories Section */}
         <motion.section 
@@ -125,19 +125,19 @@ export default function ServiceSection() {
               category="Growth"
               title="Scaling Creator Income"
               description="Discover the proven strategies management teams use to consistently increase creator earnings while maintaining long term subscriber value."
-              imageSrc="/images/model1.jpg"
+              imageSrc="/images/allaya2.jpg"
             />
             <StoryCard 
               category="Branding"
               title="Building A Marketable Persona"
               description="Strong branding creates emotional connection. Learn how curated personas help creators stand out in crowded markets."
-              imageSrc="/images/model2.jpg"
+              imageSrc="/images/b-model (8).jpg"
             />
             <StoryCard 
               category="Operations"
               title="Systems That Scale"
               description="Automation, scheduling, and team workflows are key to growth. Here's how agencies streamline daily operations."
-              imageSrc="/images/model4.jpg" // Ensure this image exists
+              imageSrc="/images/g-model (5).jpg" 
             />
           </div>
         </motion.section>
@@ -167,7 +167,7 @@ export default function ServiceSection() {
             animate="animate"
             className="absolute hidden md:block left-0 lg:left-20 top-0 w-48 shadow-2xl rounded-xl overflow-hidden z-0 border border-neutral-800 opacity-60 hover:opacity-100 transition-opacity"
           >
-             <img src="/images/model1.jpg" alt="Decoration" className="grayscale hover:grayscale-0 transition-all duration-500"/>
+             <img src="/images/b-model (5).jpg" alt="Decoration" className="grayscale hover:grayscale-0 transition-all duration-500"/>
           </motion.div>
           
           <motion.div 
@@ -175,7 +175,7 @@ export default function ServiceSection() {
             animate="animate"
             className="absolute hidden md:block right-0 lg:right-20 bottom-0 w-48 shadow-2xl rounded-xl overflow-hidden z-0 border border-neutral-800 opacity-60 hover:opacity-100 transition-opacity"
           >
-             <img src="/images/model2.jpg" alt="Decoration" className="grayscale hover:grayscale-0 transition-all duration-500"/>
+             <img src="/images/allaya2.jpg" alt="Decoration" className="grayscale hover:grayscale-0 transition-all duration-500"/>
           </motion.div>
 
           {/* Central Booking Card */}

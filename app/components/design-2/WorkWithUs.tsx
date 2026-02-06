@@ -123,7 +123,7 @@ export default function WorkWithUs() {
             whileHover={{ y: -10 }} // Floats up slightly on hover
           >
             <Image
-              src="/images/model1.jpg" // Ensure this path is correct
+              src="/images/allaya5.jpg" // Ensure this path is correct
               alt="Creator"
               fill
               className="object-cover"

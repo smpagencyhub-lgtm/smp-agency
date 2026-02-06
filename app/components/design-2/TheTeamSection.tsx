@@ -9,32 +9,32 @@ const departments = [
   {
     title: "CHAT OPERATIONS LEADERSHIP",
     members: [
-      { name: "Jack", image: "/images/jack.jpg" },
-      { name: "Leon", image: "/images/leon.jpg" },
+      { name: "Jack", image: "/images/man.webp" },
+      { name: "Leon", image: "/images/man.webp" },
     ],
     description: "Jack and Leon lead SMP's chat department, overseeing both client delivery and day-to-day chat operations. Jack focuses on the overall client experience, onboarding, and strategy. Leon manages and trains the chat teams, maintaining high standards in communication."
   },
   {
     title: "CREATOR SUCCESS & PARTNERSHIPS TEAM",
     members: [
-      { name: "Tyler", image: "/images/tyler.jpg" },
-      { name: "Sam", image: "/images/sam.jpg" },
+      { name: "Tyler", image: "/images/man.webp" },
+      { name: "Sam", image: "/images/man.webp" },
     ],
     description: "Tyler and Sam lead SMP's Creator Success and Partnerships team. Tyler focuses on creator wellbeing, ongoing support, and success planning. Sam works across creator success and acquisition, helping onboard the right creators and guiding them through early growth."
   },
   {
     title: "MARKETING DEVELOPMENT TEAM",
     members: [
-      { name: "Charlie", image: "/images/charlie.jpg" },
-      { name: "Ben", image: "/images/ben.jpg" },
+      { name: "Charlie", image: "/images/man.webp" },
+      { name: "Ben", image: "/images/man.webp" },
     ],
     description: "Charlie and Ben lead SMP's marketing development function. Charlie oversees social media technologies, tools, and automation. Ben specializes in UX and UI development, ensuring every system, funnel, and creator-facing asset is intuitive and high-converting."
   },
   {
     title: "GROWTH & CREATIVE STRATEGY TEAM",
     members: [
-      { name: "Tom", image: "/images/tom.jpg" },
-      { name: "Leo", image: "/images/leo.jpg" },
+      { name: "Tom", image: "/images/man.webp" },
+      { name: "Leo", image: "/images/man.webp" },
     ],
     description: "Tom and Leo lead SMP's Growth and Creative Strategy team. Tom works closely with creators to manage campaigns and track results. Leo focuses on creative strategy and funnel optimization, shaping content and visuals that convert attention into paying fans."
   }
@@ -127,7 +127,7 @@ export default function TheTeamSection() {
               <div className="absolute inset-0 border-2 border-red-600/30 rounded-[40px] transform translate-x-4 translate-y-4 pointer-events-none" />
               <div className="relative w-full h-full rounded-[40px] overflow-hidden shadow-2xl border border-neutral-800 bg-neutral-900">
                 <Image 
-                  src="/images/finn.jpg" // Keep Jaybe's image here
+                  src="/images/man.webp" // Keep Jaybe's image here
                   alt="Jaybe Solatorio"
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-700"
@@ -162,7 +162,7 @@ export default function TheTeamSection() {
               <div className="absolute inset-0 border-2 border-red-600/30 rounded-[40px] transform -translate-x-4 -translate-y-4 pointer-events-none" />
               <div className="relative w-full h-full rounded-[40px] overflow-hidden shadow-2xl border border-neutral-800 bg-neutral-900">
                 <Image 
-                  src="/images/jesse.jpg" // CHANGE THIS TO JESSE'S PHOTO
+                  src="/images/man.webp" // CHANGE THIS TO JESSE'S PHOTO
                   alt="Jesse Thomson"
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-700"
