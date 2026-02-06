@@ -9,10 +9,8 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="text-2xl lg:text-3xl font-bold mb-6">
-              <span className="text-white">S</span>
-              <span className="text-red-600">M</span>
-              <span className="text-white">P</span>
-              
+              <span className="text-white">SMP</span>
+              <span className="text-red-600">MANAGEMENT</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
               Empowering creators to build their empire and own their space in
@@ -110,7 +108,8 @@ export default function Footer() {
         <div className="border-t border-gray-800/50 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-sm">
-              &copy; {new Date().getFullYear()} FansHub. All Rights Reserved.
+              &copy; {new Date().getFullYear()} SMP MANAGEMENT. All Rights
+              Reserved.
             </p>
             <div className="flex items-center space-x-6">
               <a

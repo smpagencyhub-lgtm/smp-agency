@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useState } from 'react';
 import Image from 'next/image'; // Import Next.js Image component
@@ -61,8 +61,8 @@ export default function Header() {
         {/* --- CENTER: Navigation Links --- */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a 
-              key={link.name} 
+            <a
+              key={link.name}
               href={link.href}
               className="text-sm font-medium text-gray-300 hover:text-white transition-colors relative group"
             >
@@ -76,7 +76,6 @@ export default function Header() {
         <button className="bg-white text-black hover:bg-red-600 hover:text-white px-6 py-2 rounded-full text-sm font-bold transition-all duration-300 shadow-lg transform hover:scale-105">
           Apply Now
         </button>
-
       </nav>
     </motion.header>
   );

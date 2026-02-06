@@ -13,7 +13,7 @@ const dancingScript = Dancing_Script({
 });
 
 export const metadata: Metadata = {
-  title: "Fans Hub - Model Application",
+  title: "SMP Market - Home",
   description:
     "Apply to become a model and start your journey as a content creator",
 };

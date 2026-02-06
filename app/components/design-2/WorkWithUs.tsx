@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 // 1. Animation Variants (The "Recipe" for the animations)
 const containerVariants = {
@@ -37,27 +37,27 @@ const imageVariants = {
 export default function WorkWithUs() {
   return (
     <section className="relative overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#1a0000] via-black to-black py-24 font-sans">
-      
       {/* Optional: Subtle animated background noise or glow could go here */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-red-900/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">
-
         {/* LEFT CONTENT */}
-        <motion.div 
+        <motion.div
           className="relative z-10"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          <motion.h1 
+          <motion.h1
             className="text-[40px] sm:text-[48px] lg:text-[56px] leading-tight font-light text-white"
             variants={textItemVariants}
           >
-            <span className="text-red-600 font-semibold">WE DON&apos;T MANAGE</span> <br />
-
+            <span className="text-red-600 font-semibold">
+              WE DON&apos;T MANAGE
+            </span>{" "}
+            <br />
             {/* "CREATORS" Box with Pop-in Animation */}
-            <motion.span 
+            <motion.span
               className="inline-block bg-red-600 text-white px-4 py-1 my-3 font-serif font-bold transform -skew-x-6 shadow-[0_0_20px_rgba(220,38,38,0.4)] rounded-md"
               whileHover={{ scale: 1.05, skewX: -12 }} // Interactive hover
               transition={{ type: "spring", stiffness: 300 }}
@@ -65,26 +65,24 @@ export default function WorkWithUs() {
               CREATORS
             </motion.span>
             <br />
-
-            WE BUILD{' '}
-            {/* "SUCCESS" Box */}
-            <motion.span 
+            WE BUILD {/* "SUCCESS" Box */}
+            <motion.span
               className="inline-block bg-red-600 text-white px-4 py-1 font-serif font-bold transform -skew-x-6 shadow-[0_0_20px_rgba(220,38,38,0.4)] rounded-md"
               whileHover={{ scale: 1.05, skewX: -12 }}
             >
               SUCCESS
-            </motion.span>{' '}
+            </motion.span>{" "}
             STORIES
           </motion.h1>
 
-          <motion.p 
+          <motion.p
             className="mt-8 max-w-md text-sm leading-relaxed text-gray-300"
             variants={textItemVariants}
           >
-            At FansHub, our global team spans the UK, US, and beyond,
+            At SMP MANAGEMENT, our global team spans the UK, US, and beyond,
             bringing together top tier experts in influencer marketing,
-            management, and digital growth. We&apos;re the engine behind
-            80+ thriving creators, models, and influencers.
+            management, and digital growth. We&apos;re the engine behind 80+
+            thriving creators, models, and influencers.
           </motion.p>
 
           <motion.div variants={textItemVariants}>
@@ -99,23 +97,22 @@ export default function WorkWithUs() {
 
         {/* RIGHT IMAGE AREA */}
         <div className="relative flex justify-center items-center">
-          
           {/* Animated Rotated Outline */}
-          <motion.div 
+          <motion.div
             className="absolute w-[300px] sm:w-[420px] h-[400px] sm:h-[520px] border border-red-600/60 rounded-[40px]"
             initial={{ rotate: 12, opacity: 0 }}
-            animate={{ 
+            animate={{
               rotate: [12, 15, 12], // Slowly rotates back and forth
-              opacity: 1 
+              opacity: 1,
             }}
-            transition={{ 
+            transition={{
               rotate: { duration: 6, repeat: Infinity, ease: "easeInOut" },
-              opacity: { duration: 1, delay: 0.5 }
+              opacity: { duration: 1, delay: 0.5 },
             }}
           />
 
           {/* Image card */}
-          <motion.div 
+          <motion.div
             className="relative w-[280px] sm:w-[320px] h-[420px] rounded-2xl overflow-hidden shadow-2xl border border-gray-800"
             initial="hidden"
             animate="visible"
@@ -129,15 +126,11 @@ export default function WorkWithUs() {
               className="object-cover"
               priority
             />
-            
+
             {/* Glossy Overlay Effect */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
           </motion.div>
-
-        
-
         </div>
-
       </div>
     </section>
   );

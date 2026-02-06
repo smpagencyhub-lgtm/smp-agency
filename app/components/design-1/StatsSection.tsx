@@ -35,7 +35,7 @@ export default function StatsSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              FansHub
+              SMP MANAGEMENT
             </motion.span>{" "}
             <motion.span
               className="text-red-600"
