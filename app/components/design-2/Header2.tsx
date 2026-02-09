@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import Image from 'next/image';
+import Image from 'next/image'; 
 import Link from 'next/link';
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion';
 import Modal from './Modal';
@@ -67,6 +67,21 @@ export default function Header() {
       transition={{ duration: 0.35, ease: "easeInOut" }}
       className="fixed top-4 sm:top-6 left-0 right-0 z-50 flex justify-center px-3 sm:px-4 pointer-events-none"
     >
+      {/* UPDATED STYLES HERE: 
+         1. bg-neutral-900/20 (Was /70) -> Makes it much more see-through
+         2. backdrop-blur-sm (Was -lg) -> Reduces the blur so video details are sharper
+         3. border-neutral-700/30 -> Lightens the border to match the transparency
+      */}
+      <nav className="pointer-events-auto flex items-center justify-between w-full max-w-5xl px-6 py-3 bg-neutral-900/20 backdrop-blur-sm border border-neutral-700/30 rounded-full shadow-2xl">
+        
+        {/* --- LEFT: Logo + Brand Name --- */}
+        <Link href="/" className="flex items-center gap-3 cursor-pointer group">
+          {/* BRAND TEXT */}
+          <span className="text-xl font-bold text-white tracking-tight group-hover:text-gray-200 transition-colors flex items-center">
+             <span className="text-white px-1 ml-0.5">SMP</span>
+             <div className="relative w-8 h-8"> 
+                <Image 
+                  src="/images/logo.png" 
       <div className="pointer-events-auto relative w-full max-w-5xl">
         <nav className="flex items-center justify-between w-full px-4 sm:px-6 py-2.5 sm:py-3 bg-neutral-900/70 backdrop-blur-lg border border-neutral-700/50 rounded-full shadow-2xl">
           {/* --- LEFT: Logo + Brand Name --- */}

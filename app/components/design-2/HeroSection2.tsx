@@ -17,7 +17,7 @@ export default function HeroSection2() {
           playsInline 
           className="w-full h-full object-cover opacity-80"
         >
-          <source src="/Videos/Ads.mp4" type="video/mp4" />
+          <source src="/Videos/Ads1.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         

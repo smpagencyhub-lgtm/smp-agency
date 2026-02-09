@@ -8,26 +8,29 @@ const testimonials = [
   {
     id: 1,
     name: "James Hardy",
-    handle: "@James",
+    handle: "@jameshardyx93",
     quote: "I was honestly close to quitting",
     text: "Before FansHub, I was exhausted trying to do everything myself - chatting, posting, marketing, all of it. I felt behind constantly. Since joining FansHub, I can finally breathe again. My income has grown and I don't feel burnt out anymore.",
-    imageSrc: "/images/b-model (4).jpg"
+    imageSrc: "/images/b-model (4).jpg",
+    instagramLink: "https://www.instagram.com/jameshardyx93"
   },
   {
     id: 2,
     name: "Olga",
-    handle: "olga",
+    handle: "@olgagabrielaofficial",
     quote: "My revenue doubled in 3 months",
     text: "I didn't realize how much money I was leaving on the table. The team optimized my pricing strategies and handled all the DMs. Now I just focus on content creation and the rest runs on autopilot.",
-    imageSrc: "/images/g-model (6).jpg"
+    imageSrc: "/images/g-model (6).jpg",
+    instagramLink: "https://www.instagram.com/olgagabrielaofficial"
   },
   {
     id: 3,
     name: "Allaya",
-    handle: "@Allaya",
+    handle: "@ayajanets",
     quote: "Finally got my freedom back",
     text: "The systems they put in place are incredible. I used to spend 12 hours a day on my phone. Now I work 3-4 hours and make more than I did before. Best decision I ever made.",
-    imageSrc: "/images/allaya5.jpg"
+    imageSrc: "/images/allaya5.jpg",
+    instagramLink: "https://www.instagram.com/ayajanets"
   }
 ];
 
@@ -132,12 +135,18 @@ export default function AboutSection2() {
                   {item.text}
                 </p>
 
-                <div className="flex items-center text-gray-300 font-medium text-sm cursor-pointer">
+                {/* Updated: Instagram Link */}
+                <a 
+                  href={item.instagramLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-gray-300 font-medium text-sm cursor-pointer w-fit"
+                >
                   <Instagram className="w-4 h-4 mr-2 text-red-500 group-hover:text-red-400 transition-colors" />
-                  <span className="group-hover:text-red-400 transition-colors">
+                  <span className="group-hover:text-red-400 transition-colors hover:underline">
                     {item.handle}
                   </span>
-                </div>
+                </a>
               </div>
 
               {/* Image Side */}
