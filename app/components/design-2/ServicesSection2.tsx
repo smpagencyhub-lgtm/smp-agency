@@ -92,7 +92,7 @@ export default function ServiceSection() {
           Start Your
           <motion.span
             whileHover={{ scale: 1.05, skewX: -12 }}
-            className="bg-red-600 text-white px-3 ml-3  font-serif font-bold inline-block transform -skew-x-6 shadow-[0_0_15px_rgba(220,38,38,0.5)] cursor-default rounded-md"
+            className="bg-red-600 text-white px-3 ml-3 italic font-bold inline-block transform -skew-x-6 shadow-[0_0_15px_rgba(220,38,38,0.5)] cursor-default rounded-md"
           >
             JOURNEY
           </motion.span>
@@ -100,7 +100,6 @@ export default function ServiceSection() {
       </div>
 
       <main className="max-w-6xl  mx-auto px-4 pb-24 space-y-32 relative z-10">
-        
         {/* 2. Latest Stories Section */}
         <motion.section
           className="space-y-12"
@@ -138,7 +137,7 @@ export default function ServiceSection() {
               category="Operations"
               title="Systems That Scale"
               description="Automation, scheduling, and team workflows are key to growth. Here's how agencies streamline daily operations."
-              imageSrc="/images/g-model (5).jpg" 
+              imageSrc="/images/g-model (5).jpg"
             />
           </div>
         </motion.section>
@@ -167,7 +166,11 @@ export default function ServiceSection() {
             animate="animate"
             className="absolute hidden md:block left-0 lg:left-20 top-0 w-48 shadow-2xl rounded-xl overflow-hidden z-0 border border-neutral-800 opacity-60 hover:opacity-100 transition-opacity"
           >
-             <img src="/images/b-model (5).jpg" alt="Decoration" className="grayscale hover:grayscale-0 transition-all duration-500"/>
+            <img
+              src="/images/b-model (5).jpg"
+              alt="Decoration"
+              className="grayscale hover:grayscale-0 transition-all duration-500"
+            />
           </motion.div>
 
           <motion.div
@@ -175,7 +178,11 @@ export default function ServiceSection() {
             animate="animate"
             className="absolute hidden md:block right-0 lg:right-20 bottom-0 w-48 shadow-2xl rounded-xl overflow-hidden z-0 border border-neutral-800 opacity-60 hover:opacity-100 transition-opacity"
           >
-             <img src="/images/allaya2.jpg" alt="Decoration" className="grayscale hover:grayscale-0 transition-all duration-500"/>
+            <img
+              src="/images/allaya2.jpg"
+              alt="Decoration"
+              className="grayscale hover:grayscale-0 transition-all duration-500"
+            />
           </motion.div>
 
           {/* Central Booking Card */}
