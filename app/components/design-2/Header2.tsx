@@ -1,12 +1,17 @@
 "use client";
 
-import React, { useState } from 'react';
-import Image from 'next/image'; 
-import Link from 'next/link';
-import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion';
-import Modal from './Modal';
-import ApplyNowForm from './ApplyNowForm';
-import type { ApplyNowFormData } from './ApplyNowForm';
+import React, { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  motion,
+  useScroll,
+  useMotionValueEvent,
+  AnimatePresence,
+} from "framer-motion";
+import Modal from "./Modal";
+import ApplyNowForm from "./ApplyNowForm";
+import type { ApplyNowFormData } from "./ApplyNowForm";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -29,11 +34,7 @@ function NavLink({
     ? "block w-full py-3.5 px-5 text-base font-medium text-gray-300 hover:text-white hover:bg-neutral-800/50 transition-colors border-b border-neutral-700/40 last:border-b-0 first:pt-4"
     : "text-sm font-medium text-gray-300 hover:text-white transition-colors relative group";
   return (
-    <Link
-      href={link.href}
-      onClick={onClick}
-      className={className}
-    >
+    <Link href={link.href} onClick={onClick} className={className}>
       {link.name}
       {!mobile && (
         <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-red-600 transition-all duration-300 group-hover:w-full" />
@@ -67,27 +68,17 @@ export default function Header() {
       transition={{ duration: 0.35, ease: "easeInOut" }}
       className="fixed top-4 sm:top-6 left-0 right-0 z-50 flex justify-center px-3 sm:px-4 pointer-events-none"
     >
-      {/* UPDATED STYLES HERE: 
-         1. bg-neutral-900/20 (Was /70) -> Makes it much more see-through
-         2. backdrop-blur-sm (Was -lg) -> Reduces the blur so video details are sharper
-         3. border-neutral-700/30 -> Lightens the border to match the transparency
-      */}
-      <nav className="pointer-events-auto flex items-center justify-between w-full max-w-5xl px-6 py-3 bg-neutral-900/20 backdrop-blur-sm border border-neutral-700/30 rounded-full shadow-2xl">
-        
-        {/* --- LEFT: Logo + Brand Name --- */}
-        <Link href="/" className="flex items-center gap-3 cursor-pointer group">
-          {/* BRAND TEXT */}
-          <span className="text-xl font-bold text-white tracking-tight group-hover:text-gray-200 transition-colors flex items-center">
-             <span className="text-white px-1 ml-0.5">SMP</span>
-             <div className="relative w-8 h-8"> 
-                <Image 
-                  src="/images/logo.png" 
       <div className="pointer-events-auto relative w-full max-w-5xl">
         <nav className="flex items-center justify-between w-full px-4 sm:px-6 py-2.5 sm:py-3 bg-neutral-900/70 backdrop-blur-lg border border-neutral-700/50 rounded-full shadow-2xl">
           {/* --- LEFT: Logo + Brand Name --- */}
-          <Link href="/" className="flex items-center gap-2 sm:gap-3 cursor-pointer group min-w-0">
+          <Link
+            href="/"
+            className="flex items-center gap-2 sm:gap-3 cursor-pointer group min-w-0"
+          >
             <span className="text-base sm:text-xl font-bold text-white tracking-tight group-hover:text-gray-200 transition-colors flex items-center shrink-0">
-              <span className="text-white px-0.5 sm:px-1 ml-0.5 hidden sm:inline">SMP</span>
+              <span className="text-white px-0.5 sm:px-1 ml-0.5 hidden sm:inline">
+                SMP
+              </span>
               <div className="relative w-8 h-8 sm:w-8 sm:h-8 shrink-0">
                 <Image
                   src="/images/logo.png"
@@ -96,7 +87,9 @@ export default function Header() {
                   className="object-contain group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <span className="text-red-600 px-0.5 sm:px-1 ml-0.5 hidden sm:inline">Management</span>
+              <span className="text-red-600 px-0.5 sm:px-1 ml-0.5 hidden sm:inline">
+                Management
+              </span>
             </span>
           </Link>
 
@@ -126,17 +119,23 @@ export default function Header() {
               <span className="relative block w-5 h-4" aria-hidden>
                 <span
                   className={`absolute left-0 w-5 h-[2px] bg-current rounded-full transition-all duration-300 ease-in-out origin-center ${
-                    mobileMenuOpen ? "top-1/2 -translate-y-1/2 rotate-45" : "top-0"
+                    mobileMenuOpen
+                      ? "top-1/2 -translate-y-1/2 rotate-45"
+                      : "top-0"
                   }`}
                 />
                 <span
                   className={`absolute left-0 top-1/2 w-5 h-[2px] bg-current rounded-full -translate-y-1/2 transition-all duration-300 ease-in-out ${
-                    mobileMenuOpen ? "opacity-0 scale-x-0" : "opacity-100 scale-x-100"
+                    mobileMenuOpen
+                      ? "opacity-0 scale-x-0"
+                      : "opacity-100 scale-x-100"
                   }`}
                 />
                 <span
                   className={`absolute left-0 w-5 h-[2px] bg-current rounded-full transition-all duration-300 ease-in-out origin-center ${
-                    mobileMenuOpen ? "top-1/2 -translate-y-1/2 -rotate-45" : "bottom-0"
+                    mobileMenuOpen
+                      ? "top-1/2 -translate-y-1/2 -rotate-45"
+                      : "bottom-0"
                   }`}
                 />
               </span>
@@ -189,7 +188,7 @@ export default function Header() {
         >
           <ApplyNowForm
             onSubmit={(data: ApplyNowFormData) => {
-              console.log('Apply form submitted:', data);
+              console.log("Apply form submitted:", data);
               setApplyModalOpen(false);
             }}
             onCancel={() => setApplyModalOpen(false)}
