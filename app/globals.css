@@ -220,3 +220,12 @@ animation: shine 1s ease-in-out;
 .modal-content-animate {
   animation: modalScaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
