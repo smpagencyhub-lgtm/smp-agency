@@ -21,7 +21,7 @@ const testimonials = [
     handle: "@olgagabrielaofficial",
     quote: "My income doubled in just a few months.",
     text: "I didn’t realize how much potential revenue I was missing. The SMP team refined my pricing and took over DM management. Now I can focus purely on creating content while everything else runs smoothly in the background.",
-    imageSrc: "/images/g-model (6).jpg",
+    imageSrc: "/images/g-model (5).jpg",
     instagramLink: "https://www.instagram.com/olgagabrielaofficial"
   },
   {

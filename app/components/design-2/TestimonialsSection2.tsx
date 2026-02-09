@@ -13,7 +13,7 @@ const services = [
   {
     title: "Chatting",
     text: "Chatting is the real revenue driver on OnlyFans, and so it is vital that it is done correctly. Our UK / USA chat team undergo vigorous training to ensure they can authentically match the creator's brand and understand the psychology in fan interactions. This drives revenue, increases renewals and ensures long term trust, but at FansHub, results speak louder than promises.",
-    image: "/images/b-model (11).jpg", 
+    image: "/images/b-model (2).jpg", 
   },
   {
     title: "Content Strategy",

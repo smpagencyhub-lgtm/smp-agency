@@ -8,9 +8,9 @@ import { motion } from 'framer-motion';
 const teamImages = [
   "/images/g-model (1).JPEG",
   "/images/b-model (1).jpg",
-  "/images/g-model (2).jpg",
+  "/images/allaya5.jpg",
   "/images/b-model (2).jpg",
-  "/images/g-model (3).jpg",
+  "/images/allaya2.jpg",
   "/images/b-model (3).jpg",
   "/images/g-model (4).jpg",
 ];
