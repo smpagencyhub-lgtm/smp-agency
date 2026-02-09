@@ -6,7 +6,6 @@ import { motion } from 'framer-motion';
 // --- DATA: Team Members & Departments ---
 
 const departments = [
-   
   {
     title: "CHAT OPERATIONS LEADERSHIP",
     members: [
@@ -54,7 +53,6 @@ export default function TheTeamSection() {
 
         {/* ==========================
             2. INDIVIDUAL FOUNDERS (Jaybe, Jesse, Suharto)
-            (Kept largely the same, just ensuring spacing consistency)
            ========================== */}
         
         {/* --- ARTHUR TURNER (Jaybe) --- */}
@@ -127,7 +125,7 @@ export default function TheTeamSection() {
             className="order-1 lg:order-2"
           >
             <div className="inline-block bg-gradient-to-r from-red-600 to-red-900 px-6 py-2 rounded-lg mb-8 shadow-lg transform rotate-1">
-              <h3 className="text-2xl md:text-3xl font-bold text-white italic tracking-wider uppercase">Raffy</h3>
+              <h3 className="text-2xl md:text-3xl font-bold text-white italic tracking-wider uppercase">Raphael</h3>
             </div>
             <div className="space-y-6 text-gray-300 text-lg font-light leading-relaxed">
               <p>While studying Marketing at University, Jesse quickly realised that none of his lecturers understood the modern marketing landscape. He signed multiple clients while still sitting in class.</p>
@@ -138,7 +136,7 @@ export default function TheTeamSection() {
           </motion.div>
         </div>
           
-        {/* --- SUHARTO --- */}
+        {/* --- SUHARTO (Updated) --- */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32 border-b border-white/5 pb-20">
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
@@ -150,9 +148,10 @@ export default function TheTeamSection() {
               <h3 className="text-2xl md:text-3xl font-bold text-white italic tracking-wider uppercase">Suharto</h3>
             </div>
             <div className="space-y-6 text-gray-300 text-lg font-light leading-relaxed">
-              <p>With a background in <span className="text-white font-medium">corporate real estate</span>, Jaybe understands exactly what both traditional and creative businesses need.</p>
-              <p>His skill set sits in organizational management and flawless execution. He brings clarity to an industry that feels chaotic to most.</p>
-              <p>Coming into the creative world with a business mindset let Jaybe see the cracks way before anyone else.</p>
+              
+              <p>Suharto leads marketing strategy with a strong focus on <span className="text-white font-medium">Instagram growth, audience trust, and scalable systems</span>. With years of hands-on experience, he has built and grown high-performing accounts through testing, execution, and data-driven refinement.</p>
+              <p>Starting with personal projects, Suharto proved his methods before onboarding clients. Consistent results led to rapid expansion through referrals, positioning him as a key driver of <span className="text-red-500 font-medium">sustainable growth</span> and performance-focused marketing.</p>
+              
             </div>
             <div className="mt-8 h-1 w-24 bg-red-600 rounded-full" />
           </motion.div>
@@ -166,9 +165,11 @@ export default function TheTeamSection() {
             <div className="relative w-[350px] h-[450px] md:w-[400px] md:h-[500px]">
               <div className="absolute inset-0 border-2 border-red-600/30 rounded-[40px] transform translate-x-4 translate-y-4 pointer-events-none" />
               <div className="relative w-full h-full rounded-[40px] overflow-hidden shadow-2xl border border-neutral-800 bg-neutral-900">
-                <Image src="/images/man.webp" alt="Suharto" fill className="object-cover hover:scale-105 transition-transform duration-700" />
+
+                <Image src="/images/suharto.jpg" alt="Suharto" fill className="object-cover hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
               </div>
+
                <div className="absolute -bottom-6 -left-6 bg-neutral-900 border border-red-600/50 p-4 rounded-2xl shadow-xl backdrop-blur-md">
                  <p className="text-red-500 text-xs font-bold tracking-widest uppercase mb-1">Role</p>
                  <p className="text-white text-lg font-bold">Marketing Head</p>
@@ -264,8 +265,8 @@ export default function TheTeamSection() {
 
              <div className="max-w-4xl text-center">
                  <p className="text-gray-400 text-base md:text-lg leading-relaxed">
-                    SMP is built on a senior management team covering chat operations, marketing, creative strategy, and creator success. 
-                    This leadership team is the engine behind every SMP operation, driving strategy, consistency, and results.
+                   SMP is built on a senior management team covering chat operations, marketing, creative strategy, and creator success. 
+                   This leadership team is the engine behind every SMP operation, driving strategy, consistency, and results.
                  </p>
              </div>
         </motion.div>
