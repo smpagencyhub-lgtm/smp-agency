@@ -65,13 +65,14 @@ export default function TheTeamSection() {
           >
             <div className="inline-block bg-gradient-to-r from-red-600 to-red-900 px-6 py-2 rounded-lg mb-8 shadow-lg transform -rotate-1">
               <h3 className="text-2xl md:text-3xl font-bold text-white italic tracking-wider uppercase">
-                Arthur Turner
+                Arthur
               </h3>
             </div>
             <div className="space-y-6 text-gray-300 text-lg font-light leading-relaxed">
-              <p>With a background in <span className="text-white font-medium">corporate real estate</span>, Jaybe understands exactly what both traditional and creative businesses need, building connections with <span className="text-red-500 font-medium"> unicorn level clients</span>.</p>
-              <p>His skill set sits in organizational management and flawless execution. He brings clarity to an industry that feels chaotic to most, giving his team and creators a clear path through a confusing space.</p>
-              <p>Coming into the creative world with a business mindset let Jaybe see the cracks way before anyone else. That advantage helped him and his team take over the market and establish dominance in record time.</p>
+              {/* UPDATED ARTHUR BIO TO MATCH RAPHAEL'S TONE */}
+              <p>With a foundation in <span className="text-white font-medium">corporate real estate and high-stakes negotiation</span>, Arthur bridges the gap between traditional business professionalism and the fast-paced creator economy. His expertise lies in organizational management, ensuring that creativity is backed by flawless execution.</p>
+              <p>Arthur brings clarity to an industry that often feels chaotic, providing creators with a stable, strategic path to growth. By applying a rigorous business mindset, he identifies market shifts before they happen, allowing SMP to establish dominance early.</p>
+              <p>His focus is on building connections with <span className="text-red-500 font-medium">unicorn-level clients</span> and creating an infrastructure where talent can thrive without operational bottlenecks. This advantage has been key to SMP’s rapid expansion and market leadership.</p>
             </div>
             <div className="mt-8 h-1 w-24 bg-red-600 rounded-full" />
           </motion.div>
@@ -96,7 +97,7 @@ export default function TheTeamSection() {
           </motion.div>
         </div>
 
-        {/* --- RAFFY (Jesse) --- */}
+        {/* --- RAPHAEL (Previously Jesse) --- */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32 border-b border-white/5 pb-20">
            <motion.div 
             initial={{ opacity: 0, x: -50 }}
@@ -108,7 +109,7 @@ export default function TheTeamSection() {
              <div className="relative w-[350px] h-[450px] md:w-[400px] md:h-[500px]">
               <div className="absolute inset-0 border-2 border-red-600/30 rounded-[40px] transform -translate-x-4 -translate-y-4 pointer-events-none" />
               <div className="relative w-full h-full rounded-[40px] overflow-hidden shadow-2xl border border-neutral-800 bg-neutral-900">
-                <Image src="/images/man.webp" alt="Jesse Thomson" fill className="object-cover hover:scale-105 transition-transform duration-700" />
+                <Image src="/images/raph.jpg" alt="Raphael" fill className="object-cover hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
               </div>
                <div className="absolute -bottom-6 -right-6 bg-neutral-900 border border-red-600/50 p-4 rounded-2xl shadow-xl backdrop-blur-md">
@@ -128,15 +129,16 @@ export default function TheTeamSection() {
               <h3 className="text-2xl md:text-3xl font-bold text-white italic tracking-wider uppercase">Raphael</h3>
             </div>
             <div className="space-y-6 text-gray-300 text-lg font-light leading-relaxed">
-              <p>While studying Marketing at University, Jesse quickly realised that none of his lecturers understood the modern marketing landscape. He signed multiple clients while still sitting in class.</p>
-              <p>He found OTM shortly after leaving university to pursue his branding work, but it became obvious that the bigger opportunity was right in front of him.</p>
-              <p>Jesse is no stranger to pressure or discipline. After training and competing in multiple amateur MMA fights, he learned the value of keeping his head down and putting the work in.</p>
+              {/* UPDATED RAPHAEL BIO */}
+              <p>With a strong foundation in <span className="text-white font-medium">marketing and operations</span>, Raphael brings a rare blend of sales instinct and structured execution to OFM. He entered the industry as a chatter and rapidly rose to become one of the top revenue performers, recognised for his ability to convert fans at scale.</p>
+              <p>His performance earned him leadership roles where he trained, managed, and stabilised high-pressure chat teams. Progressing into Operations Management, he oversaw multiple departments and partner agencies, driving consistent growth in traffic, monetisation, and team efficiency.</p>
+              <p>Here at SMP, Raphael identified operational gaps and rebuilt the business from the ground up, implementing clear SOPs across chatting, marketing, and management. His approach is <span className="text-red-500 font-medium">disciplined, data-led, and long-term focused</span>, making him a trusted operator for creators serious about growth.</p>
             </div>
             <div className="mt-8 h-1 w-24 bg-red-600 rounded-full" />
           </motion.div>
         </div>
           
-        {/* --- SUHARTO (Updated) --- */}
+        {/* --- SUHARTO --- */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32 border-b border-white/5 pb-20">
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
@@ -172,7 +174,7 @@ export default function TheTeamSection() {
 
                <div className="absolute -bottom-6 -left-6 bg-neutral-900 border border-red-600/50 p-4 rounded-2xl shadow-xl backdrop-blur-md">
                  <p className="text-red-500 text-xs font-bold tracking-widest uppercase mb-1">Role</p>
-                 <p className="text-white text-lg font-bold">Marketing Head</p>
+                 <p className="text-white text-lg font-bold">CMO</p>
                </div>
             </div>
           </motion.div>
