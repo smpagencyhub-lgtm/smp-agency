@@ -293,3 +293,17 @@ html {
 .modal-content-animate {
   animation: modalScaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* Success toast: green accent (Sonner) */
+[data-sonner-toast][data-type="success"] {
+  border-left: 4px solid rgb(16 185 129) !important;
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(16, 185, 129, 0.2) !important;
+}
+[data-sonner-toast][data-type="success"] [data-icon] {
+  color: rgb(16 185 129);
+}
+[data-sonner-toast][data-type="success"] [data-title] {
+  color: rgb(167 243 208);
+}

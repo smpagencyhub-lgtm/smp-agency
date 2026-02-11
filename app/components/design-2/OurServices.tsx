@@ -13,9 +13,9 @@ import {
 } from 'lucide-react';
 
 // 2. Import Modal and Form components
-import Modal from './Modal'; 
+import Modal from './Modal';
 import ApplyNowForm from './ApplyNowForm';
-import type { ApplyNowFormData } from './ApplyNowForm';
+import { useApplyFormSubmit } from './useApplyFormSubmit';
 
 // --- DATA: Services ---
 const services = [
@@ -93,8 +93,10 @@ const joinSteps = [
 ];
 
 export default function OurServices() {
-  // 3. Add Modal State
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isSubmitting, submitError, handleSubmit } = useApplyFormSubmit(() =>
+    setIsModalOpen(false)
+  );
 
   return (
     <section 
@@ -269,12 +271,13 @@ export default function OurServices() {
         size="md"
       >
         <ApplyNowForm
-          onSubmit={(data: ApplyNowFormData) => {
-            console.log("Apply form submitted:", data);
-            setIsModalOpen(false);
-          }}
+          loading={isSubmitting}
+          onSubmit={handleSubmit}
           onCancel={() => setIsModalOpen(false)}
         />
+        {submitError && (
+          <p className="mt-4 text-sm text-red-400">{submitError}</p>
+        )}
       </Modal>
 
     </section>

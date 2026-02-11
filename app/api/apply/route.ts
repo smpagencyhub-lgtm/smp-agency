@@ -26,7 +26,7 @@ function getClientIp(req: NextRequest): string {
   if (forwarded) {
     return forwarded.split(",")[0]?.trim() || "unknown";
   }
-  const ip = (req as any).ip || req.headers.get("x-real-ip");
+  const ip = (req as NextRequest & { ip?: string }).ip ?? req.headers.get("x-real-ip");
   return ip || "unknown";
 }
 

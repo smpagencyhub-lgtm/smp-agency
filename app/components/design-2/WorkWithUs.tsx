@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 // 2. Import your Modal and Form components (adjust paths if necessary)
 import Modal from "./Modal";
 import ApplyNowForm from "./ApplyNowForm";
-import type { ApplyNowFormData } from "./ApplyNowForm";
+import { useApplyFormSubmit } from "./useApplyFormSubmit";
 
 // --- Animation Variants ---
 
@@ -57,8 +57,10 @@ const imageContainerVariants = {
 };
 
 export default function WorkWithUs() {
-  // 3. Add State for the Modal
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isSubmitting, submitError, handleSubmit } = useApplyFormSubmit(() =>
+    setIsModalOpen(false)
+  );
 
   return (
     <section className="relative overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#1a0000] via-black to-black py-24 font-sans">
@@ -189,12 +191,13 @@ export default function WorkWithUs() {
         size="md"
       >
         <ApplyNowForm
-          onSubmit={(data: ApplyNowFormData) => {
-            console.log("Apply form submitted:", data);
-            setIsModalOpen(false);
-          }}
+          loading={isSubmitting}
+          onSubmit={handleSubmit}
           onCancel={() => setIsModalOpen(false)}
         />
+        {submitError && (
+          <p className="mt-4 text-sm text-red-400">{submitError}</p>
+        )}
       </Modal>
 
     </section>

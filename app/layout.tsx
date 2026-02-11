@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat, Dancing_Script } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "./Toaster";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -29,6 +30,7 @@ export default function RootLayout({
         className={`${montserrat.variable} ${dancingScript.variable} antialiased`}
       >
         {children}
+        <Toaster />
       </body>
     </html>
   );

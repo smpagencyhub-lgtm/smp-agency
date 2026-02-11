@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import countries from "world-countries";
+import { toast } from "sonner";
 import SearchableCountrySelect from "./SearchableCountrySelect";
 
 const inputBase =
@@ -46,7 +47,13 @@ export default function ApplyNowForm({
     return () => clearTimeout(timer);
   }, [error]);
 
-  const validate = () => {
+  const isFormEmpty =
+    !formData.stageName.trim() &&
+    !(formData.phone || "").trim() &&
+    !formData.country.trim() &&
+    !formData.instagram.trim();
+
+  const validate = (): string | null => {
     if (!formData.stageName.trim()) {
       return "Please enter your stage name.";
     }
@@ -84,9 +91,18 @@ export default function ApplyNowForm({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (isFormEmpty) {
+      toast.warning("Form incomplete", {
+        description: "Please fill in the required fields to apply.",
+      });
+      setError("Please fill in the required fields to apply.");
+      return;
+    }
+
     const validationError = validate();
     if (validationError) {
       setError(validationError);
+      toast.warning("Please check your details", { description: validationError });
       return;
     }
 
@@ -98,12 +114,37 @@ export default function ApplyNowForm({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
-      {error && (
-        <div className="fixed inset-x-0 top-4 z-[60] flex justify-center px-4">
-          <div className="max-w-md w-full rounded-lg bg-red-600/95 text-white px-4 py-3 text-sm shadow-lg shadow-red-900/40">
-            {error}
+    <div className="relative -mx-4 -my-4 sm:-mx-6 sm:-my-5 min-h-[180px]">
+      {/* Loading overlay: fills full modal body (no spacing) */}
+      {loading && (
+        <div
+          className="absolute inset-0 z-10 flex items-center justify-center bg-neutral-950/95 backdrop-blur-md rounded-b-xl sm:rounded-b-2xl"
+          aria-hidden="true"
+        >
+          <div className="flex flex-col items-center gap-6 px-10 py-8 rounded-2xl border border-neutral-700/50 bg-neutral-900/98 shadow-[0_0_0_1px_rgba(255,255,255,0.05),0_25px_50px_-12px_rgba(0,0,0,0.7)] min-w-[220px]">
+            <div
+              className="h-11 w-11 rounded-full border-[3px] border-neutral-700 border-t-red-500 animate-spin"
+              style={{ animationDuration: "0.75s" }}
+            />
+            <div className="text-center space-y-1.5">
+              <p className="text-sm font-semibold text-white">
+                Submitting application
+              </p>
+              <p className="text-xs text-gray-500">
+                Please wait a moment…
+              </p>
+            </div>
           </div>
+        </div>
+      )}
+
+      <form
+        onSubmit={handleSubmit}
+        className={`relative space-y-4 sm:space-y-5 px-4 py-4 sm:px-6 sm:py-5 ${loading ? "pointer-events-none" : ""}`}
+      >
+      {error && (
+        <div className="rounded-lg bg-red-600/20 border border-red-600/50 text-red-400 px-4 py-3 text-sm">
+          {error}
         </div>
       )}
       <div>
@@ -209,6 +250,7 @@ export default function ApplyNowForm({
           {loading ? "Sending..." : "Submit"}
         </button>
       </div>
-    </form>
+      </form>
+    </div>
   );
 }

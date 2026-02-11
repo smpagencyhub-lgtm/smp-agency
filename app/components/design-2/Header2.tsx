@@ -12,7 +12,7 @@ import {
 } from "framer-motion";
 import Modal from "./Modal";
 import ApplyNowForm from "./ApplyNowForm";
-import type { ApplyNowFormData } from "./ApplyNowForm";
+import { useApplyFormSubmit } from "./useApplyFormSubmit";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -90,8 +90,9 @@ export default function Header() {
   const [hidden, setHidden] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [applyModalOpen, setApplyModalOpen] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState<string | null>(null);
+  const { isSubmitting, submitError, handleSubmit } = useApplyFormSubmit(() =>
+    setApplyModalOpen(false)
+  );
 
   // --- NEW: Handle Cross-Page Scrolling ---
   // This runs whenever the URL path changes (e.g. arriving at Home from Team page)
@@ -268,45 +269,7 @@ export default function Header() {
         >
           <ApplyNowForm
             loading={isSubmitting}
-            onSubmit={async (data: ApplyNowFormData) => {
-              try {
-                setIsSubmitting(true);
-                setSubmitError(null);
-
-                const response = await fetch("/api/apply", {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                  body: JSON.stringify(data),
-                });
-
-                const payload = await response
-                  .json()
-                  .catch(() => ({ error: "Unexpected response from server." }));
-
-                if (!response.ok) {
-                  throw new Error(
-                    payload?.error ||
-                      "We couldn’t send your application. Please try again in a moment.",
-                  );
-                }
-
-                setApplyModalOpen(false);
-                alert(
-                  "Thank you for applying. Your details have been sent successfully and our team will review your application within 24–48 hours.",
-                );
-              } catch (error) {
-                console.error("Error submitting application:", error);
-                setSubmitError(
-                  error instanceof Error
-                    ? error.message
-                    : "Something went wrong while sending your application. Please try again later.",
-                );
-              } finally {
-                setIsSubmitting(false);
-              }
-            }}
+            onSubmit={handleSubmit}
             onCancel={() => setApplyModalOpen(false)}
           />
           {submitError && (
