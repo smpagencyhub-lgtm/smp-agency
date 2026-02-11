@@ -1,7 +1,13 @@
 "use client";
 
+import { useState } from "react"; // 1. Import useState
 import Image from "next/image";
 import { motion } from "framer-motion";
+
+// 2. Import your Modal and Form components (adjust paths if necessary)
+import Modal from "./Modal";
+import ApplyNowForm from "./ApplyNowForm";
+import type { ApplyNowFormData } from "./ApplyNowForm";
 
 // --- Animation Variants ---
 
@@ -51,8 +57,10 @@ const imageContainerVariants = {
 };
 
 export default function WorkWithUs() {
+  // 3. Add State for the Modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
-    // Restored original background gradient
     <section className="relative overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#1a0000] via-black to-black py-24 font-sans">
       {/* Decorative Blur Blob */}
       <motion.div
@@ -86,9 +94,6 @@ export default function WorkWithUs() {
               >
                 creators
               </motion.span>
-              {/* <span className="text-red-500 font-semibold tracking-tight">
-                creators
-              </span> */}
               .
             </motion.div>
             <motion.div variants={textRevealVariants} className="mt-2">
@@ -116,7 +121,11 @@ export default function WorkWithUs() {
           </motion.p>
 
           <motion.div variants={textRevealVariants}>
-            <button className="mt-10 group relative bg-transparent border border-red-600 text-white text-sm tracking-widest font-bold px-10 py-4 rounded-full overflow-hidden transition-all hover:shadow-[0_0_40px_rgba(220,38,38,0.6)]">
+            {/* 4. Add onClick handler to open modal */}
+            <button 
+              onClick={() => setIsModalOpen(true)}
+              className="mt-10 group relative bg-transparent border border-red-600 text-white text-sm tracking-widest font-bold px-10 py-4 rounded-full overflow-hidden transition-all hover:shadow-[0_0_40px_rgba(220,38,38,0.6)]"
+            >
               <span className="relative z-10 group-hover:text-white transition-colors duration-300">
                 Partner with us
               </span>
@@ -170,6 +179,24 @@ export default function WorkWithUs() {
           </motion.div>
         </div>
       </div>
+
+      {/* 5. Add the Modal and Form Components here */}
+      <Modal
+        open={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title="Apply Now"
+        description="Fill in your details and we’ll get back to you within 24–48 hours."
+        size="md"
+      >
+        <ApplyNowForm
+          onSubmit={(data: ApplyNowFormData) => {
+            console.log("Apply form submitted:", data);
+            setIsModalOpen(false);
+          }}
+          onCancel={() => setIsModalOpen(false)}
+        />
+      </Modal>
+
     </section>
   );
 }

@@ -86,7 +86,7 @@ export default function TheTeamSection() {
             <div className="relative w-[350px] h-[450px] md:w-[400px] md:h-[500px]">
               <div className="absolute inset-0 border-2 border-red-600/30 rounded-[40px] transform translate-x-4 translate-y-4 pointer-events-none" />
               <div className="relative w-full h-full rounded-[40px] overflow-hidden shadow-2xl border border-neutral-800 bg-neutral-900">
-                <Image src="/images/man.webp" alt="Jaybe Solatorio" fill className="object-cover hover:scale-105 transition-transform duration-700" />
+                <Image src="/images/Arthur.jpg" alt="Arthur" fill className="object-cover hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
               </div>
                <div className="absolute -bottom-6 -left-6 bg-neutral-900 border border-red-600/50 p-4 rounded-2xl shadow-xl backdrop-blur-md">
@@ -261,7 +261,7 @@ export default function TheTeamSection() {
                  <div className="absolute top-8 left-8 bg-red-600/90 backdrop-blur-md px-6 py-3 rounded-xl z-20 shadow-[0_0_20px_rgba(220,38,38,0.5)]">
                      <h3 className="text-white text-2xl font-bold">Q3 <br/><span className="text-lg font-light">Wrap Up</span></h3>
                  </div>
-                 <Image src="/images/group-photo.jpg" alt="Team Group Photo" fill className="object-cover group-hover:scale-105 transition-transform duration-1000" />
+                 <Image src="/images/gfinal.png" alt="Team Group Photo" fill className="object-cover group-hover:scale-105 transition-transform duration-1000" />
                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
              </div>
 
