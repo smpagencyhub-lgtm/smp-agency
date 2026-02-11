@@ -1,7 +1,13 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Instagram, ChevronLeft, ChevronRight, X, ArrowUpRight } from "lucide-react"; 
+import {
+  Instagram,
+  ChevronLeft,
+  ChevronRight,
+  X,
+  ArrowUpRight,
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Data
@@ -72,7 +78,7 @@ export default function AboutSection2() {
   // --- ARROW SCROLL FUNCTION ---
   const scroll = (direction: "left" | "right") => {
     if (scrollContainerRef.current) {
-      const scrollAmount = 600; 
+      const scrollAmount = 600;
       scrollContainerRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
         behavior: "smooth",
@@ -183,7 +189,7 @@ export default function AboutSection2() {
             </motion.span>
             <motion.span
               variants={itemVariants}
-              className="bg-red-600 mt-5 text-white px-4 py-1 italic font-bold house shadow-[0_0_15px_rgba(220,38,38,0.5)] cursor-default rounded-md inline-block transform -skew-x-6 ml-0 md:ml-3"
+              className="bg-red-600 lg:mt-5 sm:mt-0 text-white px-4 py-1 italic font-bold house shadow-[0_0_15px_rgba(220,38,38,0.5)] cursor-default rounded-md inline-block transform -skew-x-6 ml-0 md:ml-3"
               whileHover={{ scale: 1.05, skewX: -12 }}
             >
               SMP MANAGEMENT
@@ -273,7 +279,10 @@ export default function AboutSection2() {
                   {/* READ FULL STORY INDICATOR (Now at the bottom) */}
                   <div className="flex items-center gap-1.5 text-red-500 text-xs font-bold uppercase tracking-widest group-hover:text-red-400 transition-colors mt-2">
                     <span>Read full story</span>
-                    <ArrowUpRight size={14} className="transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    <ArrowUpRight
+                      size={14}
+                      className="transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                    />
                   </div>
                 </div>
 
