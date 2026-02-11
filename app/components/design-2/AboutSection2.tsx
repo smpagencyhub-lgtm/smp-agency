@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState } from "react";
-// Added ArrowUpRight to imports
 import { Instagram, ChevronLeft, ChevronRight, X, ArrowUpRight } from "lucide-react"; 
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -71,7 +70,7 @@ export default function AboutSection2() {
   // --- ARROW SCROLL FUNCTION ---
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
-      const scrollAmount = 600; // Increased scroll amount for bigger cards
+      const scrollAmount = 600; 
       scrollContainerRef.current.scrollBy({
         left: direction === 'left' ? -scrollAmount : scrollAmount,
         behavior: 'smooth'
@@ -171,7 +170,7 @@ export default function AboutSection2() {
           <h2 className="text-3xl md:text-5xl font-light uppercase tracking-wide text-white flex flex-col md:block items-center justify-center gap-2">
             <motion.span
               variants={itemVariants}
-              className="bg-red-600 text-white px-4 py-1 italic font-bold inline-block transform -skew-x-6 mr-0 md:mr-3 shadow-[0_0_15px_rgba(220,38,38,0.5)] cursor-default rounded-md"
+              className="bg-red-600 text-white px-4 py-1 italic font-bold house shadow-[0_0_15px_rgba(220,38,38,0.5)] cursor-default rounded-md inline-block transform -skew-x-6 mr-0 md:mr-3"
               whileHover={{ scale: 1.05, skewX: -12 }}
             >
               BENEFITS
@@ -181,7 +180,7 @@ export default function AboutSection2() {
             </motion.span>
             <motion.span
               variants={itemVariants}
-              className="bg-red-600 mt-5 text-white px-4 py-1 italic font-bold inline-block transform -skew-x-6 ml-0 md:ml-3 shadow-[0_0_15px_rgba(220,38,38,0.5)] cursor-default rounded-md"
+              className="bg-red-600 mt-5 text-white px-4 py-1 italic font-bold house shadow-[0_0_15px_rgba(220,38,38,0.5)] cursor-default rounded-md inline-block transform -skew-x-6 ml-0 md:ml-3"
               whileHover={{ scale: 1.05, skewX: -12 }}
             >
               SMP MANAGEMENT
@@ -235,7 +234,6 @@ export default function AboutSection2() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.2 }} 
                 onClick={() => handleCardClick(item)}
-                // UPDATED: Increased width from md:w-[650px] to md:w-[800px]
                 className="flex-shrink-0 w-[85vw] md:w-[800px] bg-neutral-900/80 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border border-neutral-800 flex flex-col md:flex-row hover:border-red-900 transition-colors duration-300 group select-none relative cursor-pointer"
               >
                 {/* Text Content */}
@@ -254,14 +252,9 @@ export default function AboutSection2() {
                     {item.text}
                   </p>
 
-                  {/* READ FULL STORY INDICATOR */}
-                  <div className="flex items-center gap-1.5 text-red-500 text-xs font-bold uppercase tracking-widest mb-6 group-hover:text-red-400 transition-colors">
-                    <span>Read full story</span>
-                    <ArrowUpRight size={14} className="transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </div>
-
+                  {/* INSTAGRAM BUTTON (Now above the full story indicator) */}
                   <button
-                    className="flex items-center text-gray-300 font-medium text-sm cursor-pointer w-fit pointer-events-auto"
+                    className="flex items-center text-gray-300 font-medium text-sm cursor-pointer w-fit pointer-events-auto mb-4"
                     onClick={(e) => {
                       e.stopPropagation(); 
                       window.open(item.instagramLink, '_blank');
@@ -273,6 +266,12 @@ export default function AboutSection2() {
                       {item.handle}
                     </span>
                   </button>
+
+                  {/* READ FULL STORY INDICATOR (Now at the bottom) */}
+                  <div className="flex items-center gap-1.5 text-red-500 text-xs font-bold uppercase tracking-widest group-hover:text-red-400 transition-colors mt-2">
+                    <span>Read full story</span>
+                    <ArrowUpRight size={14} className="transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </div>
                 </div>
 
                 {/* Image Side */}

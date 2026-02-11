@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -52,36 +52,19 @@ export default function TheTeamSection() {
 
 
         {/* ==========================
-            2. INDIVIDUAL FOUNDERS (Jaybe, Jesse, Suharto)
+            2. INDIVIDUAL FOUNDERS (Arthur, Raphael, Suharto)
            ========================== */}
         
         {/* --- ARTHUR TURNER (Jaybe) --- */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32 border-b border-white/5 pb-20">
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="inline-block bg-gradient-to-r from-red-600 to-red-900 px-6 py-2 rounded-lg mb-8 shadow-lg transform -rotate-1">
-              <h3 className="text-2xl md:text-3xl font-bold text-white italic tracking-wider uppercase">
-                Arthur
-              </h3>
-            </div>
-            <div className="space-y-6 text-gray-300 text-lg font-light leading-relaxed">
-              {/* UPDATED ARTHUR BIO TO MATCH RAPHAEL'S TONE */}
-              <p>With a foundation in <span className="text-white font-medium">corporate real estate and high-stakes negotiation</span>, Arthur bridges the gap between traditional business professionalism and the fast-paced creator economy. His expertise lies in organizational management, ensuring that creativity is backed by flawless execution.</p>
-              <p>Arthur brings clarity to an industry that often feels chaotic, providing creators with a stable, strategic path to growth. By applying a rigorous business mindset, he identifies market shifts before they happen, allowing SMP to establish dominance early.</p>
-              <p>His focus is on building connections with <span className="text-red-500 font-medium">unicorn-level clients</span> and creating an infrastructure where talent can thrive without operational bottlenecks. This advantage has been key to SMP’s rapid expansion and market leadership.</p>
-            </div>
-            <div className="mt-8 h-1 w-24 bg-red-600 rounded-full" />
-          </motion.div>
+          
+          {/* IMAGE BLOCK: Order 1 on Mobile, Order 2 on Desktop */}
           <motion.div 
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative flex justify-center lg:justify-end"
+            className="relative flex justify-center lg:justify-end order-1 lg:order-2" 
           >
             <div className="relative w-[350px] h-[450px] md:w-[400px] md:h-[500px]">
               <div className="absolute inset-0 border-2 border-red-600/30 rounded-[40px] transform translate-x-4 translate-y-4 pointer-events-none" />
@@ -95,16 +78,39 @@ export default function TheTeamSection() {
                </div>
             </div>
           </motion.div>
+
+          {/* TEXT BLOCK: Order 2 on Mobile, Order 1 on Desktop */}
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="order-2 lg:order-1" 
+          >
+            <div className="inline-block bg-gradient-to-r from-red-600 to-red-900 px-6 py-2 rounded-lg mb-8 shadow-lg transform -rotate-1">
+              <h3 className="text-2xl md:text-3xl font-bold text-white italic tracking-wider uppercase">
+                Arthur
+              </h3>
+            </div>
+            <div className="space-y-6 text-gray-300 text-lg font-light leading-relaxed">
+              <p>With a foundation in <span className="text-white font-medium">corporate real estate and high-stakes negotiation</span>, Arthur bridges the gap between traditional business professionalism and the fast-paced creator economy. His expertise lies in organizational management, ensuring that creativity is backed by flawless execution.</p>
+              <p>Arthur brings clarity to an industry that often feels chaotic, providing creators with a stable, strategic path to growth. By applying a rigorous business mindset, he identifies market shifts before they happen, allowing SMP to establish dominance early.</p>
+              <p>His focus is on building connections with <span className="text-red-500 font-medium">unicorn-level clients</span> and creating an infrastructure where talent can thrive without operational bottlenecks. This advantage has been key to SMP’s rapid expansion and market leadership.</p>
+            </div>
+            <div className="mt-8 h-1 w-24 bg-red-600 rounded-full" />
+          </motion.div>
+
         </div>
 
         {/* --- RAPHAEL (Previously Jesse) --- */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32 border-b border-white/5 pb-20">
+           {/* IMAGE BLOCK: Order 1 on Mobile, Order 1 on Desktop (Already aligned left for desktop) */}
            <motion.div 
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative flex justify-center lg:justify-start order-2 lg:order-1"
+            className="relative flex justify-center lg:justify-start order-1 lg:order-1"
           >
              <div className="relative w-[350px] h-[450px] md:w-[400px] md:h-[500px]">
               <div className="absolute inset-0 border-2 border-red-600/30 rounded-[40px] transform -translate-x-4 -translate-y-4 pointer-events-none" />
@@ -118,18 +124,19 @@ export default function TheTeamSection() {
                </div>
             </div>
           </motion.div>
+
+          {/* TEXT BLOCK: Order 2 on Mobile, Order 2 on Desktop */}
           <motion.div 
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="order-1 lg:order-2"
+            className="order-2 lg:order-2"
           >
             <div className="inline-block bg-gradient-to-r from-red-600 to-red-900 px-6 py-2 rounded-lg mb-8 shadow-lg transform rotate-1">
               <h3 className="text-2xl md:text-3xl font-bold text-white italic tracking-wider uppercase">Raphael</h3>
             </div>
             <div className="space-y-6 text-gray-300 text-lg font-light leading-relaxed">
-              {/* UPDATED RAPHAEL BIO */}
               <p>With a strong foundation in <span className="text-white font-medium">marketing and operations</span>, Raphael brings a rare blend of sales instinct and structured execution to OFM. He entered the industry as a chatter and rapidly rose to become one of the top revenue performers, recognised for his ability to convert fans at scale.</p>
               <p>His performance earned him leadership roles where he trained, managed, and stabilised high-pressure chat teams. Progressing into Operations Management, he oversaw multiple departments and partner agencies, driving consistent growth in traffic, monetisation, and team efficiency.</p>
               <p>Here at SMP, Raphael identified operational gaps and rebuilt the business from the ground up, implementing clear SOPs across chatting, marketing, and management. His approach is <span className="text-red-500 font-medium">disciplined, data-led, and long-term focused</span>, making him a trusted operator for creators serious about growth.</p>
@@ -140,44 +147,46 @@ export default function TheTeamSection() {
           
         {/* --- SUHARTO --- */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32 border-b border-white/5 pb-20">
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="inline-block bg-gradient-to-r from-red-600 to-red-900 px-6 py-2 rounded-lg mb-8 shadow-lg transform -rotate-1">
-              <h3 className="text-2xl md:text-3xl font-bold text-white italic tracking-wider uppercase">Suharto</h3>
-            </div>
-            <div className="space-y-6 text-gray-300 text-lg font-light leading-relaxed">
-              
-              <p>Suharto leads marketing strategy with a strong focus on <span className="text-white font-medium">Instagram growth, audience trust, and scalable systems</span>. With years of hands-on experience, he has built and grown high-performing accounts through testing, execution, and data-driven refinement.</p>
-              <p>Starting with personal projects, Suharto proved his methods before onboarding clients. Consistent results led to rapid expansion through referrals, positioning him as a key driver of <span className="text-red-500 font-medium">sustainable growth</span> and performance-focused marketing.</p>
-              
-            </div>
-            <div className="mt-8 h-1 w-24 bg-red-600 rounded-full" />
-          </motion.div>
+          
+          {/* IMAGE BLOCK: Order 1 on Mobile, Order 2 on Desktop */}
           <motion.div 
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative flex justify-center lg:justify-end"
+            className="relative flex justify-center lg:justify-end order-1 lg:order-2"
           >
             <div className="relative w-[350px] h-[450px] md:w-[400px] md:h-[500px]">
               <div className="absolute inset-0 border-2 border-red-600/30 rounded-[40px] transform translate-x-4 translate-y-4 pointer-events-none" />
               <div className="relative w-full h-full rounded-[40px] overflow-hidden shadow-2xl border border-neutral-800 bg-neutral-900">
-
                 <Image src="/images/suharto.jpg" alt="Suharto" fill className="object-cover hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
               </div>
-
                <div className="absolute -bottom-6 -left-6 bg-neutral-900 border border-red-600/50 p-4 rounded-2xl shadow-xl backdrop-blur-md">
                  <p className="text-red-500 text-xs font-bold tracking-widest uppercase mb-1">Role</p>
                  <p className="text-white text-lg font-bold">CMO</p>
                </div>
             </div>
           </motion.div>
+
+          {/* TEXT BLOCK: Order 2 on Mobile, Order 1 on Desktop */}
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="order-2 lg:order-1"
+          >
+            <div className="inline-block bg-gradient-to-r from-red-600 to-red-900 px-6 py-2 rounded-lg mb-8 shadow-lg transform -rotate-1">
+              <h3 className="text-2xl md:text-3xl font-bold text-white italic tracking-wider uppercase">Suharto</h3>
+            </div>
+            <div className="space-y-6 text-gray-300 text-lg font-light leading-relaxed">
+              <p>Suharto leads marketing strategy with a strong focus on <span className="text-white font-medium">Instagram growth, audience trust, and scalable systems</span>. With years of hands-on experience, he has built and grown high-performing accounts through testing, execution, and data-driven refinement.</p>
+              <p>Starting with personal projects, Suharto proved his methods before onboarding clients. Consistent results led to rapid expansion through referrals, positioning him as a key driver of <span className="text-red-500 font-medium">sustainable growth</span> and performance-focused marketing.</p>
+            </div>
+            <div className="mt-8 h-1 w-24 bg-red-600 rounded-full" />
+          </motion.div>
+
         </div>
 
 
@@ -195,8 +204,7 @@ export default function TheTeamSection() {
                     transition={{ delay: index * 0.2 }}
                     className="relative w-full"
                 >
-                    {/* --- THE CARD CONTAINER --- 
-                        Used to fill the "waste space" with a sleek background */}
+                    {/* --- THE CARD CONTAINER --- */}
                     <div className="relative w-full max-w-5xl mx-auto bg-neutral-900/40 border border-white/5 rounded-[3rem] p-8 md:p-16 overflow-hidden backdrop-blur-sm shadow-2xl">
                         
                         {/* DECORATION: Corner Accents */}
@@ -219,7 +227,7 @@ export default function TheTeamSection() {
                             <div className="flex flex-wrap justify-center gap-8 md:gap-16 mb-10">
                                 {dept.members.map((member, i) => (
                                     <div key={i} className="flex flex-col items-center group">
-                                        {/* IMAGE CONTAINER - Increased Size */}
+                                        {/* IMAGE CONTAINER */}
                                         <div className="w-40 h-40 md:w-64 md:h-64 relative rounded-3xl overflow-hidden border-2 border-red-900/50 shadow-2xl mb-6 bg-neutral-900">
                                             <Image 
                                                 src={member.image} 
