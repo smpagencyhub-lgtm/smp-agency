@@ -1,67 +1,78 @@
 'use client';
 
-
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
-// --- DATA: Blog Posts (Extracted from your screenshot) ---
+// --- DATA: Blog Posts ---
+// We define this here so the list can render
 const blogPosts = [
   {
     category: "Growth",
-    title: "Scaling Creator Income",
-    excerpt: "Discover the proven strategies management teams use to consistently increase creator earnings while maintaining long term subscriber value.",
-    image: "/images/allaya (2).JPG", // Placeholder - match your file names
+    title: "Boosting Creator Earnings",
+    slug: "boosting-creator-earnings",
+    excerpt: "Explore strategies that management teams implement to steadily grow creator income while keeping subscribers engaged for the long term.",
+    image: "/images/allaya (2).JPG",
   },
   {
     category: "Engagement",
-    title: "The Art Of Fan Engagement",
-    excerpt: "Learn how personalized messaging and smart interaction systems turn casual followers into loyal, high-spending fans.",
+    title: "Mastering Fan Interaction",
+    slug: "mastering-fan-interaction",
+    excerpt: "See how tailored communication and smart engagement techniques convert casual followers into devoted, high-value fans.",
     image: "/images/allaya4.jpg",
   },
   {
     category: "Monetization",
-    title: "Turning Content Into Revenue",
-    excerpt: "Content alone doesn't sell; strategy does. Explore how structured funnels and pricing models maximize every post.",
-    image: "/images/b-model (6).JPG",
+    title: "Turning Content Into Profit",
+    slug: "turning-content-into-profit",
+    excerpt: "Content alone isn’t enough. Discover how strategic funnels and pricing plans help maximize revenue from every post.",
+    image: "/images/modf1.jpg",
   },
   {
     category: "Security",
-    title: "Protecting Creators & Brands",
-    excerpt: "From privacy safeguards to account compliance, see how professional management keeps creators protected while scaling fast.",
-    image: "/images/b-model (2).JPG",
+    title: "Keeping Creators & Brands Safe",
+    slug: "keeping-creators-brands-safe",
+    excerpt: "Learn how professional management protects accounts through privacy measures and compliance while enabling fast growth.",
+    image: "/images/modf2.jpg",
   },
   {
     category: "Analytics",
-    title: "Data-Driven Growth Models",
-    excerpt: "Understand how performance metrics and behavioral data guide smarter decisions and predictable account growth.",
+    title: "Growth Backed By Data",
+    slug: "growth-backed-by-data",
+    excerpt: "Dive into how insights from metrics and user behavior inform smarter decisions and drive predictable growth.",
     image: "/images/g-model (1).JPEG",
   },
   {
     category: "Branding",
-    title: "Building A Marketable Persona",
-    excerpt: "Strong branding creates emotional connection. Learn how curated personas help creators stand out in crowded markets.",
-    image: "/images/g-model (2).jpg",
+    title: "Creating a Standout Persona",
+    slug: "creating-standout-persona",
+    excerpt: "Effective branding builds emotional connections. Learn how thoughtful personas help creators shine in competitive markets.",
+    image: "/images/mod3.jpg",
   },
   {
     category: "Operations",
-    title: "Systems That Scale",
-    excerpt: "Automation, scheduling, and team workflows are key to growth. Here's how agencies streamline daily operations.",
-    image: "/images/g-model (3).jpg",
+    title: "Scaling With Efficient Systems",
+    slug: "scaling-with-efficient-systems",
+    excerpt: "Automation, team workflows, and organized schedules are crucial for growth. Discover how agencies simplify daily operations.",
+    image: "/images/modf3.jpg",
   },
   {
     category: "Traffic",
-    title: "Organic & Paid Traffic",
-    excerpt: "Explore how balanced traffic strategies bring in high quality subscribers without sacrificing account health.",
-    image: "/images/g-model (7).jpg",
+    title: "Maximizing Organic & Paid Reach",
+    slug: "maximizing-organic-paid-reach",
+    excerpt: "Learn how combining organic and paid strategies brings in quality subscribers without compromising account performance.",
+    image: "/images/mod5.jpg",
   },
   {
     category: "Retention",
-    title: "Retention Over Acquisition",
-    excerpt: "Keeping subscribers is just as important as gaining them. Learn the techniques that reduce churn and boost lifetime value.",
-    image: "/images/allaya3.jpg",
+    title: "Prioritizing Subscriber Loyalty",
+    slug: "prioritizing-subscriber-loyalty",
+    excerpt: "Maintaining subscribers is as important as acquiring them. Explore proven methods to minimize churn and increase lifetime value.",
+    image: "/images/modf4.jpg",
   }
 ];
+
 
 export default function BlogSection() {
   return (
@@ -95,7 +106,7 @@ export default function BlogSection() {
             </h2>
           </div>
           <p className="mt-6 text-gray-400 text-center max-w-2xl text-sm md:text-base">
-            Insights, strategies, and industry news from the team at FansHub.
+            Insights, strategies, and industry news from the team at SMP.
           </p>
         </motion.div>
 
@@ -113,8 +124,8 @@ export default function BlogSection() {
                     transition={{ delay: index * 0.1 }}
                     className="group relative bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden hover:border-red-600/50 transition-all duration-300 flex flex-col h-full shadow-lg"
                 >
-                    {/* Image Container */}
-                    <div className="relative h-56 w-full overflow-hidden">
+                    {/* Image Container - Linked */}
+                    <Link href={`/blog/${post.slug}`} className="relative h-56 w-full overflow-hidden block cursor-pointer">
                         <Image 
                             src={post.image}
                             alt={post.title}
@@ -130,22 +141,29 @@ export default function BlogSection() {
                                 {post.category}
                             </span>
                         </div>
-                    </div>
+                    </Link>
 
                     {/* Content */}
                     <div className="p-6 flex flex-col flex-grow">
-                        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-red-500 transition-colors duration-300">
-                            {post.title}
-                        </h3>
+                        {/* Title - Linked */}
+                        <Link href={`/blog/${post.slug}`} className="block">
+                            <h3 className="text-xl font-bold text-white mb-3 group-hover:text-red-500 transition-colors duration-300 cursor-pointer">
+                                {post.title}
+                            </h3>
+                        </Link>
+                        
                         <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
                             {post.excerpt}
                         </p>
                         
-                        {/* Read More Link */}
-                        <div className="flex items-center gap-2 text-red-500 font-bold text-sm uppercase tracking-wider group/link cursor-pointer">
+                        {/* Read More Link - Functional */}
+                        <Link 
+                          href={`/blog/${post.slug}`} 
+                          className="flex items-center gap-2 text-red-500 font-bold text-sm uppercase tracking-wider group/link cursor-pointer w-fit"
+                        >
                             <span>Read Article</span>
                             <ArrowUpRight className="w-4 h-4 transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
-                        </div>
+                        </Link>
                     </div>
 
                     {/* Hover Glow Effect */}
@@ -153,19 +171,6 @@ export default function BlogSection() {
                 </motion.div>
             ))}
         </div>
-
-        {/* View All Button (Optional - adds nice closure to section) */}
-        <motion.div 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="mt-20 flex justify-center"
-        >
-            <button className="px-8 py-3 rounded-full border border-neutral-700 text-white font-medium hover:bg-white hover:text-black transition-all duration-300 hover:scale-105">
-                View All Articles
-            </button>
-        </motion.div>
-
       </div>
     </section>
   );

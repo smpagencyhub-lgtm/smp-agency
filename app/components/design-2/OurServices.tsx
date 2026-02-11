@@ -1,6 +1,6 @@
 'use client';
 
-
+import { useState } from 'react'; // 1. Import useState
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { 
@@ -10,7 +10,12 @@ import {
   ShieldCheck, 
   Tv, 
   FileText 
-} from 'lucide-react'; // Make sure you have lucide-react installed
+} from 'lucide-react';
+
+// 2. Import Modal and Form components
+import Modal from './Modal'; 
+import ApplyNowForm from './ApplyNowForm';
+import type { ApplyNowFormData } from './ApplyNowForm';
 
 // --- DATA: Services ---
 const services = [
@@ -18,42 +23,42 @@ const services = [
     title: "MARKETING",
     icon: <BarChart3 className="w-6 h-6 text-white" />,
     description: "Marketing is often the biggest question mark for both creators and agencies. Most people understand the chatting side, but driving consistent traffic to a creator's page is where many struggle. At SMP, we focus on discovering which platforms and campaigns work best for you as an individual creator – there's no copy-and-paste approach here. Every creator needs a strategy built around their brand, niche, and goals. Our marketing account managers support you at every step, giving you access to over 20 active promotion methods, from social media marketing and our 3,000+ page meme network to podcasts and influencer collaborations.",
-    image: "/images/service (1).jpg", // REPLACE WITH YOUR IMAGE
-    align: "right" // Image on the right
+    image: "/images/service (1).jpg", 
+    align: "right"
   },
   {
     title: "CHATTING",
     icon: <MessageCircle className="w-6 h-6 text-white" />,
     description: "Everyone knows that chatting is the real revenue driver on OnlyFans, and so handing that responsibility to the wrong team can be damaging. Poor communication, lack of cultural understanding, and generic messaging all show in your results. That's why SMP's UK / USA chat team go through vigorous training in order to represent creators with authenticity, emotional intelligence and care. The outcome is higher spend per fan, fewer chargebacks, increased renewals, and long-term trust. Our bespoke creator profile mapping system ensures that all creators receive the ultimate service, and with that, boost their earnings.",
-    image: "/images/service (2).jpg", // REPLACE WITH YOUR IMAGE
-    align: "left" // Image on the left
+    image: "/images/service (2).jpg", 
+    align: "left" 
   },
   {
     title: "CONTENT STRATEGY & PRODUCTION",
     icon: <Video className="w-6 h-6 text-white" />,
     description: "In such a fast-paced industry, the biggest question we hear is: what content should I be posting? The truth is, there isn't a one-size-fits-all answer. Finding the right content strategy is the first thing we work on with our creators, because redefining your brand and niche is often the difference between earning $10k and $100k a month. The industry is moving faster than ever, with over five million creators competing for attention. We help you understand what the market is actively responding to, while also shaping content that's unique to you, converts well, and drives real results.",
-    image: "/images/allaya (2).JPG", // REPLACE WITH YOUR IMAGE
+    image: "/images/modf1.jpg", 
     align: "right"
   },
   {
     title: "DMCA & CONTENT REMOVALS",
     icon: <ShieldCheck className="w-6 h-6 text-white" />,
     description: "When growing your brand as a content creator, the last thing you should be worrying about is your content being leaked. At SMP, we have an in-house team dedicated to monitoring the web for stolen or reposted content. While leaks can't always be prevented, we take a proactive approach to removing them as quickly as possible. We use advanced AI tools to detect and auto-flag leaked content, alongside preparing and issuing DMCA notices to pages hosting our creators' material. This helps protect your income, your brand, and your long-term growth.",
-    image: "/images/service (4).jpg", // REPLACE WITH YOUR IMAGE
+    image: "/images/mod3.jpg", 
     align: "left"
   },
   {
     title: "OFTV",
     icon: <Tv className="w-6 h-6 text-white" />,
     description: "OFTV is one of the largest sources to drive fans to creators' pages, but getting featured on it is a difficult and daunting process. At SMP, we help with the full process, from content ideation, through to the videography and editing of videos. Our creative team will guide creators through every step, and deliver the pitch and application to our partners at OFTV.",
-    image: "/images/service (3).jpg", // REPLACE WITH YOUR IMAGE
+    image: "/images/service (3).jpg", 
     align: "right"
   },
   {
     title: "FORWARD PLANNING & TAX ADVICE",
     icon: <FileText className="w-6 h-6 text-white" />,
     description: "Working alongside SMP doesn't just help you grow your OnlyFans revenue – it helps protect it. Wherever you're based, we work with trusted local partners who support creators with forward financial planning, so you keep and grow what you earn. From tax and VAT guidance to relocation planning, you'll have access to reliable, expert advice tailored to your situation. This means fewer mistakes, less stress, and smarter decisions long term. With the financial side handled properly, you're free to focus on building your brand and income without constant worry.",
-    image: "/images/service1.jpg", // REPLACE WITH YOUR IMAGE
+    image: "/images/service1.jpg", 
     align: "left"
   }
 ];
@@ -88,6 +93,9 @@ const joinSteps = [
 ];
 
 export default function OurServices() {
+  // 3. Add Modal State
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section 
       id="our-services" 
@@ -178,8 +186,8 @@ export default function OurServices() {
 
         {/* --- 3. HOW TO JOIN SECTION --- */}
         <div className="mt-40">
-           {/* Section Title */}
-           <motion.div 
+            {/* Section Title */}
+            <motion.div 
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -211,9 +219,9 @@ export default function OurServices() {
                   <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
                     {/* Number Badge */}
                     <div className="flex-shrink-0">
-                       <div className="w-12 h-12 md:w-14 md:h-14 bg-red-600 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(220,38,38,0.4)] border-2 border-red-400">
+                        <div className="w-12 h-12 md:w-14 md:h-14 bg-red-600 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(220,38,38,0.4)] border-2 border-red-400">
                           <span className="text-white text-xl md:text-2xl font-bold">{step.id}</span>
-                       </div>
+                        </div>
                     </div>
 
                     {/* Text Content */}
@@ -239,7 +247,11 @@ export default function OurServices() {
               viewport={{ once: true }}
               className="mt-16 text-center"
             >
-              <button className="bg-red-600 hover:bg-red-700 text-white text-lg font-bold py-4 px-12 rounded-full shadow-[0_0_25px_rgba(220,38,38,0.6)] hover:shadow-[0_0_40px_rgba(220,38,38,0.8)] transition-all duration-300 transform hover:-translate-y-1">
+              {/* 4. Add onClick handler */}
+              <button 
+                onClick={() => setIsModalOpen(true)}
+                className="bg-red-600 hover:bg-red-700 text-white text-lg font-bold py-4 px-12 rounded-full shadow-[0_0_25px_rgba(220,38,38,0.6)] hover:shadow-[0_0_40px_rgba(220,38,38,0.8)] transition-all duration-300 transform hover:-translate-y-1"
+              >
                 APPLY NOW
               </button>
             </motion.div>
@@ -247,6 +259,24 @@ export default function OurServices() {
         </div>
 
       </div>
+
+      {/* 5. Render Modal and Form */}
+      <Modal
+        open={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title="Apply Now"
+        description="Fill in your details and we’ll get back to you within 24–48 hours."
+        size="md"
+      >
+        <ApplyNowForm
+          onSubmit={(data: ApplyNowFormData) => {
+            console.log("Apply form submitted:", data);
+            setIsModalOpen(false);
+          }}
+          onCancel={() => setIsModalOpen(false)}
+        />
+      </Modal>
+
     </section>
   );
 }

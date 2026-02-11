@@ -7,6 +7,14 @@ import LegalModals from "../design-2/LegalModals";
 export default function Footer() {
   const [activeModal, setActiveModal] = useState<"terms" | "privacy" | null>(null);
 
+  
+  const menuItems = [
+    { name: 'Home', href: '/' },
+    { name: 'About Us', href: '/the-team' }, // Fixed link
+    { name: 'Our Services', href: '/our-services' },
+    { name: 'FAQ', href: '/#faq' }
+  ];
+
   return (
     <>
       <footer className="py-16 px-4 sm:px-6 lg:px-8 bg-black border-t border-gray-800/50 relative overflow-hidden">
@@ -31,10 +39,13 @@ export default function Footer() {
             <div>
               <h3 className="font-semibold mb-6 text-white text-lg">Menu</h3>
               <ul className="space-y-3 text-gray-400">
-                {['Home', 'About Us', 'Our Services', 'FAQ'].map((item) => (
-                  <li key={item}>
-                    <a href={`#${item.toLowerCase().replace(" ", "")}`} className="hover:text-red-600 transition-colors duration-300 text-sm">
-                      {item}
+                {menuItems.map((item) => (
+                  <li key={item.name}>
+                    <a 
+                      href={item.href} 
+                      className="hover:text-red-600 transition-colors duration-300 text-sm"
+                    >
+                      {item.name}
                     </a>
                   </li>
                 ))}

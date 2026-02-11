@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react"; // Added useEffect
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import {
   motion,
   useScroll,
@@ -17,7 +18,7 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "The Team", href: "/the-team" },
   { name: "Our Services", href: "/our-services" },
-  { name: "FAQ's", href: "/faq" },
+  { name: "FAQ's", href: "/#faq" }, // Target ID
   { name: "Blog", href: "/blog" },
 ];
 
@@ -30,11 +31,51 @@ function NavLink({
   onClick?: () => void;
   mobile?: boolean;
 }) {
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // Custom Logic for Hash Links (FAQ, Team, Services)
+    if (link.href.includes("#")) {
+      e.preventDefault(); // Stop default behavior
+
+      const [path, hash] = link.href.split("#");
+      const targetId = hash;
+
+      // Case 1: We are already on the correct page (e.g. Home)
+      if (pathname === path || (path === "/" && pathname === "/")) {
+        const element = document.getElementById(targetId);
+        if (element) {
+          // Offset for fixed header (approx 80px)
+          const yOffset = -80; 
+          const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }
+      } 
+      // Case 2: We are on a different page -> Navigate then let useEffect handle scroll
+      else {
+        router.push(link.href);
+      }
+      
+      if (onClick) onClick();
+      return;
+    }
+
+    // Default behavior for standard links
+    if (onClick) onClick();
+  };
+
   const className = mobile
     ? "block w-full py-3.5 px-5 text-base font-medium text-gray-300 hover:text-white hover:bg-neutral-800/50 transition-colors border-b border-neutral-700/40 last:border-b-0 first:pt-4"
     : "text-sm font-medium text-gray-300 hover:text-white transition-colors relative group";
+
   return (
-    <Link href={link.href} onClick={onClick} className={className}>
+    <Link 
+      href={link.href} 
+      onClick={handleClick} 
+      className={className}
+      scroll={false} // Disable Next.js auto-scroll to prevent conflicts
+    >
       {link.name}
       {!mobile && (
         <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-red-600 transition-all duration-300 group-hover:w-full" />
@@ -45,11 +86,31 @@ function NavLink({
 
 export default function Header() {
   const { scrollY } = useScroll();
+  const pathname = usePathname(); // Get current path
   const [hidden, setHidden] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [applyModalOpen, setApplyModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+
+  // --- NEW: Handle Cross-Page Scrolling ---
+  // This runs whenever the URL path changes (e.g. arriving at Home from Team page)
+  useEffect(() => {
+    // Check if there is a hash in the URL (e.g. #faq)
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1); // remove #
+      const element = document.getElementById(id);
+      
+      if (element) {
+        // Wait a tiny bit for the page to render, then scroll
+        setTimeout(() => {
+          const yOffset = -80; // Header height offset
+          const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }, 100);
+      }
+    }
+  }, [pathname]); 
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
@@ -120,11 +181,11 @@ export default function Header() {
             <button
               type="button"
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-              aria-expanded={mobileMenuOpen}
+              aria-expanded={mobileMenuOpen ? "true" : "false"}
               onClick={() => setMobileMenuOpen((o) => !o)}
               className="md:hidden relative flex items-center justify-center w-11 h-11 rounded-xl border border-neutral-600/50 bg-neutral-800/40 hover:bg-neutral-700/60 hover:border-neutral-500/50 text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-red-500/50 focus:ring-offset-2 focus:ring-offset-neutral-900"
             >
-              <span className="relative block w-5 h-4" aria-hidden>
+              <span className="relative block w-5 h-4" aria-hidden="true">
                 <span
                   className={`absolute left-0 w-5 h-[2px] bg-current rounded-full transition-all duration-300 ease-in-out origin-center ${
                     mobileMenuOpen
@@ -197,7 +258,6 @@ export default function Header() {
             </>
           )}
         </AnimatePresence>
-
         {/* Apply Now modal */}
         <Modal
           open={applyModalOpen}
