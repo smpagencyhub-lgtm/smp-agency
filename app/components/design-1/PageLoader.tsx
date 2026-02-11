@@ -1,212 +1,315 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
+
+const MIN_LOADER_TIME = 1100; // ms - ensures animation is visible at least this long
+const MAX_LOADER_TIME = 8000; // safety fallback in case load never fires
 
 export default function PageLoader() {
   const [isLoading, setIsLoading] = useState(true);
   const [isFadingOut, setIsFadingOut] = useState(false);
+  const [hasLoaded, setHasLoaded] = useState(false);
+  const [minTimePassed, setMinTimePassed] = useState(false);
 
+  // Track page load and a minimum display duration so the animation is always visible
   useEffect(() => {
-    // Simulate page loading - wait for all resources to load
     const handleLoad = () => {
-      // Add a small delay for smooth transition
-      setTimeout(() => {
-        setIsFadingOut(true);
-        // Remove loader from DOM after fade out animation
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 600); // Match fade out duration
-      }, 400);
+      setHasLoaded(true);
     };
 
-    // Check if page is already loaded
+    // Minimum time the loader should stay visible (to avoid insta-disappear)
+    const minTimer = setTimeout(() => {
+      setMinTimePassed(true);
+    }, MIN_LOADER_TIME);
+
+    // Fallback: in case "load" never fires (e.g. long streaming), don't block forever
+    const maxTimer = setTimeout(() => {
+      setHasLoaded(true);
+    }, MAX_LOADER_TIME);
+
     if (document.readyState === "complete") {
       handleLoad();
     } else {
       window.addEventListener("load", handleLoad);
-      return () => window.removeEventListener("load", handleLoad);
     }
+
+    return () => {
+      clearTimeout(minTimer);
+      clearTimeout(maxTimer);
+      window.removeEventListener("load", handleLoad);
+    };
   }, []);
+
+  // Once the page has loaded AND the minimum time has passed, fade the loader out
+  useEffect(() => {
+    if (!hasLoaded || !minTimePassed) return;
+
+    // Defer state updates to timers so they run outside the main effect body
+    const fadeTimer = setTimeout(() => {
+      setIsFadingOut(true);
+    }, 0);
+
+    const hideTimer = setTimeout(() => {
+      setIsLoading(false);
+    }, 700); // matches CSS transition duration on the backdrop
+
+    return () => {
+      clearTimeout(fadeTimer);
+      clearTimeout(hideTimer);
+    };
+  }, [hasLoaded, minTimePassed]);
 
   if (!isLoading) return null;
 
   return (
     <>
       <div
-        className={`fixed inset-0 bg-black flex items-center justify-center transition-opacity duration-600 ease-in-out ${
+        className={`fixed inset-0 bg-black flex flex-col items-center justify-center transition-opacity duration-700 ease-out ${
           isFadingOut ? "opacity-0" : "opacity-100"
-        }`}
+        } loader-backdrop`}
         style={{ zIndex: 9999 }}
+        aria-hidden="true"
+        role="presentation"
       >
-        {/* Professional background effects */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/8 rounded-full blur-3xl animate-pulse"></div>
+        {/* Subtle red ambient glow behind logo */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div
-            className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-600/5 rounded-full blur-3xl animate-pulse"
-            style={{ animationDelay: "1s" }}
-          ></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-red-600/3 rounded-full blur-3xl"></div>
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(80vw,420px)] h-[min(80vw,420px)] rounded-full opacity-30 blur-[80px] bg-red-600/40 loader-glow"
+            aria-hidden
+          />
+          <div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(60vw,280px)] h-[min(60vw,280px)] rounded-full opacity-20 blur-[60px] bg-red-500/50 loader-glow-slow"
+            aria-hidden
+          />
         </div>
 
-        {/* Grid pattern overlay */}
-        <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        {/* Fine grid overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.03] pointer-events-none bg-size-[20px_20px] bg-[linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)]"
+          aria-hidden
+        />
 
-        <div className="relative z-10 flex flex-col items-center justify-center">
-          {/* Animated Logo/Text */}
-          <div className="mb-12 animate-fade-in">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight">
-              <span className="text-white inline-block animate-slide-in-left">
-                SMP
-              </span>{" "}
-              <span className="text-red-600 inline-block animate-slide-in-right">
-                MANAGEMENT
-              </span>
-            </h1>
-          </div>
-
-          {/* Professional Loading Spinner */}
-          <div className="relative w-16 h-16 sm:w-20 sm:h-20 mb-8">
-            {/* Outer ring */}
-            <div className="absolute inset-0 border-2 border-gray-800/50 rounded-full"></div>
-
-            {/* Animated red ring - smooth rotation */}
-            <div
-              className="absolute inset-0 border-2 border-transparent border-t-red-600 rounded-full"
-              style={{
-                animation: "spin 1s linear infinite",
-              }}
-            ></div>
-
-            {/* Secondary ring for depth */}
-            <div
-              className="absolute inset-2 border-2 border-transparent border-r-red-500/40 rounded-full"
-              style={{
-                animation: "spin 0.8s linear infinite reverse",
-              }}
-            ></div>
-
-            {/* Inner pulsing dot */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div
-                className="w-2 h-2 bg-red-600 rounded-full"
-                style={{
-                  animation: "pulse 1.5s ease-in-out infinite",
-                }}
-              ></div>
+        <div className="relative z-10 flex flex-col items-center justify-center px-4">
+          {/* Logo container: ring + blur-in reveal + idle float */}
+          <div className="loader-logo-wrap mb-10">
+            {/* Expanding ring effect */}
+            <div className="loader-logo-ring" aria-hidden />
+            <div className="loader-logo-ring loader-logo-ring-2" aria-hidden />
+            <div className="relative w-[min(72vw,200px)] h-[min(72vw,200px)] sm:w-[220px] sm:h-[220px]">
+              <Image
+                src="/images/logo.png"
+                alt="SMP"
+                fill
+                sizes="(max-width: 640px) 72vw, 220px"
+                className="object-contain loader-logo-img"
+                priority
+                quality={95}
+              />
             </div>
           </div>
 
-          {/* Loading text */}
-          <p
-            className="mt-4 text-gray-400 text-sm sm:text-base tracking-wider uppercase"
-            style={{
-              animation: "fadeInOut 2s ease-in-out infinite",
-              letterSpacing: "0.1em",
-            }}
-          >
-            Loading...
-          </p>
-
-          {/* Professional Progress bar */}
-          <div className="mt-8 w-56 sm:w-72 h-0.5 bg-gray-800/50 rounded-full overflow-hidden">
+          {/* Minimal progress bar */}
+          <div className="w-48 sm:w-56 h-px bg-white/10 rounded-full overflow-hidden">
             <div
-              className="h-full bg-red-600 rounded-full"
-              style={{
-                width: "0%",
-                animation: "progress 2s ease-in-out infinite",
-              }}
-            ></div>
+              className="h-full bg-linear-to-r from-red-600 to-red-400 rounded-full loader-progress"
+              style={{ width: "0%" }}
+            />
           </div>
+
+          {/* Loading label */}
+          <p
+            className="mt-5 text-white/50 text-[11px] sm:text-xs font-medium tracking-[0.25em] uppercase loader-text"
+            style={{ letterSpacing: "0.25em" }}
+          >
+            Loading
+          </p>
         </div>
       </div>
 
       <style jsx>{`
-        @keyframes fadeIn {
-          from {
+        @keyframes logoReveal {
+          0% {
             opacity: 0;
-            transform: translateY(-10px);
+            transform: scale(0.72) translateY(24px);
+            filter: blur(14px);
           }
-          to {
+          45% {
             opacity: 1;
-            transform: translateY(0);
+            transform: scale(1.04) translateY(-3px);
+            filter: blur(0);
+          }
+          70% {
+            opacity: 1;
+            transform: scale(0.98) translateY(1px);
+            filter: blur(0);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            filter: blur(0);
           }
         }
 
-        @keyframes slideInLeft {
-          from {
-            opacity: 0;
-            transform: translateX(-30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        @keyframes slideInRight {
-          from {
-            opacity: 0;
-            transform: translateX(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        @keyframes fadeInOut {
+        @keyframes logoFloat {
           0%,
           100% {
-            opacity: 0.5;
+            transform: translateY(0);
           }
           50% {
+            transform: translateY(-6px);
+          }
+        }
+
+        @keyframes logoRing {
+          0% {
+            opacity: 0.8;
+            transform: translate(-50%, -50%) scale(0.85);
+          }
+          100% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(1.35);
+          }
+        }
+
+        @keyframes loaderBackdropIn {
+          0% {
+            opacity: 0;
+          }
+          100% {
             opacity: 1;
           }
         }
 
-        @keyframes progress {
+        @keyframes logoShine {
+          0%,
+          100% {
+            filter: drop-shadow(0 0 20px rgba(220, 38, 38, 0.25))
+              drop-shadow(0 0 40px rgba(220, 38, 38, 0.1));
+          }
+          50% {
+            filter: drop-shadow(0 0 28px rgba(220, 38, 38, 0.45))
+              drop-shadow(0 0 56px rgba(220, 38, 38, 0.15));
+          }
+        }
+
+        @keyframes glowPulse {
+          0%,
+          100% {
+            opacity: 0.3;
+            transform: translate(-50%, -50%) scale(1);
+          }
+          50% {
+            opacity: 0.5;
+            transform: translate(-50%, -50%) scale(1.05);
+          }
+        }
+
+        @keyframes glowPulseSlow {
+          0%,
+          100% {
+            opacity: 0.2;
+          }
+          50% {
+            opacity: 0.35;
+          }
+        }
+
+        @keyframes progressRun {
           0% {
             width: 0%;
           }
-          50% {
-            width: 70%;
+          40% {
+            width: 65%;
+          }
+          70% {
+            width: 85%;
           }
           100% {
             width: 100%;
           }
         }
 
-        @keyframes spin {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-
-        @keyframes pulse {
+        @keyframes textFade {
           0%,
           100% {
-            opacity: 1;
-            transform: scale(1);
+            opacity: 0.5;
           }
           50% {
-            opacity: 0.5;
-            transform: scale(0.8);
+            opacity: 1;
           }
         }
 
-        .animate-fade-in {
-          animation: fadeIn 0.8s ease-out;
+        .loader-backdrop {
+          animation: loaderBackdropIn 0.35s ease-out;
         }
 
-        .animate-slide-in-left {
-          animation: slideInLeft 0.8s ease-out;
+        .loader-logo-wrap {
+          position: relative;
+          animation: logoReveal 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+          will-change: transform, opacity, filter;
+          backface-visibility: hidden;
         }
 
-        .animate-slide-in-right {
-          animation: slideInRight 0.8s ease-out 0.2s both;
+        .loader-logo-wrap::after {
+          content: "";
+          position: absolute;
+          inset: -8px;
+          border-radius: 50%;
+          border: 1px solid rgba(220, 38, 38, 0.2);
+          opacity: 0;
+          animation: logoRing 1.4s ease-out 0.2s forwards;
+          pointer-events: none;
+        }
+
+        .loader-logo-ring {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 260px;
+          height: 260px;
+          border-radius: 50%;
+          border: 1px solid rgba(220, 38, 38, 0.35);
+          transform: translate(-50%, -50%) scale(0.9);
+          opacity: 0;
+          animation: logoRing 1.6s ease-out 0.15s forwards;
+          pointer-events: none;
+        }
+
+        @media (max-width: 640px) {
+          .loader-logo-ring {
+            width: 88vw;
+            height: 88vw;
+          }
+        }
+
+        .loader-logo-ring-2 {
+          animation-delay: 0.4s;
+          border-color: rgba(248, 113, 113, 0.2);
+        }
+
+        .loader-logo-wrap .relative {
+          animation: logoFloat 3.5s ease-in-out 1s infinite;
+        }
+
+        .loader-logo-img {
+          animation: logoShine 2.8s ease-in-out 0.8s infinite;
+        }
+
+        .loader-glow {
+          animation: glowPulse 3s ease-in-out infinite;
+        }
+
+        .loader-glow-slow {
+          animation: glowPulseSlow 4s ease-in-out infinite;
+        }
+
+        .loader-progress {
+          animation: progressRun 1.8s ease-in-out infinite;
+        }
+
+        .loader-text {
+          animation: textFade 1.6s ease-in-out infinite;
         }
       `}</style>
     </>

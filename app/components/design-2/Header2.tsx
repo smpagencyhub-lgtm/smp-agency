@@ -48,6 +48,8 @@ export default function Header() {
   const [hidden, setHidden] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [applyModalOpen, setApplyModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
@@ -75,21 +77,26 @@ export default function Header() {
             href="/"
             className="flex items-center gap-2 sm:gap-3 cursor-pointer group min-w-0"
           >
-            <span className="text-base sm:text-xl font-bold text-white tracking-tight group-hover:text-gray-200 transition-colors flex items-center shrink-0">
-              <span className="text-white px-0.5 sm:px-1 ml-0.5 hidden sm:inline">
-                SMP
-              </span>
-              <div className="relative w-8 h-8 sm:w-8 sm:h-8 shrink-0">
-                <Image
-                  src="/images/logo.png"
-                  alt="SMP Logo"
-                  fill
-                  className="object-contain group-hover:scale-110 transition-transform duration-300"
-                />
+            <span className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+              <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black/60 border border-red-600/50 shadow-[0_0_20px_rgba(220,38,38,0.45)] flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 bg-radial from-red-600/40 via-transparent to-transparent opacity-70" />
+                <div className="relative w-7 h-7 sm:w-8 sm:h-8">
+                  <Image
+                    src="/images/logo.png"
+                    alt="SMP Management logo"
+                    fill
+                    className="object-contain transition-transform duration-300 group-hover:scale-110"
+                    priority
+                  />
+                </div>
               </div>
-              <span className="text-red-600 px-0.5 sm:px-1 ml-0.5 hidden sm:inline">
-                Management
-              </span>
+
+              <div className="flex flex-col leading-tight">
+                <span className="text-sm sm:text-base font-bold tracking-tight text-white">
+                  <span className="text-white">SMP</span>{" "}
+                  <span className="text-red-500">MANAGEMENT</span>
+                </span>
+              </div>
             </span>
           </Link>
 
@@ -100,12 +107,12 @@ export default function Header() {
             ))}
           </div>
 
-          {/* --- RIGHT: CTA + Mobile menu button --- */}
+          {/* --- RIGHT: CTA (desktop only) + Mobile menu button --- */}
           <div className="flex items-center gap-2 sm:gap-3">
             <button
               type="button"
               onClick={() => setApplyModalOpen(true)}
-              className="bg-white text-black hover:bg-red-600 hover:text-white px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 shadow-lg transform hover:scale-105 shrink-0"
+              className="hidden md:inline-flex bg-white text-black hover:bg-red-600 hover:text-white px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 shadow-lg transform hover:scale-105 shrink-0"
             >
               Apply Now
             </button>
@@ -166,29 +173,26 @@ export default function Header() {
                 className="md:hidden absolute top-full left-0 right-0 mt-2 py-1 bg-neutral-900 border border-neutral-700/60 rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] overflow-hidden pointer-events-auto"
                 style={{ zIndex: 50 }}
               >
-                <span className="relative block w-5 h-4" aria-hidden>
-                  <span
-                    className={`absolute left-0 w-5 h-[2px] bg-current rounded-full transition-all duration-300 ease-in-out origin-center ${
-                      mobileMenuOpen
-                        ? "top-1/2 -translate-y-1/2 rotate-45"
-                        : "top-0"
-                    }`}
+                {navLinks.map((link) => (
+                  <NavLink
+                    key={link.name}
+                    link={link}
+                    mobile
+                    onClick={() => setMobileMenuOpen(false)}
                   />
-                  <span
-                    className={`absolute left-0 top-1/2 w-5 h-[2px] bg-current rounded-full -translate-y-1/2 transition-all duration-300 ease-in-out ${
-                      mobileMenuOpen
-                        ? "opacity-0 scale-x-0"
-                        : "opacity-100 scale-x-100"
-                    }`}
-                  />
-                  <span
-                    className={`absolute left-0 w-5 h-[2px] bg-current rounded-full transition-all duration-300 ease-in-out origin-center ${
-                      mobileMenuOpen
-                        ? "top-1/2 -translate-y-1/2 -rotate-45"
-                        : "bottom-0"
-                    }`}
-                  />
-                </span>
+                ))}
+                <div className="p-4 pt-3 pb-4 border-t border-neutral-700/40">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      setApplyModalOpen(true);
+                    }}
+                    className="w-full bg-white text-black hover:bg-red-600 hover:text-white py-3 px-4 rounded-xl text-sm font-bold transition-all duration-300"
+                  >
+                    Apply Now
+                  </button>
+                </div>
               </motion.div>
             </>
           )}
@@ -203,29 +207,51 @@ export default function Header() {
           size="md"
         >
           <ApplyNowForm
-            onSubmit={(data: ApplyNowFormData) => {
-              console.log("Apply form submitted:", data);
-              setApplyModalOpen(false);
-            }}
-            onCancel={() => setApplyModalOpen(false)}
-          />
-        </Modal>
+            loading={isSubmitting}
+            onSubmit={async (data: ApplyNowFormData) => {
+              try {
+                setIsSubmitting(true);
+                setSubmitError(null);
 
-        {/* Apply Now modal */}
-        <Modal
-          open={applyModalOpen}
-          onClose={() => setApplyModalOpen(false)}
-          title="Apply Now"
-          description="Fill in your details and we’ll get back to you within 24–48 hours."
-          size="md"
-        >
-          <ApplyNowForm
-            onSubmit={(data: ApplyNowFormData) => {
-              console.log("Apply form submitted:", data);
-              setApplyModalOpen(false);
+                const response = await fetch("/api/apply", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(data),
+                });
+
+                const payload = await response
+                  .json()
+                  .catch(() => ({ error: "Unexpected response from server." }));
+
+                if (!response.ok) {
+                  throw new Error(
+                    payload?.error ||
+                      "We couldn’t send your application. Please try again in a moment.",
+                  );
+                }
+
+                setApplyModalOpen(false);
+                alert(
+                  "Thank you for applying. Your details have been sent successfully and our team will review your application within 24–48 hours.",
+                );
+              } catch (error) {
+                console.error("Error submitting application:", error);
+                setSubmitError(
+                  error instanceof Error
+                    ? error.message
+                    : "Something went wrong while sending your application. Please try again later.",
+                );
+              } finally {
+                setIsSubmitting(false);
+              }
             }}
             onCancel={() => setApplyModalOpen(false)}
           />
+          {submitError && (
+            <p className="mt-4 text-sm text-red-400">{submitError}</p>
+          )}
         </Modal>
       </div>
     </motion.header>

@@ -185,45 +185,54 @@ export default function ServiceSection() {
             />
           </motion.div>
 
-          {/* Central Booking Card */}
+          {/* Central Booking Card - professional */}
           <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-neutral-900/90 backdrop-blur-md p-8 rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.5)] max-w-sm w-full text-center relative z-10 border border-neutral-800"
+            className="relative max-w-xl w-full z-10"
           >
-            <h4 className="text-red-500 font-semibold mb-4 tracking-widest uppercase text-sm">
-              Book in with us
-            </h4>
+            <div className="bg-neutral-900/95 border border-neutral-800/80 rounded-2xl px-7 py-7 md:px-9 md:py-8 shadow-[0_18px_60px_rgba(0,0,0,0.7)] text-center">
+              <div className="flex flex-col items-center gap-4 mb-5">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-600/15 text-red-500 border border-red-500/40 overflow-hidden">
+                  <Calendar size={22} strokeWidth={1.6} />
+                </div>
+                <div className="space-y-2">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-red-400">
+                    Discovery Call · 20 minutes
+                  </p>
+                  <h4 className="text-xl md:text-2xl font-semibold text-white">
+                    Schedule your creator growth session
+                  </h4>
+                  <p className="text-sm text-gray-400 leading-relaxed max-w-md mx-auto">
+                    A focused one‑to‑one call with our team to review your
+                    current performance, answer questions, and outline clear
+                    next steps for growth.
+                  </p>
+                </div>
+              </div>
 
-            <div className="flex justify-center items-center gap-2 mb-6">
-              <div className="text-3xl font-bold text-gray-500">C</div>
-              <div className="text-2xl font-bold text-white">Calendly</div>
-            </div>
-
-            <p className="text-sm text-gray-400 mb-8 px-4 leading-relaxed">
-              Book an appointment directly with our team via Calendly. Choose
-              the appointment time that&apos;s right for you.
-            </p>
-
-            <motion.div
-              whileHover={{ rotate: 360, scale: 1.1 }}
-              transition={{ duration: 0.8 }}
-              className="flex justify-center mb-6 text-red-600"
-            >
-              <Calendar size={64} strokeWidth={1.5} />
-            </motion.div>
-
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-6 rounded-lg transition-all shadow-[0_4px_20px_rgba(220,38,38,0.4)] hover:shadow-[0_4px_30px_rgba(220,38,38,0.6)]"
-            >
-              BOOK TODAY
-            </motion.button>
-
-            <div className="mt-4 text-xs text-gray-500 hover:text-red-500 cursor-pointer hover:underline transition-colors">
-              Book directly in our calendar
+              <div className="border-t border-neutral-800/80 pt-5 mt-4 flex justify-center">
+                <div className="w-full md:w-auto md:min-w-[220px]">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() =>
+                      window.open(
+                        "https://calendly.com/arthurturner042/30min",
+                        "_blank",
+                      )
+                    }
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-red-600 px-6 py-3 text-sm font-semibold tracking-wide text-white hover:bg-red-500 transition-colors"
+                  >
+                    <Calendar size={18} strokeWidth={1.5} />
+                    BOOK TODAY
+                  </motion.button>
+                  <p className="mt-2 text-[11px] text-gray-500 text-center">
+                    Opens Calendly in a new tab.
+                  </p>
+                </div>
+              </div>
             </div>
           </motion.div>
         </section>

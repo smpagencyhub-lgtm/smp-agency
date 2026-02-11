@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import countries from "world-countries";
@@ -22,13 +22,15 @@ export interface ApplyNowFormData {
 }
 
 export interface ApplyNowFormProps {
-  onSubmit?: (data: ApplyNowFormData) => void;
+  onSubmit?: (data: ApplyNowFormData) => void | Promise<void>;
   onCancel?: () => void;
+  loading?: boolean;
 }
 
 export default function ApplyNowForm({
   onSubmit,
   onCancel,
+  loading,
 }: ApplyNowFormProps) {
   const [formData, setFormData] = useState<ApplyNowFormData>({
     stageName: "",
@@ -36,6 +38,36 @@ export default function ApplyNowForm({
     instagram: "",
     country: "",
   });
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!error) return;
+    const timer = setTimeout(() => setError(null), 4000);
+    return () => clearTimeout(timer);
+  }, [error]);
+
+  const validate = () => {
+    if (!formData.stageName.trim()) {
+      return "Please enter your stage name.";
+    }
+
+    if (!formData.phone || !formData.phone.trim()) {
+      return "Please enter a valid phone number.";
+    }
+
+    if (!formData.country.trim()) {
+      return "Please select your country.";
+    }
+
+    if (
+      formData.instagram &&
+      !/^[A-Za-z0-9._]{2,30}$/.test(formData.instagram.replace(/^@+/, ""))
+    ) {
+      return "Instagram username can only contain letters, numbers, dots and underscores.";
+    }
+
+    return null;
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -51,6 +83,13 @@ export default function ApplyNowForm({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const validationError = validate();
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
+
     onSubmit?.({
       ...formData,
       instagram: formData.instagram ? `@${formData.instagram}` : "",
@@ -60,6 +99,13 @@ export default function ApplyNowForm({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+      {error && (
+        <div className="fixed inset-x-0 top-4 z-[60] flex justify-center px-4">
+          <div className="max-w-md w-full rounded-lg bg-red-600/95 text-white px-4 py-3 text-sm shadow-lg shadow-red-900/40">
+            {error}
+          </div>
+        </div>
+      )}
       <div>
         <label
           htmlFor="stageName"
@@ -97,6 +143,7 @@ export default function ApplyNowForm({
           className="apply-form-phone-input"
           numberInputProps={{
             id: "phone",
+            name: "phone",
             required: true,
           }}
         />
@@ -156,9 +203,10 @@ export default function ApplyNowForm({
         )}
         <button
           type="submit"
+          disabled={!!loading}
           className="flex-1 px-4 py-3 sm:py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-red-500/50 focus:ring-offset-2 focus:ring-offset-neutral-900"
         >
-          Submit
+          {loading ? "Sending..." : "Submit"}
         </button>
       </div>
     </form>
