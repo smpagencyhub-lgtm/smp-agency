@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
+import { useThrottledCallback } from "use-debounce";
 import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
 
 // --- Helper Component for Counting Numbers ---
@@ -23,11 +24,15 @@ const Counter = ({ value, suffix = "string" }: CounterProps) => {
 
   const [displayValue, setDisplayValue] = useState(0);
 
+  const setDisplayThrottled = useThrottledCallback((latest: number) => {
+    setDisplayValue(Math.floor(latest));
+  }, 50);
+
   useEffect(() => {
     return springValue.on("change", (latest) => {
-      setDisplayValue(Math.floor(latest));
+      setDisplayThrottled(latest);
     });
-  }, [springValue]);
+  }, [springValue, setDisplayThrottled]);
 
   return (
     <span ref={ref}>
@@ -86,6 +91,8 @@ export default function StatsSection2() {
         <div className="absolute top-0 right-0 h-full w-24 z-10 bg-gradient-to-l from-black to-transparent" />
 
         <motion.div
+          layout={false}
+          style={{ willChange: "transform" }}
           className="flex whitespace-nowrap gap-8"
           animate={{ x: ["0%", "-33.33%"] }} // Move 1/3rd of the way because we tripled the list
           transition={{ duration: 20, ease: "linear", repeat: Infinity }}
@@ -107,9 +114,10 @@ export default function StatsSection2() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* TITLE */}
         <motion.div
+          layout={false}
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-80px" }}
           className="text-center mb-20"
         >
           <h2 className="text-white text-4xl sm:text-5xl font-light tracking-wide flex flex-col sm:block items-center justify-center gap-3">
@@ -128,11 +136,12 @@ export default function StatsSection2() {
 
         {/* STATS GRID */}
         <motion.div
+          layout={false}
           className="grid grid-cols-2 md:grid-cols-5 gap-12 text-center text-white"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, margin: "-50px", amount: 0.2 }}
         >
           {/* Item 1: Creators */}
           <motion.div variants={itemVariants} className="group">
@@ -197,8 +206,10 @@ export default function StatsSection2() {
 
         {/* Separator Line */}
         <motion.div
+          layout={false}
           initial={{ scaleX: 0, opacity: 0 }}
           whileInView={{ scaleX: 1, opacity: 1 }}
+          viewport={{ once: true }}
           transition={{ duration: 1.5, delay: 0.5 }}
           className="w-full h-[1px] bg-gradient-to-r from-transparent via-red-900 to-transparent mt-24 opacity-50"
         />
@@ -213,6 +224,8 @@ export default function StatsSection2() {
         <div className="absolute top-0 right-0 h-full w-24 z-10 bg-gradient-to-l from-black to-transparent" />
 
         <motion.div
+          layout={false}
+          style={{ willChange: "transform" }}
           className="flex whitespace-nowrap gap-8"
           initial={{ x: "-33.33%" }} // Start offset
           animate={{ x: "0%" }} // Move to 0 (Moves Right)

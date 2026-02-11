@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react"; // Added useEffect
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { useDebouncedCallback } from "use-debounce";
 import {
   motion,
   useScroll,
@@ -113,17 +114,25 @@ export default function Header() {
     }
   }, [pathname]); 
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    const previous = scrollY.getPrevious() ?? 0;
+  const scrollRef = useRef({ latest: 0, previous: 0 });
+  const updateHidden = useDebouncedCallback(() => {
+    const { latest, previous } = scrollRef.current;
     if (latest > previous && latest > 150) {
       setHidden(true);
     } else {
       setHidden(false);
     }
+  }, 120);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    scrollRef.current.previous = scrollRef.current.latest;
+    scrollRef.current.latest = latest;
+    updateHidden();
   });
 
   return (
     <motion.header
+      layout={false}
       variants={{
         visible: { y: 0, opacity: 1 },
         hidden: { y: "-200%", opacity: 0 },
@@ -147,6 +156,8 @@ export default function Header() {
                     src="/images/logo.png"
                     alt="SMP Management logo"
                     fill
+                    sizes="40px"
+                    quality={80}
                     className="object-contain transition-transform duration-300 group-hover:scale-110"
                     priority
                   />

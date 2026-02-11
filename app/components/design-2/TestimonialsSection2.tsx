@@ -54,11 +54,15 @@ export default function TestimonialsSection2() {
 
       {/* Animated Diamond Decorations */}
       <motion.div
+        layout={false}
+        style={{ willChange: "transform" }}
         animate={{ rotate: 360 }}
         transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
         className="absolute right-[-100px] top-[10%] w-[500px] h-[500px] border border-red-900/40 rounded-[60px] hidden xl:block pointer-events-none"
       />
       <motion.div
+        layout={false}
+        style={{ willChange: "transform" }}
         animate={{ rotate: -360 }}
         transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
         className="absolute right-[-100px] bottom-[-100px] w-[500px] h-[500px] border border-red-900/40 rounded-[60px] hidden xl:block pointer-events-none"
@@ -67,9 +71,10 @@ export default function TestimonialsSection2() {
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* --- HEADER --- */}
         <motion.div
+          layout={false}
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-80px" }}
           className="flex flex-col sm:flex-row justify-center items-center gap-3 mb-20"
         >
           <h2 className="text-4xl md:text-5xl font-light text-white tracking-wider uppercase">
@@ -87,11 +92,12 @@ export default function TestimonialsSection2() {
 
         {/* --- CARDS GRID --- */}
         <motion.div
+          layout={false}
           className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, margin: "-50px", amount: 0.2 }}
         >
           {services.map((item, index) => (
             <motion.div
@@ -111,6 +117,8 @@ export default function TestimonialsSection2() {
                   src={item.image}
                   alt={item.title}
                   fill
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                  quality={75}
                   className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110"
                 />
               </div>
@@ -186,12 +194,14 @@ export default function TestimonialsSection2() {
               </button>
 
               {/* Modal Image */}
-              <div className="w-full md:w-1/2 h-64 md:h-auto relative">
+              <div className="w-full md:w-1/2 h-64 md:h-auto relative min-h-64">
                 <div className="absolute inset-0 bg-red-600/10 mix-blend-overlay z-10" />
                 <Image
                   src={selectedService.image}
                   alt={selectedService.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, 640px"
+                  quality={80}
                   className="object-cover grayscale"
                 />
               </div>

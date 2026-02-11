@@ -15,6 +15,7 @@ export default function HeroSection2() {
           loop 
           muted 
           playsInline 
+          preload="auto"
           className="w-full h-full object-cover opacity-80"
         >
           <source src="/Videos/Ads1.mp4" type="video/mp4" />
@@ -32,6 +33,7 @@ export default function HeroSection2() {
       <div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-4 max-w-5xl mx-auto mt-10">
         
         <motion.div
+          layout={false}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}

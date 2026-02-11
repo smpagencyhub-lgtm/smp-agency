@@ -6,11 +6,15 @@ import { Toaster } from "./Toaster";
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 const dancingScript = Dancing_Script({
   variable: "--font-dancing-script",
   subsets: ["latin"],
+  display: "swap",
+  preload: false, // defer secondary font to avoid blocking LCP
 });
 
 export const metadata: Metadata = {
@@ -26,6 +30,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preload" as="video" href="/Videos/Ads1.mp4" />
+      </head>
       <body
         className={`${montserrat.variable} ${dancingScript.variable} antialiased`}
       >
