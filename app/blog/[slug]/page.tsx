@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 
@@ -196,63 +197,61 @@ export default async function BlogPost({ params }: PageProps) {
   }
 
   return (
-    <article className="min-h-screen bg-[#050505] font-sans text-gray-200 pb-24">
+    <article className="min-h-screen bg-gradient-to-b from-white via-gray-50/50 to-white font-sans pb-24">
       
-      {/* --- HERO IMAGE SECTION --- */}
+      {/* Hero Image Section */}
       <div className="relative w-full h-[50vh] md:h-[60vh] overflow-hidden">
         <Image 
           src={post.image} 
           alt={post.title} 
           fill 
+          sizes="100vw"
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-[#050505]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-white" />
       </div>
 
-      {/* --- CONTENT CONTAINER --- */}
+      {/* Content Container */}
       <div className="max-w-4xl mx-auto px-6 -mt-32 relative z-10">
         
-        {/* Navigation: Changed href to /#blog so it scrolls to the section correctly */}
-        <a 
+        {/* Navigation */}
+        <Link 
           href="/blog" 
-          className="inline-flex items-center gap-2 text-gray-400 hover:text-red-500 transition-colors mb-8 group cursor-pointer"
+          className="inline-flex items-center gap-2 text-gray-600 hover:text-theme-brand transition-colors mb-8 group cursor-pointer"
         >
           <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
           <span className="text-sm font-bold uppercase tracking-wider">Back to Blog</span>
-        </a>
+        </Link>
 
         {/* Article Header */}
-        <div className="bg-neutral-900/80 backdrop-blur-md border border-neutral-800 rounded-3xl p-8 md:p-12 shadow-2xl">
-          <div className="flex items-center gap-4 mb-6">
-            <span className="bg-red-600 px-4 py-1 text-xs font-bold text-white uppercase tracking-widest rounded-full">
+        <div className="relative bg-white border border-gray-200/90 rounded-3xl p-8 md:p-12 shadow-xl overflow-hidden">
+          {/* Corner Accents */}
+          <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-theme-brand/20 rounded-tl-3xl pointer-events-none" />
+          
+          <div className="flex items-center gap-4 mb-6 flex-wrap">
+            <span className="bg-theme-brand px-4 py-1.5 text-xs font-bold text-white uppercase tracking-widest rounded-full shadow-lg">
               {post.category}
             </span>
             <span className="text-gray-500 text-sm font-medium">5 Min Read</span>
           </div>
 
-          <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
             {post.title}
           </h1>
 
-          <p className="text-xl text-gray-300 font-light leading-relaxed border-l-4 border-red-600 pl-6 mb-8 italic">
+          <p className="text-xl text-gray-600 font-light leading-relaxed border-l-4 border-theme-brand pl-6 mb-8 italic">
             {post.excerpt}
           </p>
         </div>
 
-        {/* Article Body - FIXED with dangerouslySetInnerHTML and Styles */}
+        {/* Article Body */}
         <div 
-          className="mt-12 text-lg leading-relaxed text-gray-300 px-2 md:px-4 
-            [&>p]:mb-6 
-            [&>h3]:text-2xl [&>h3]:font-bold [&>h3]:text-white [&>h3]:mt-10 [&>h3]:mb-4"
+          className="mt-12 bg-white border border-gray-200/90 rounded-3xl p-8 md:p-12 shadow-xl text-lg leading-relaxed
+            [&>p]:mb-6 [&>p]:text-gray-600
+            [&>h3]:text-2xl [&>h3]:font-bold [&>h3]:text-theme-brand [&>h3]:mt-10 [&>h3]:mb-4"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
-
-        <div className="mt-8 text-lg leading-relaxed text-gray-300 px-2 md:px-4">
-           <p>
-            
-          </p>
-        </div>
 
       </div>
     </article>

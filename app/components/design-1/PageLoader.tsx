@@ -65,28 +65,28 @@ export default function PageLoader() {
   return (
     <>
       <div
-        className={`fixed inset-0 bg-black flex flex-col items-center justify-center transition-opacity duration-700 ease-out ${
+        className={`fixed inset-0 bg-gradient-to-b from-white via-gray-50/50 to-white flex flex-col items-center justify-center transition-opacity duration-700 ease-out ${
           isFadingOut ? "opacity-0" : "opacity-100"
         } loader-backdrop`}
         style={{ zIndex: 9999 }}
         aria-hidden="true"
         role="presentation"
       >
-        {/* Subtle red ambient glow behind logo */}
+        {/* Subtle theme-brand ambient glow behind logo */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(80vw,420px)] h-[min(80vw,420px)] rounded-full opacity-30 blur-[80px] bg-red-600/40 loader-glow"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(80vw,420px)] h-[min(80vw,420px)] rounded-full opacity-20 blur-[80px] bg-theme-brand/30 loader-glow"
             aria-hidden
           />
           <div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(60vw,280px)] h-[min(60vw,280px)] rounded-full opacity-20 blur-[60px] bg-red-500/50 loader-glow-slow"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(60vw,280px)] h-[min(60vw,280px)] rounded-full opacity-15 blur-[60px] bg-theme-brand/40 loader-glow-slow"
             aria-hidden
           />
         </div>
 
         {/* Fine grid overlay */}
         <div
-          className="absolute inset-0 opacity-[0.03] pointer-events-none bg-size-[20px_20px] bg-[linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)]"
+          className="absolute inset-0 opacity-[0.02] pointer-events-none bg-size-[20px_20px] bg-[linear-gradient(to_right,#000_1px,transparent_1px),linear-gradient(to_bottom,#000_1px,transparent_1px)]"
           aria-hidden
         />
 
@@ -110,16 +110,16 @@ export default function PageLoader() {
           </div>
 
           {/* Minimal progress bar */}
-          <div className="w-48 sm:w-56 h-px bg-white/10 rounded-full overflow-hidden">
+          <div className="w-48 sm:w-56 h-px bg-gray-200 rounded-full overflow-hidden">
             <div
-              className="h-full bg-linear-to-r from-red-600 to-red-400 rounded-full loader-progress"
+              className="h-full bg-gradient-to-r from-theme-brand to-theme-brand-hover rounded-full loader-progress"
               style={{ width: "0%" }}
             />
           </div>
 
           {/* Loading label */}
           <p
-            className="mt-5 text-white/50 text-[11px] sm:text-xs font-medium tracking-[0.25em] uppercase loader-text"
+            className="mt-5 text-gray-500 text-[11px] sm:text-xs font-medium tracking-[0.25em] uppercase loader-text"
             style={{ letterSpacing: "0.25em" }}
           >
             Loading
@@ -184,12 +184,12 @@ export default function PageLoader() {
         @keyframes logoShine {
           0%,
           100% {
-            filter: drop-shadow(0 0 20px rgba(220, 38, 38, 0.25))
-              drop-shadow(0 0 40px rgba(220, 38, 38, 0.1));
+            filter: drop-shadow(0 0 20px rgba(142, 8, 7, 0.25))
+              drop-shadow(0 0 40px rgba(142, 8, 7, 0.1));
           }
           50% {
-            filter: drop-shadow(0 0 28px rgba(220, 38, 38, 0.45))
-              drop-shadow(0 0 56px rgba(220, 38, 38, 0.15));
+            filter: drop-shadow(0 0 28px rgba(142, 8, 7, 0.35))
+              drop-shadow(0 0 56px rgba(142, 8, 7, 0.15));
           }
         }
 
@@ -256,7 +256,7 @@ export default function PageLoader() {
           position: absolute;
           inset: -8px;
           border-radius: 50%;
-          border: 1px solid rgba(220, 38, 38, 0.2);
+          border: 1px solid rgba(142, 8, 7, 0.2);
           opacity: 0;
           animation: logoRing 1.4s ease-out 0.2s forwards;
           pointer-events: none;
@@ -269,7 +269,7 @@ export default function PageLoader() {
           width: 260px;
           height: 260px;
           border-radius: 50%;
-          border: 1px solid rgba(220, 38, 38, 0.35);
+          border: 1px solid rgba(142, 8, 7, 0.25);
           transform: translate(-50%, -50%) scale(0.9);
           opacity: 0;
           animation: logoRing 1.6s ease-out 0.15s forwards;
@@ -285,7 +285,7 @@ export default function PageLoader() {
 
         .loader-logo-ring-2 {
           animation-delay: 0.4s;
-          border-color: rgba(248, 113, 113, 0.2);
+          border-color: rgba(142, 8, 7, 0.15);
         }
 
         .loader-logo-wrap .relative {

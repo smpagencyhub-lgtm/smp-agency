@@ -67,8 +67,8 @@ function NavLink({
   };
 
   const className = mobile
-    ? "block w-full py-3.5 px-5 text-base font-medium text-gray-300 hover:text-white hover:bg-neutral-800/50 transition-colors border-b border-neutral-700/40 last:border-b-0 first:pt-4"
-    : "text-sm font-medium text-gray-300 hover:text-white transition-colors relative group";
+    ? "block w-full py-3.5 px-5 text-base font-medium text-gray-600 hover:text-theme-brand hover:bg-gray-50 transition-colors border-b border-gray-200 last:border-b-0 first:pt-4"
+    : "text-sm font-semibold text-gray-700 hover:text-theme-brand transition-colors relative group";
 
   return (
     <Link 
@@ -79,7 +79,7 @@ function NavLink({
     >
       {link.name}
       {!mobile && (
-        <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-red-600 transition-all duration-300 group-hover:w-full" />
+        <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-theme-brand transition-all duration-300 group-hover:w-full" />
       )}
     </Link>
   );
@@ -142,15 +142,15 @@ export default function Header() {
       className="fixed top-4 sm:top-6 left-0 right-0 z-50 flex justify-center px-3 sm:px-4 pointer-events-none"
     >
       <div className="pointer-events-auto relative w-full max-w-5xl">
-        <nav className="flex items-center justify-between w-full px-4 sm:px-6 py-2.5 sm:py-3 bg-neutral-900/70 backdrop-blur-lg border border-neutral-700/50 rounded-full shadow-2xl">
+        <nav className="flex items-center justify-between w-full px-4 sm:px-6 py-2.5 sm:py-3 bg-white/95 backdrop-blur-lg border border-gray-200/80 rounded-full shadow-lg hover:shadow-xl transition-shadow">
           {/* --- LEFT: Logo + Brand Name --- */}
           <Link
             href="/"
             className="flex items-center gap-2 sm:gap-3 cursor-pointer group min-w-0"
           >
             <span className="flex items-center gap-2 sm:gap-2.5 shrink-0">
-              <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black/60 border border-red-600/50 shadow-[0_0_20px_rgba(220,38,38,0.45)] flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-radial from-red-600/40 via-transparent to-transparent opacity-70" />
+              <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-theme-brand/10 border-2 border-theme-brand/20 shadow-[0_0_20px_rgba(142,8,7,0.2)] flex items-center justify-center overflow-hidden group-hover:border-theme-brand/40 transition-colors">
+                <div className="absolute inset-0 bg-gradient-to-br from-theme-brand/10 to-transparent opacity-70" />
                 <div className="relative w-7 h-7 sm:w-8 sm:h-8">
                   <Image
                     src="/images/logo.png"
@@ -165,9 +165,9 @@ export default function Header() {
               </div>
 
               <div className="flex flex-col leading-tight">
-                <span className="text-sm sm:text-base font-bold tracking-tight text-white">
-                  <span className="text-white">SMP</span>{" "}
-                  <span className="text-red-500">MANAGEMENT</span>
+                <span className="text-sm sm:text-base font-bold tracking-tight text-gray-900">
+                  <span className="text-gray-900">SMP</span>{" "}
+                  <span className="text-theme-brand">MANAGEMENT</span>
                 </span>
               </div>
             </span>
@@ -185,7 +185,7 @@ export default function Header() {
             <button
               type="button"
               onClick={() => setApplyModalOpen(true)}
-              className="hidden md:inline-flex bg-white text-black hover:bg-red-600 hover:text-white px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 shadow-lg transform hover:scale-105 shrink-0"
+              className="hidden md:inline-flex bg-theme-brand hover:bg-theme-brand-hover text-white px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 shrink-0"
             >
               Apply Now
             </button>
@@ -195,7 +195,7 @@ export default function Header() {
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenuOpen ? "true" : "false"}
               onClick={() => setMobileMenuOpen((o) => !o)}
-              className="md:hidden relative flex items-center justify-center w-11 h-11 rounded-xl border border-neutral-600/50 bg-neutral-800/40 hover:bg-neutral-700/60 hover:border-neutral-500/50 text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-red-500/50 focus:ring-offset-2 focus:ring-offset-neutral-900"
+              className="md:hidden relative flex items-center justify-center w-11 h-11 rounded-xl border border-gray-300 bg-gray-50 hover:bg-gray-100 hover:border-gray-400 text-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-theme-brand/50 focus:ring-offset-2 focus:ring-offset-white"
             >
               <span className="relative block w-5 h-4" aria-hidden="true">
                 <span
@@ -233,7 +233,7 @@ export default function Header() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
-                className="fixed inset-0 top-0 left-0 right-0 bottom-0 bg-black/60 backdrop-blur-md md:hidden pointer-events-auto"
+                className="fixed inset-0 top-0 left-0 right-0 bottom-0 bg-black/40 backdrop-blur-sm md:hidden pointer-events-auto"
                 style={{ zIndex: 40 }}
                 aria-hidden="true"
                 onClick={() => setMobileMenuOpen(false)}
@@ -243,7 +243,7 @@ export default function Header() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -12, scale: 0.98 }}
                 transition={{ duration: 0.25, ease: [0.32, 0.72, 0, 1] }}
-                className="md:hidden absolute top-full left-0 right-0 mt-2 py-1 bg-neutral-900 border border-neutral-700/60 rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] overflow-hidden pointer-events-auto"
+                className="md:hidden absolute top-full left-0 right-0 mt-2 py-1 bg-white border border-gray-200 rounded-2xl shadow-xl overflow-hidden pointer-events-auto"
                 style={{ zIndex: 50 }}
               >
                 {navLinks.map((link) => (
@@ -254,14 +254,14 @@ export default function Header() {
                     onClick={() => setMobileMenuOpen(false)}
                   />
                 ))}
-                <div className="p-4 pt-3 pb-4 border-t border-neutral-700/40">
+                <div className="p-4 pt-3 pb-4 border-t border-gray-200">
                   <button
                     type="button"
                     onClick={() => {
                       setMobileMenuOpen(false);
                       setApplyModalOpen(true);
                     }}
-                    className="w-full bg-white text-black hover:bg-red-600 hover:text-white py-3 px-4 rounded-xl text-sm font-bold transition-all duration-300"
+                    className="w-full bg-theme-brand hover:bg-theme-brand-hover text-white py-3 px-4 rounded-xl text-sm font-bold transition-all duration-300 shadow-lg hover:shadow-xl"
                   >
                     Apply Now
                   </button>
@@ -284,7 +284,7 @@ export default function Header() {
             onCancel={() => setApplyModalOpen(false)}
           />
           {submitError && (
-            <p className="mt-4 text-sm text-red-400">{submitError}</p>
+            <p className="mt-4 text-sm text-theme-brand">{submitError}</p>
           )}
         </Modal>
       </div>
