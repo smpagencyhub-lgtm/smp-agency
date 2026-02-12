@@ -1,60 +1,76 @@
 "use client";
 
 import Header from "./components/design-2/Header2";
-// Header And Footer
 import Footer from "./components/design-1/Footer";
 
-// ** Design 1 **
-// import HeroSection from "./components/design-1/HeroSection";
-// import StatsSection from "./components/design-1/StatsSection";
-// import ServicesSection from "./components/design-1/ServicesSection";
-// import TestimonialsSection from "./components/design-1/TestimonialsSection";
-// import AboutSection from "./components/design-1/AboutSection";
-// import FAQSection from "./components/design-1/FAQSection";
-// import ApplicationForm from "./components/design-1/ApplicationForm";
-
-// ** Design 2 **
-import HeroSection2 from "./components/design-2/HeroSection2";
-import WhoWeAreSection from "./components/design-2/WhoWeAreSection";
-import AboutSection2 from "./components/design-2/AboutSection2";
-import ServicesSection2 from "./components/design-2/ServicesSection2";
-import StatsSection2 from "./components/design-2/StatsSection2";
-import WorkWithUs from "./components/design-2/WorkWithUs";
-import TestimonialsSection2 from "./components/design-2/TestimonialsSection2";
-
-import FAQSection2 from "./components/design-2/FAQSection2";
-
+import HeroSection from "./components/final-design/hero.section";
+import AboutSection from "./components/final-design/about.section";
+import TestimonialSection from "./components/final-design/testimonial.section";
+import ServicesSection from "./components/final-design/services.section";
+import StatsSection from "./components/final-design/stats.section";
+import WorkWithUs from "./components/final-design/work-with-us.section";
+import CalendlySection from "./components/final-design/calendly.section";
+import GrowthStoriesSection from "./components/final-design/growth-stories.section";
+import FAQSection from "./components/final-design/faq.section";
 
 export default function Home() {
   return (
-    <>
-      <div className="min-h-screen bg-[var(--theme-bg)] relative overflow-hidden bg-gradient-to-br from-[#180000] via-black to-[#5e0e0e]">
-        {/* <Header /> */}
-
-        {/* DESIGN 1 */}
-        {/* 
-              <HeroSection />
-              <StatsSection />
-              <ServicesSection />
-              <TestimonialsSection />
-              <AboutSection />
-              <FAQSection />
-              <ApplicationForm /> 
-        */}
-
-        {/* DESIGN 2 */}
-        <Header/>
-        <HeroSection2 />
-        <WhoWeAreSection/>
-        <AboutSection2 />
-        <ServicesSection2 />
-        <StatsSection2/>
-        <WorkWithUs/>
-        <TestimonialsSection2 />
-        <FAQSection2 />
-        
-        <Footer />
-      </div>
-    </>
+    <div className="min-h-screen bg-theme-bg">
+      <Header />
+      <main>
+        <HeroSection />
+        <div className="relative min-h-screen">
+          <div className="relative">
+            <AboutSection />
+            <TestimonialSection />
+            <ServicesSection />
+            <StatsSection />
+            <WorkWithUs />
+            <CalendlySection />
+            <GrowthStoriesSection />
+            <FAQSection />
+          </div>
+          {/* Repeating Linear Gradient - On top with low opacity */}
+          <div
+            className="absolute inset-0 opacity-[0.06] pointer-events-none z-[3]"
+            style={{
+              background: `repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 70px,
+                rgb(185 28 28) 70px,
+                rgb(185 28 28) 71px
+              )`,
+            }}
+            aria-hidden
+          />
+          {/* SVG Grid Pattern - On top with low opacity */}
+          <div
+            className="absolute inset-0 opacity-[0.08] pointer-events-none z-[3]"
+            aria-hidden
+          >
+            <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern
+                  id="main-grid"
+                  width="44"
+                  height="44"
+                  patternUnits="userSpaceOnUse"
+                >
+                  <path
+                    d="M 44 0 L 0 0 0 44"
+                    fill="none"
+                    stroke="rgb(185 28 28)"
+                    strokeWidth="0.5"
+                  />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#main-grid)" />
+            </svg>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </div>
   );
 }
