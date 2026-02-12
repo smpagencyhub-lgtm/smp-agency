@@ -7,6 +7,7 @@ import HeroSection from "./components/final-design/hero.section";
 import AboutSection from "./components/final-design/about.section";
 import TestimonialSection from "./components/final-design/testimonial.section";
 import ServicesSection from "./components/final-design/services.section";
+import PotentialEarningsSection from "./components/final-design/PotentialEarningsSection";
 import StatsSection from "./components/final-design/stats.section";
 import WorkWithUs from "./components/final-design/work-with-us.section";
 import CalendlySection from "./components/final-design/calendly.section";
@@ -19,18 +20,21 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
-        <div className="relative min-h-screen">
-          <div className="relative">
-            <AboutSection />
+         <AboutSection />
             <TestimonialSection />
             <ServicesSection />
+            <PotentialEarningsSection/>
             <StatsSection />
             <WorkWithUs />
             <CalendlySection />
             <GrowthStoriesSection />
             <FAQSection />
+            <Footer />
+        {/* <div className="relative min-h-screen">
+          <div className="relative">
+           
           </div>
-          {/* Repeating Linear Gradient - On top with low opacity */}
+           Repeating Linear Gradient - On top with low opacity 
           <div
             className="absolute inset-0 opacity-[0.06] pointer-events-none z-[3]"
             style={{
@@ -44,7 +48,7 @@ export default function Home() {
             }}
             aria-hidden
           />
-          {/* SVG Grid Pattern - On top with low opacity */}
+           SVG Grid Pattern - On top with low opacity 
           <div
             className="absolute inset-0 opacity-[0.08] pointer-events-none z-[3]"
             aria-hidden
@@ -68,9 +72,9 @@ export default function Home() {
               <rect width="100%" height="100%" fill="url(#main-grid)" />
             </svg>
           </div>
-        </div>
+        </div> */}
       </main>
-      <Footer />
+      
     </div>
   );
 }

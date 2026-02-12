@@ -25,7 +25,7 @@ const stories = [
       "Strong branding creates emotional connection. Learn how curated personas help creators stand out in crowded markets.",
     content:
       "In a crowded digital market, a strong persona is your most valuable asset. It goes beyond just aesthetics; it's about the tone of voice, the values you project, and the story you tell. We help creators distill their authentic traits into a cohesive brand identity that resonates deeply with their target audience, creating an emotional connection that converts casual followers into loyal superfans.",
-    imageSrc: "/images/b-model (8).jpg",
+    imageSrc: "/images/suki2.jpg",
   },
   {
     category: "Operations",

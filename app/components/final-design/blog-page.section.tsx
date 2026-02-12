@@ -47,7 +47,7 @@ const blogPosts = [
     slug: "growth-backed-by-data",
     excerpt:
       "Dive into how insights from metrics and user behavior inform smarter decisions and drive predictable growth.",
-    image: "/images/g-model (1).JPEG",
+    image: "/images/suki2.jpg",
   },
   {
     category: "Branding",
@@ -55,7 +55,7 @@ const blogPosts = [
     slug: "creating-standout-persona",
     excerpt:
       "Effective branding builds emotional connections. Learn how thoughtful personas help creators shine in competitive markets.",
-    image: "/images/mod3.jpg",
+    image: "/images/sophie322.jpg",
   },
   {
     category: "Operations",

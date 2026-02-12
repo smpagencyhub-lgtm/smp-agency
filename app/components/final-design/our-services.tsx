@@ -47,7 +47,7 @@ const services = [
     icon: ShieldCheck,
     description:
       "When growing your brand as a content creator, the last thing you should be worrying about is your content being leaked. At SMP, we have an in-house team dedicated to monitoring the web for stolen or reposted content. While leaks can't always be prevented, we take a proactive approach to removing them as quickly as possible. We use advanced AI tools to detect and auto-flag leaked content, alongside preparing and issuing DMCA notices to pages hosting our creators' material. This helps protect your income, your brand, and your long-term growth.",
-    image: "/images/mod3.jpg",
+    image: "/images/sophie1.jpg",
     align: "left",
   },
   {

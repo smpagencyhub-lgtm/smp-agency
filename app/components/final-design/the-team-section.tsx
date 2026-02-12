@@ -358,9 +358,7 @@ export default function TheTeamSection() {
         >
           <div className="relative w-full h-[300px] md:h-[600px] rounded-3xl overflow-hidden border border-gray-200 shadow-2xl mb-12 group">
             <div className="absolute top-6 left-6 md:top-8 md:left-8 bg-theme-brand px-6 py-3 rounded-xl z-20 shadow-lg">
-              <h3 className="text-white text-xl md:text-2xl font-bold">
-                Q3 <br />
-                <span className="text-base md:text-lg font-light">Wrap Up</span>
+              <h3 className="text-green-400  lg:text-2xl font-bold"> 
               </h3>
             </div>
             <Image

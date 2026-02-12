@@ -7,13 +7,13 @@ import SectionTitle from "./SectionTitle";
 
 // Defined all 7 images as requested
 const teamImages = [
-  "/images/g-model (1).JPEG",
-  "/images/b-model (1).jpg",
+  "/images/bethan.jpg",
+  "/images/sophie.jpg",
   "/images/allaya5.jpg",
-  "/images/b-model (2).jpg",
+  "/images/suki1.jpg",
   "/images/allaya2.jpg",
-  "/images/b-model (3).jpg",
-  "/images/g-model (4).jpg",
+  "/images/sophie1.jpg",
+  "/images/g-model (6).jpg",
 ];
 
 // Duplicate the array to create the seamless infinite loop effect

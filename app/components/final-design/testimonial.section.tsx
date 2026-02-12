@@ -22,7 +22,7 @@ const testimonials = [
     handle: "@jameshardyx93",
     quote: "I was honestly on the verge of giving up.",
     text: "Before working with SMP, I was completely drained trying to handle everything on my own—messages, posting, promotions, nonstop. I always felt behind. After joining SMP, I finally had breathing room again. My earnings improved, and the burnout disappeared.",
-    imageSrc: "/images/b-model (4).jpg",
+    imageSrc: "/images/jameshardy.jpg",
     instagramLink: "https://www.instagram.com/jameshardyx93",
   },
   {

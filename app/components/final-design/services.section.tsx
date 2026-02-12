@@ -20,7 +20,7 @@ const services = [
   {
     title: "Content Strategy",
     text: "Knowing what content to post can make or break earnings in a fast-paced industry. There's no one-size-fits-all solution—the gap between average and top performance comes from clear branding and a defined niche. SMP guides creators to understand audience demand and craft content that is unique, engaging, and designed to drive meaningful growth.",
-    image: "/images/max.jpg",
+    image: "/images/sophie322.jpg",
   },
 ];
 
@@ -43,7 +43,7 @@ const cardVariants = {
 
 export default function ServicesSection() {
   return (
-    <section className="relative overflow-hidden py-24 md:py-32 font-sans bg-linear-to-b from-white via-gray-50/50 to-white">
+    <section className="relative overflow-hidden py-24 md:py-32 font-sans bg-gradient-to-b from-white via-gray-50/50 to-white">
       {/* Background shapes – Side Only */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -77,7 +77,9 @@ export default function ServicesSection() {
 
       <div className="max-w-[1920px] mx-auto relative z-10 px-6">
         {/* Title */}
-        <SectionTitle eyebrow="What we offer" title="Our Services" highlightStart={false} highlightEnd={true} />
+        <div className="flex flex-col items-center">
+            <SectionTitle eyebrow="What we offer" title="Our Services" highlightStart={false} highlightEnd={true} />
+        </div>
 
         {/* Cards grid */}
         <motion.div
@@ -91,36 +93,46 @@ export default function ServicesSection() {
             <motion.article
               key={index}
               variants={cardVariants}
-              className="group rounded-3xl overflow-hidden bg-white border border-gray-200/90 shadow-lg hover:shadow-xl hover:border-red-500/20 transition-all duration-300"
+              className="group rounded-3xl overflow-hidden bg-white border border-gray-200/90 shadow-lg hover:shadow-xl hover:border-red-500/20 transition-all duration-300 flex flex-col h-full"
             >
               <Link href="/our-services" className="flex flex-col h-full">
-                <div className="relative w-full aspect-4/3 overflow-hidden bg-gray-100">
+                
+                {/* 1. IMAGE CONTAINER */}
+                <div className="relative w-full h-64 overflow-hidden bg-gray-100 flex-shrink-0">
                   <Image
                     src={item.image}
                     alt={item.title}
                     fill
                     sizes="(max-width: 1024px) 100vw, 33vw"
-                    quality={75}
+                    quality={85}
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-red-900/5 group-hover:bg-transparent transition-colors duration-300" />
-                  <div className="absolute top-4 left-4">
-                    <span className="bg-theme-brand text-white text-xs font-bold px-3 py-1.5 uppercase tracking-wider rounded">
-                      {item.title}
-                    </span>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
                 </div>
 
-                <div className="flex flex-col flex-1 p-6 md:p-8 border-t-0">
-                  <div className="h-px w-12 bg-red-500/40 mb-4" aria-hidden />
+                {/* 2. TEXT CONTENT CONTAINER */}
+                <div className="flex flex-col flex-1 p-6 md:p-8">
+                  
+                  {/* TITLE (Moved Here) */}
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-theme-brand transition-colors">
+                    {item.title}
+                  </h3>
+                  
+                  {/* Divider Line */}
+                  <div className="h-1 w-12 bg-theme-brand/20 mb-4 rounded-full group-hover:w-20 transition-all duration-300" aria-hidden />
+
+                  {/* Description Text */}
                   <p className="text-gray-600 text-sm md:text-base leading-relaxed line-clamp-4 mb-6 flex-1 font-medium">
                     {item.text}
                   </p>
-                  <span className="inline-flex items-center gap-2 text-theme-brand font-semibold text-sm uppercase tracking-wider group-hover:gap-3 transition-all">
+
+                  {/* Learn More Link */}
+                  <span className="inline-flex items-center gap-2 text-theme-brand font-bold text-sm uppercase tracking-wider group-hover:gap-3 transition-all mt-auto">
                     Learn more
                     <ArrowRight className="w-4 h-4" />
                   </span>
                 </div>
+
               </Link>
             </motion.article>
           ))}

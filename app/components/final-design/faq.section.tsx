@@ -4,52 +4,60 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 import SectionTitle from "./SectionTitle";
-
-const faqs = [
-  {
-    question: "How do I get started as a model with SMP?",
-    answer:
-      "Getting started is simple. Schedule a free 30-minute strategy call with our team. We'll review your current performance, discuss your goals, and outline a customized growth plan. Once you're ready, we'll handle onboarding and set up all systems within 48 hours.",
-  },
-  {
-    question: "What percentage do you take from my earnings?",
-    answer:
-      "Our pricing is transparent and performance-based. We typically work on a percentage of revenue increase, meaning we only succeed when you succeed. Exact terms are discussed during your strategy call and tailored to your specific situation and goals.",
-  },
-  {
-    question: "Will I lose control of my OnlyFans account?",
-    answer:
-      "Absolutely not. You maintain 100% ownership and control of your account, content, and earnings. We act as your management team, handling chat management, content strategy, and marketing while you focus on creating. You have full access and final approval on everything.",
-  },
-  {
-    question: "How quickly will I see results?",
-    answer:
-      "Most models see measurable improvements within the first 30 days. This includes increased subscriber engagement, better chat response times, and optimized pricing strategies. Revenue growth typically accelerates after 60-90 days as our systems fully integrate and marketing campaigns gain traction.",
-  },
-  {
-    question: "Do you handle all my fan messages?",
-    answer:
-      "Yes, our trained UK and US chat team handles all fan interactions 24/7. They're extensively trained to match your voice and tone authentically, understand fan psychology, and maximize conversion opportunities. You'll receive regular reports on key conversations and can review everything.",
-  },
-  {
-    question: "What platforms do you support?",
-    answer:
-      "We specialize in OnlyFans management, but our marketing services extend across Instagram, Twitter (X), TikTok, Reddit, and other platforms to drive traffic to your main monetization channels. We create cohesive cross-platform strategies that build your brand and maximize reach.",
-  },
-  {
-    question: "Is there a long-term contract required?",
-    answer:
-      "We believe in earning your business every month through results. While we have standard agreements to protect both parties, we focus on performance-based relationships rather than locking you into restrictive long-term contracts. Most models stay because they see value, not because they're obligated.",
-  },
-  {
-    question: "Can you help me if I'm just starting out?",
-    answer:
-      "Absolutely! We work with models at all stages—from complete beginners to established creators looking to scale. For new models, we provide comprehensive guidance on account setup, content strategy, pricing, and brand development to help you start strong and grow faster.",
-  },
-];
+import Modal from "../design-2/Modal";
+import ApplyNowForm from "../design-2/ApplyNowForm";
+import type { ApplyNowFormData } from "../design-2/ApplyNowForm";
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // --- DATA MOVED INSIDE COMPONENT ---
+  // This allows the "Apply Now" button to access setIsModalOpen
+  const faqs = [
+    {
+      question: "What does an OnlyFans agency actually do?",
+      answer: "Think of us as your business management team. While you focus on content creation, we handle the entire business infrastructure: daily chatting with fans, marketing your profile, analyzing pricing data, and maximizing revenue."
+    },
+    {
+      question: "How soon will I start earning more?",
+      answer: "Creators typically see an uplift within the first 14 days as we optimize pricing and chat flows. Bigger, consistent growth usually compounds between weeks 3 and 8."
+    },
+    {
+      question: "How much money can I realistically make?",
+      answer: "There is no limit. Your earnings depend on the quality of your content and how the market reacts to your niche. We work with creators earning anywhere from $5k to $100k+ per month."
+    },
+    {
+      question: "How much work will I need to do?",
+      answer: "Your workload will significantly decrease. Your main responsibility will be content creation. SMP handles the 12+ hours of daily chatting, marketing, and admin."
+    },
+    {
+      question: "Can I make an OnlyFans without showing my face?",
+      answer: "The short answer is no—you cannot make an account completely anonymously because OnlyFans requires ID verification. However, publicly? Absolutely. We specialize in faceless strategies."
+    },
+    {
+      question: "Are OnlyFans agencies legal?",
+      answer: "Yes. SMP is a registered, compliant business entity. We operate under strict legal contracts that adhere to OnlyFans' Terms of Service."
+    },
+    {
+      question: "What should tell me I need SMP?",
+      answer: "If you are struggling to make money despite posting content, or if you are burnt out from answering DMs at 3 AM, you need a team. If you've hit a revenue 'ceiling', we provide the infrastructure to scale."
+    },
+    {
+      question: "How can I join SMP?",
+      // JSX ANSWER (Now functional)
+      answer: (
+        <span>
+          Click the <button 
+            onClick={() => setIsModalOpen(true)} 
+            className="text-red-600 font-bold cursor-pointer hover:underline focus:outline-none"
+          >
+            Apply Now
+          </button> button to fill out our discovery form. We will assess your profile and guide you through the next steps.
+        </span>
+      )
+    }
+  ];
 
   return (
     <section
@@ -88,12 +96,14 @@ export default function FAQSection() {
       </div>
 
       <div className="max-w-[1920px] mx-auto relative z-10 px-6">
-        <SectionTitle
-          eyebrow="Got questions?"
-          title="Frequently Asked Questions"
-          highlightStart={true}
-          highlightEnd={true}
-        />
+        <div className="flex flex-col items-center">
+            <SectionTitle
+            eyebrow="Got questions?"
+            title="Frequently Asked Questions"
+            highlightStart={true}
+            highlightEnd={true}
+            />
+        </div>
 
         {/* Accordion */}
         <div className="max-w-4xl mx-auto space-y-4">
@@ -106,8 +116,8 @@ export default function FAQSection() {
               transition={{ delay: index * 0.05 }}
               className={`bg-white border rounded-2xl overflow-hidden transition-all duration-300 ${
                 openIndex === index
-                  ? "border-theme-brand/40 shadow-lg"
-                  : "border-gray-200/90 hover:border-theme-brand/20 hover:shadow-md"
+                  ? "border-red-500/40 shadow-lg"
+                  : "border-gray-200/90 hover:border-red-500/20 hover:shadow-md"
               }`}
             >
               {/* Question Button */}
@@ -118,8 +128,8 @@ export default function FAQSection() {
                 <span
                   className={`text-base md:text-lg font-semibold transition-colors duration-300 pr-4 ${
                     openIndex === index
-                      ? "text-theme-brand"
-                      : "text-gray-900 group-hover:text-theme-brand"
+                      ? "text-red-600"
+                      : "text-gray-900 group-hover:text-red-600"
                   }`}
                 >
                   {faq.question}
@@ -131,8 +141,8 @@ export default function FAQSection() {
                   transition={{ duration: 0.3 }}
                   className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
                     openIndex === index
-                      ? "bg-theme-brand/10 text-theme-brand"
-                      : "bg-gray-100 text-gray-600 group-hover:bg-theme-brand/10 group-hover:text-theme-brand"
+                      ? "bg-red-50 text-red-600"
+                      : "bg-gray-100 text-gray-600 group-hover:bg-red-50 group-hover:text-red-600"
                   }`}
                 >
                   {openIndex === index ? (
@@ -154,10 +164,10 @@ export default function FAQSection() {
                     className="overflow-hidden"
                   >
                     <div className="px-6 md:px-8 pb-6 md:pb-8">
-                      <div className="h-px w-12 bg-theme-brand/30 mb-4" />
-                      <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                      <div className="h-px w-12 bg-red-200 mb-4" />
+                      <div className="text-sm md:text-base text-gray-600 leading-relaxed">
                         {faq.answer}
-                      </p>
+                      </div>
                     </div>
                   </motion.div>
                 )}
@@ -166,6 +176,24 @@ export default function FAQSection() {
           ))}
         </div>
       </div>
+
+      {/* --- MODAL IMPLEMENTATION --- */}
+      <Modal
+        open={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title="Apply Now"
+        description="Fill in your details and we’ll get back to you within 24–48 hours."
+        size="md"
+      >
+        <ApplyNowForm
+          onSubmit={(data: ApplyNowFormData) => {
+            console.log("Apply form submitted:", data);
+            setIsModalOpen(false);
+          }}
+          onCancel={() => setIsModalOpen(false)}
+        />
+      </Modal>
+
     </section>
   );
 }
