@@ -3,24 +3,39 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import SectionTitle from "../final-design/SectionTitle";
 
 const services = [
   {
-    title: "Marketing",
-    text: "Marketing can be a tricky area for many creators. At SMP, we design personalized strategies tailored to your brand, niche, and objectives—no generic templates. With access to over 20 promotion channels, including social media, a 3,000+ page meme network, podcasts, and influencer partnerships, we take care of both planning and execution so you can focus on creating.",
-    image: "/images/allaya4.jpg",
+    title: "MARKETING",
+    image: "/images/service (1).jpg",
+    height: "h-96", // Tall card
   },
   {
-    title: "Chatting",
-    text: "Fan interaction drives most revenue on platforms like OnlyFans, so doing it right is essential. SMP's UK and US chat team receives extensive training to match the creator's voice authentically and understand fan psychology. This approach boosts income, encourages subscription renewals, and builds lasting trust, because at SMP, results speak louder than words.",
-    image: "/images/b-model (2).jpg",
+    title: "CHATTING",
+    image: "/images/service (2).jpg",
+    height: "h-100", // Medium card
   },
   {
-    title: "Content Strategy",
-    text: "Knowing what content to post can make or break earnings in a fast-paced industry. There's no one-size-fits-all solution—the gap between average and top performance comes from clear branding and a defined niche. SMP guides creators to understand audience demand and craft content that is unique, engaging, and designed to drive meaningful growth.",
-    image: "/images/sophie322.jpg",
+    title: "CONTENT STRATEGY & PRODUCTION",
+    image: "/images/modf1.jpg",
+    height: "h-96", // Tall card
+  },
+  {
+    title: "DMCA & CONTENT REMOVALS",
+    image: "/images/sophie1.jpg",
+    height: "h-56", // Short card
+  },
+  {
+    title: "OFTV",
+    image: "/images/service (3).jpg",
+    height: "h-96", // Tall card
+  },
+  {
+    title: "FORWARD PLANNING & TAX ADVICE",
+    image: "/images/service1.jpg",
+    height: "h-100", // Medium card
   },
 ];
 
@@ -101,9 +116,9 @@ export default function ServicesSection() {
           />
         </div>
 
-        {/* Cards grid */}
+        {/* Cards masonry layout */}
         <motion.div
-          className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+          className="columns-1 gap-6 sm:columns-2 lg:columns-3 max-w-6xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -113,49 +128,61 @@ export default function ServicesSection() {
             <motion.article
               key={index}
               variants={cardVariants}
-              className="group rounded-3xl overflow-hidden bg-white border border-gray-200/90 shadow-lg hover:shadow-xl hover:border-red-500/20 transition-all duration-300 flex flex-col h-full"
+              className="group mb-6 break-inside-avoid overflow-hidden rounded-xl"
             >
-              <Link href="/our-services" className="flex flex-col h-full">
-                {/* 1. IMAGE CONTAINER */}
-                <div className="relative w-full h-64 overflow-hidden bg-gray-100 flex-shrink-0">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 33vw"
-                    quality={85}
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
-                </div>
+              <Link href="/our-services" className="block">
+                <div className="relative flex flex-col overflow-hidden rounded-xl bg-card text-card-foreground shadow-xs ring-1 ring-foreground/10 p-0">
+                  {/* Full-height image background */}
+                  <div className={`relative ${item.height} overflow-hidden`}>
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      quality={85}
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
 
-                {/* 2. TEXT CONTENT CONTAINER */}
-                <div className="flex flex-col flex-1 p-6 md:p-8">
-                  {/* TITLE (Moved Here) */}
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-theme-brand transition-colors">
-                    {item.title}
-                  </h3>
+                    {/* Gradient overlay - appears on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-                  {/* Divider Line */}
-                  <div
-                    className="h-1 w-12 bg-theme-brand/20 mb-4 rounded-full group-hover:w-20 transition-all duration-300"
-                    aria-hidden
-                  />
+                    {/* Content at bottom */}
+                    <div className="absolute inset-0 flex flex-col justify-end p-6">
+                      <div className="font-semibold text-white">
+                        {item.title}
+                      </div>
+                    </div>
 
-                  {/* Description Text */}
-                  <p className="text-gray-600 text-sm md:text-base leading-relaxed line-clamp-4 mb-6 flex-1 font-medium">
-                    {item.text}
-                  </p>
-
-                  {/* Learn More Link */}
-                  <span className="inline-flex items-center gap-2 text-theme-brand font-bold text-sm uppercase tracking-wider group-hover:gap-3 transition-all mt-auto">
-                    Learn more
-                    <ArrowRight className="w-4 h-4" />
-                  </span>
+                    {/* Arrow icon - top right, rotates on hover */}
+                    <ArrowUpRight
+                      className="absolute top-6 right-6 h-6 w-6 text-white transition-all duration-300 group-hover:rotate-45"
+                      aria-hidden="true"
+                    />
+                  </div>
                 </div>
               </Link>
             </motion.article>
           ))}
+        </motion.div>
+
+        {/* View All Services Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+          className="flex justify-center mt-12"
+        >
+          <Link href="/our-services">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-2 bg-theme-brand hover:bg-theme-brand-hover text-white font-semibold px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              View All Services
+              <ArrowUpRight className="w-5 h-5" />
+            </motion.button>
+          </Link>
         </motion.div>
       </div>
     </section>
