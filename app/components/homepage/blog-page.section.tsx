@@ -31,7 +31,7 @@ const blogPosts = [
     slug: "turning-content-into-profit",
     excerpt:
       "Content alone isn’t enough. Discover how strategic funnels and pricing plans help maximize revenue from every post.",
-    image: "/images/modf1.jpg",
+    image: "/images/g-model (5).jpg",
   },
   {
     category: "Security",

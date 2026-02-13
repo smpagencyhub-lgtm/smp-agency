@@ -21,7 +21,7 @@ const testimonials = [
     name: "James Hardy",
     handle: "@jameshardyx93",
     quote: "I was honestly on the verge of giving up.",
-    text: "Before joining SMP, I was overwhelmed trying to manage everything myself  replying to messages, posting content, and handling promotions nonstop. It constantly felt like I was falling behind. After working with SMP, I finally regained balance and peace of mind. My income increased, and the stress and burnout completely disappeared.",
+    text: "Before joining SMP, I was overwhelmed trying to manage everything myself replying to messages, posting content, and handling promotions nonstop. It constantly felt like I was falling behind. After working with SMP, I finally regained balance and peace of mind. My income increased, and the stress and burnout completely disappeared.",
     imageSrc: "/images/jameshardy.jpg",
     instagramLink: "https://www.instagram.com/jameshardyx93",
   },
@@ -59,9 +59,8 @@ export default function TestimonialSection() {
 
   return (
     <section className="relative overflow-hidden py-24 md:py-32 font-sans bg-gradient-to-b from-white via-gray-50/50 to-white">
-      {/* Background shapes – grid SVG, fully inside so they don’t affect layout */}
+      {/* Background shapes – grid SVG */}
       <div className="absolute inset-0 pointer-events-none z-1">
-        {/* Left Side - Grid SVG */}
         <motion.div
           className="absolute top-[22%] left-4 md:left-8 w-40 h-40 md:w-48 md:h-48"
           aria-hidden
@@ -82,7 +81,6 @@ export default function TestimonialSection() {
             <path d="M120 120h120v120H120zM0 240h120v120H0zM120 360h120v120H120zM0 0h120v120H0zM360 120h120v120H360zM240 240h120v120H240zM360 360h120v120H360zM240 0h120v120H240z" />
           </svg>
         </motion.div>
-        {/* Right Side - Same grid SVG (mirrored) */}
         <motion.div
           className="absolute bottom-[22%] right-4 md:right-8 w-40 h-40 md:w-48 md:h-48 scale-x-[-1]"
           aria-hidden
@@ -93,16 +91,7 @@ export default function TestimonialSection() {
             scale: { duration: 0.6, delay: 0.2, ease: "easeOut" },
             opacity: { duration: 0.6, delay: 0.2 },
           }}
-        >
-          {/* <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 480 480"
-            className="w-full h-full"
-            style={{ fill: "var(--theme-brand)", opacity: 0.35 }}
-          >
-            <path d="M120 120h120v120H120zM0 240h120v120H0zM120 360h120v120H120zM0 0h120v120H0zM360 120h120v120H360zM240 240h120v120H240zM360 360h120v120H360zM240 0h120v120H240z" />
-          </svg> */}
-        </motion.div>
+        />
       </div>
 
       <div className="max-w-[1920px] mx-auto relative z-10 px-6">
@@ -138,16 +127,23 @@ export default function TestimonialSection() {
                     )}
                   >
                     <div className="flex flex-col sm:flex-row h-full min-h-[380px] sm:min-h-[420px]">
-                      <div className="relative w-full sm:w-80 shrink-0 h-56 sm:h-full sm:min-h-[420px] sm:min-w-[320px] bg-gray-100">
+                      
+                      {/* UPDATED IMAGE CONTAINER 
+                         Changed h-56 to h-[450px] on mobile to show full portrait 
+                      */}
+                      <div className="relative w-full sm:w-80 shrink-0 h-[450px] sm:h-full sm:min-h-[420px] sm:min-w-[320px] bg-gray-100">
                         <Image
                           src={item.imageSrc}
                           alt={item.name}
                           fill
                           sizes="(max-width: 640px) 100vw, 320px"
-                          className="object-cover"
+                          // object-top ensures the head is always visible
+                          // object-cover ensures it fills the new taller box
+                          className="object-cover object-top"
                         />
                         <div className="absolute inset-0 bg-theme-brand/5" />
                       </div>
+
                       <div className="flex flex-col flex-1 justify-center p-8 md:p-10 lg:p-12 min-h-0 border-l-0 sm:border-l border-l-theme-brand/10">
                         <div className="flex flex-wrap items-center gap-3 mb-4">
                           <span className="bg-theme-brand text-white text-sm font-bold px-3 py-1.5 uppercase tracking-wider rounded-lg">

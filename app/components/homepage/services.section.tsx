@@ -117,14 +117,16 @@ export default function ServicesSection() {
             >
               <Link href="/our-services" className="flex flex-col h-full">
                 {/* 1. IMAGE CONTAINER */}
-                <div className="relative w-full h-64 overflow-hidden bg-gray-100 flex-shrink-0">
+                {/* CHANGED: h-64 to h-[450px] to show full vertical image */}
+                <div className="relative w-full h-[450px] overflow-hidden bg-gray-100 flex-shrink-0">
                   <Image
                     src={item.image}
                     alt={item.title}
                     fill
                     sizes="(max-width: 1024px) 100vw, 33vw"
                     quality={85}
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    // CHANGED: Added object-top so heads aren't cut off
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
                 </div>
