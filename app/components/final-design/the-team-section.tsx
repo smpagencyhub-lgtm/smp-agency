@@ -14,7 +14,7 @@ const departments = [
       { name: "KRISTOFF", image: "/images/ChatLeader2.png" },
     ],
     description:
-      "Enrico and Kristoff lead SMP's chat department, overseeing both client delivery and day-to-day chat operations. Enrico focuses on the overall client experience, onboarding, and strategy. Kristoff manages and trains the chat teams, maintaining high standards in communication.",
+      "Enrico and Kristoff lead SMP's chat department, overseeing both client delivery and day-to-day chat operations. Kristoff focuses on the overall client experience, onboarding, and strategy. Enrico manages and trains the chat teams, maintaining high standards in communication.",
   },
 ];
 
