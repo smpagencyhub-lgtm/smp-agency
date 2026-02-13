@@ -3,6 +3,7 @@
 import { useState } from "react";
 // Adjust this import path if you saved LegalModals somewhere else
 import LegalModals from "./LegalModals";
+import Image from "next/image";
 
 export default function Footer() {
   const [activeModal, setActiveModal] = useState<"terms" | "privacy" | null>(
@@ -23,11 +24,23 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
             {/* Brand */}
             <div>
-              <div className="text-2xl lg:text-3xl font-bold mb-6">
-                <span className="text-gray-900">SMP</span>
+              <div className="relative w-10 h-10 sm:w-15 sm:h-13 mb-4">
+                <Image
+                  src="/images/final-logo/main-logo.png"
+                  alt="SMP Agency logo"
+                  fill
+                  sizes="40px"
+                  quality={100}
+                  className="object-contain transition-transform duration-300 group-hover:scale-110"
+                  priority
+                />
+              </div>
+
+              <div className="text-2xl lg:text-3xl font-black mb-6">
+                <span className="text-foreground">SMP</span>{" "}
                 <span className="text-theme-brand">AGENCY</span>
               </div>
-              <p className="text-gray-600 text-sm leading-relaxed max-w-xs">
+              <p className="text-gray-700 text-sm leading-relaxed max-w-xs">
                 Empowering creators to build their empire and own their space in
                 the digital world.
               </p>

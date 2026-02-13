@@ -339,6 +339,7 @@ export default function OurServices() {
         title="Apply Now"
         description="Fill in your details and we’ll get back to you within 24–48 hours."
         size="md"
+        // variant="light"
       >
         <ApplyNowForm
           loading={isSubmitting}

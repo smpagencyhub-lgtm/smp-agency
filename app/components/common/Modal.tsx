@@ -122,7 +122,7 @@ export default function Modal({
                   type="button"
                   onClick={onClose}
                   aria-label="Close"
-                  className="shrink-0 flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-lg text-gray-400 hover:text-white hover:bg-neutral-700/60 active:bg-neutral-600/60 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500/50 focus:ring-offset-2 focus:ring-offset-neutral-900"
+                  className="shrink-0 flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-lg text-gray-400 hover:text-white hover:bg-neutral-700/60 active:bg-neutral-600/60 transition-colors focus:outline-none focus:ring-2 focus:ring-theme-brand/50 focus:ring-offset-2 focus:ring-offset-neutral-900"
                 >
                   <svg
                     className="w-5 h-5"

@@ -8,7 +8,7 @@ import { toast } from "sonner";
 import SearchableCountrySelect from "./SearchableCountrySelect";
 
 const inputBase =
-  "w-full px-4 py-3 bg-neutral-800/50 border border-neutral-600/50 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-red-600 focus:ring-2 focus:ring-red-600/20 transition-all duration-200";
+  "w-full px-4 py-3 bg-neutral-800/50 border border-neutral-600/50 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-theme-brand focus:ring-2 focus:ring-theme-brand/20 transition-all duration-200";
 
 const countryList = [...countries]
   .filter((c) => c.name.common)
@@ -123,7 +123,7 @@ export default function ApplyNowForm({
         >
           <div className="flex flex-col items-center gap-6 px-10 py-8 rounded-2xl border border-neutral-700/50 bg-neutral-900/98 shadow-[0_0_0_1px_rgba(255,255,255,0.05),0_25px_50px_-12px_rgba(0,0,0,0.7)] min-w-[220px]">
             <div
-              className="h-11 w-11 rounded-full border-[3px] border-neutral-700 border-t-red-500 animate-spin"
+              className="h-11 w-11 rounded-full border-[3px] border-neutral-700 border-t-theme-brand animate-spin"
               style={{ animationDuration: "0.75s" }}
             />
             <div className="text-center space-y-1.5">
@@ -143,7 +143,7 @@ export default function ApplyNowForm({
         className={`relative space-y-4 sm:space-y-5 px-4 py-4 sm:px-6 sm:py-5 ${loading ? "pointer-events-none" : ""}`}
       >
       {error && (
-        <div className="rounded-lg bg-red-600/20 border border-red-600/50 text-red-400 px-4 py-3 text-sm">
+        <div className="rounded-lg bg-theme-brand/20 border border-theme-brand/50 text-theme-brand-muted px-4 py-3 text-sm">
           {error}
         </div>
       )}
@@ -245,7 +245,7 @@ export default function ApplyNowForm({
         <button
           type="submit"
           disabled={!!loading}
-          className="flex-1 px-4 py-3 sm:py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-red-500/50 focus:ring-offset-2 focus:ring-offset-neutral-900"
+          className="flex-1 px-4 py-3 sm:py-3 bg-theme-brand hover:bg-theme-brand-hover text-white font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-theme-brand/50 focus:ring-offset-2 focus:ring-offset-neutral-900"
         >
           {loading ? "Sending..." : "Submit"}
         </button>

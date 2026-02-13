@@ -91,7 +91,7 @@ export default function SectionTitle({
             >
               {/* Subtle gradient overlay for depth */}
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
-              <span className="relative text-white text-3xl md:text-5xl lg:text-6xl font-extrabold  uppercase tracking-tight leading-none whitespace-nowrap drop-shadow-sm">
+              <span className="relative text-white text-2xl md:text-5xl lg:text-6xl font-extrabold  uppercase tracking-tight leading-none whitespace-nowrap drop-shadow-sm">
                 {firstWord}
               </span>
             </div>
@@ -105,7 +105,7 @@ export default function SectionTitle({
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className={`text-theme-brand text-3xl md:text-5xl lg:text-6xl font-semibold uppercase tracking-tight leading-none ${
+            className={`text-theme-brand text-2xl md:text-5xl lg:text-6xl font-semibold uppercase tracking-tight leading-none ${
               firstWord ? "md:ml-4 lg:ml-5" : ""
             } ${lastWord ? "md:mr-4 lg:mr-5" : ""}`}
             style={{
@@ -138,7 +138,7 @@ export default function SectionTitle({
             >
               {/* Subtle gradient overlay for depth */}
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
-              <span className="relative text-white text-3xl md:text-5xl lg:text-6xl font-extrabold  uppercase tracking-tight leading-none whitespace-nowrap drop-shadow-sm">
+              <span className="relative text-white text-2xl md:text-5xl lg:text-6xl font-extrabold  uppercase tracking-tight leading-none whitespace-nowrap drop-shadow-sm">
                 {lastWord}
               </span>
             </div>

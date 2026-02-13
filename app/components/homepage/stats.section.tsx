@@ -89,16 +89,17 @@ const stats = [
 ];
 
 // --- Marquee Data ---
-const words = [
-  "GROWTH",
-  "SCALE",
-  "REVENUE",
-  "MANAGEMENT",
-  "SMP",
-  "DOMINANCE",
-  "INNOVATION",
-];
-const repeatedWords = [...words, ...words, ...words]; // Triple it for smooth looping
+// COMMENTED OUT - Marquee carousels are disabled
+// const words = [
+//   "GROWTH",
+//   "SCALE",
+//   "REVENUE",
+//   "MANAGEMENT",
+//   "SMP",
+//   "DOMINANCE",
+//   "INNOVATION",
+// ];
+// const repeatedWords = [...words, ...words, ...words]; // Triple it for smooth looping
 
 // --- Animation Variants ---
 const containerVariants = {
@@ -169,32 +170,31 @@ export default function StatsSection2() {
 
       <div className="max-w-[1920px] mx-auto px-6 relative z-10">
         {/* ======================= */}
-        {/* TOP MARQUEE (Moves Left) */}
+        {/* TOP MARQUEE (Moves Left) - COMMENTED OUT */}
         {/* ======================= */}
-        {/* INCREASED OPACITY from 10 to 30 */}
-        <div className="w-full overflow-hidden relative mb-16 opacity-30 pointer-events-none select-none">
-          {/* Gradient Masks (White for Light Mode) */}
-          <div className="absolute top-0 left-0 h-full w-24 z-10 bg-gradient-to-r from-white to-transparent" />
-          <div className="absolute top-0 right-0 h-full w-24 z-10 bg-gradient-to-l from-white to-transparent" />
+        {/* {false && (
+          <div className="w-full overflow-hidden relative mb-16 opacity-30 pointer-events-none select-none">
+            <div className="absolute top-0 left-0 h-full w-24 z-10 bg-gradient-to-r from-white to-transparent" />
+            <div className="absolute top-0 right-0 h-full w-24 z-10 bg-gradient-to-l from-white to-transparent" />
 
-          <motion.div
-            layout={false}
-            style={{ willChange: "transform" }}
-            className="flex whitespace-nowrap gap-16"
-            animate={{ x: ["0%", "-33.33%"] }} // Move 1/3rd of the way
-            transition={{ duration: 30, ease: "linear", repeat: Infinity }}
-          >
-            {repeatedWords.map((word, i) => (
-              <div key={i} className="flex items-center gap-16">
-                {/* MADE TEXT DARKER GRAY */}
-                <span className="text-6xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-gray-600 to-gray-400 uppercase tracking-tighter">
-                  {word}
-                </span>
-                <span className="text-4xl text-red-500">•</span>
-              </div>
-            ))}
-          </motion.div>
-        </div>
+            <motion.div
+              layout={false}
+              style={{ willChange: "transform" }}
+              className="flex whitespace-nowrap gap-16"
+              animate={{ x: ["0%", "-33.33%"] }}
+              transition={{ duration: 30, ease: "linear", repeat: Infinity }}
+            >
+              {repeatedWords.map((word, i) => (
+                <div key={i} className="flex items-center gap-16">
+                  <span className="text-6xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-gray-600 to-gray-400 uppercase tracking-tighter">
+                    {word}
+                  </span>
+                  <span className="text-4xl text-red-500">•</span>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        )} */}
 
         {/* Header Section */}
         <div className="flex flex-col items-center ">
@@ -252,33 +252,32 @@ export default function StatsSection2() {
         </motion.div>
 
         {/* ======================= */}
-        {/* BOTTOM MARQUEE (Moves Right) */}
+        {/* BOTTOM MARQUEE (Moves Right) - COMMENTED OUT */}
         {/* ======================= */}
-        {/* INCREASED OPACITY from 10 to 30 */}
-        <div className="w-full overflow-hidden relative mt-16 opacity-30 pointer-events-none select-none">
-          {/* Gradient Masks (White for Light Mode) */}
-          <div className="absolute top-0 left-0 h-full w-24 z-10 bg-gradient-to-r from-white to-transparent" />
-          <div className="absolute top-0 right-0 h-full w-24 z-10 bg-gradient-to-l from-white to-transparent" />
+        {/* {false && (
+          <div className="w-full overflow-hidden relative mt-16 opacity-30 pointer-events-none select-none">
+            <div className="absolute top-0 left-0 h-full w-24 z-10 bg-gradient-to-r from-white to-transparent" />
+            <div className="absolute top-0 right-0 h-full w-24 z-10 bg-gradient-to-l from-white to-transparent" />
 
-          <motion.div
-            layout={false}
-            style={{ willChange: "transform" }}
-            className="flex whitespace-nowrap gap-16"
-            initial={{ x: "-33.33%" }} // Start offset
-            animate={{ x: "0%" }} // Move to 0 (Moves Right)
-            transition={{ duration: 35, ease: "linear", repeat: Infinity }}
-          >
-            {repeatedWords.map((word, i) => (
-              <div key={i} className="flex items-center gap-16">
-                {/* MADE TEXT DARKER GRAY */}
-                <span className="text-6xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-gray-600 to-transparent uppercase tracking-tighter">
-                  {word}
-                </span>
-                <span className="text-4xl text-red-500">•</span>
-              </div>
-            ))}
-          </motion.div>
-        </div>
+            <motion.div
+              layout={false}
+              style={{ willChange: "transform" }}
+              className="flex whitespace-nowrap gap-16"
+              initial={{ x: "-33.33%" }}
+              animate={{ x: "0%" }}
+              transition={{ duration: 35, ease: "linear", repeat: Infinity }}
+            >
+              {repeatedWords.map((word, i) => (
+                <div key={i} className="flex items-center gap-16">
+                  <span className="text-6xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-gray-600 to-transparent uppercase tracking-tighter">
+                    {word}
+                  </span>
+                  <span className="text-4xl text-red-500">•</span>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        )} */}
 
         {/* Bottom accent line */}
         <motion.div

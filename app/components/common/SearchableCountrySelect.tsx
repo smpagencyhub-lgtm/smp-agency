@@ -3,8 +3,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import { createPortal } from "react-dom";
 
-const inputBase =
+const inputBaseDark =
   "w-full px-4 py-3 bg-neutral-800/50 border border-neutral-600/50 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-red-600 focus:ring-2 focus:ring-red-600/20 transition-all duration-200";
+
+const inputBaseLight =
+  "w-full px-4 py-3.5 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-theme-brand focus:ring-2 focus:ring-theme-brand/15 transition-all duration-200 shadow-sm";
 
 export interface CountryOption {
   name: string;
@@ -18,6 +21,7 @@ interface SearchableCountrySelectProps {
   id?: string;
   required?: boolean;
   placeholder?: string;
+  variant?: "light" | "dark";
 }
 
 export default function SearchableCountrySelect({
@@ -27,7 +31,10 @@ export default function SearchableCountrySelect({
   id = "country",
   required = false,
   placeholder = "Select country",
+  variant = "dark",
 }: SearchableCountrySelectProps) {
+  const isLight = variant === "light";
+  const inputBase = isLight ? inputBaseLight : inputBaseDark;
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
   const [position, setPosition] = useState({ top: 0, left: 0, width: 0 });
@@ -94,7 +101,11 @@ export default function SearchableCountrySelect({
     <div
       id="country-select-dropdown-portal"
       role="listbox"
-      className="fixed z-[200] py-2 bg-neutral-800 border border-neutral-600 rounded-lg shadow-xl max-h-64 flex flex-col"
+      className={`fixed z-[200] py-2 rounded-xl shadow-xl max-h-64 flex flex-col ${
+        isLight
+          ? "bg-white border border-gray-200 shadow-lg"
+          : "bg-neutral-800 border border-neutral-600 rounded-lg"
+      }`}
       style={{
         top: position.top,
         left: position.left,
@@ -107,14 +118,20 @@ export default function SearchableCountrySelect({
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search countries..."
-          className="w-full px-3 py-2 text-sm bg-neutral-900 border border-neutral-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-red-600"
+          className={`w-full px-3 py-2 text-sm rounded-lg focus:outline-none ${
+            isLight
+              ? "bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-400 focus:border-theme-brand focus:ring-1 focus:ring-theme-brand/20"
+              : "bg-neutral-900 border border-neutral-600 text-white placeholder-gray-500 focus:border-red-600"
+          }`}
           autoFocus
           onKeyDown={(e) => e.stopPropagation()}
         />
       </div>
       <ul className="overflow-y-auto overscroll-contain max-h-48 min-h-0">
         {filtered.length === 0 ? (
-          <li className="px-4 py-3 text-sm text-gray-500">No countries found</li>
+          <li className={`px-4 py-3 text-sm ${isLight ? "text-gray-500" : "text-gray-500"}`}>
+            No countries found
+          </li>
         ) : (
           filtered.map((c) => (
             <li key={c.code}>
@@ -125,8 +142,12 @@ export default function SearchableCountrySelect({
                 onClick={() => handleSelect(c.name)}
                 className={`w-full px-4 py-2.5 text-left text-sm transition-colors ${
                   value === c.name
-                    ? "bg-red-600/20 text-red-400"
-                    : "text-gray-300 hover:bg-neutral-700/80 hover:text-white"
+                    ? isLight
+                      ? "bg-theme-brand/10 text-theme-brand font-medium"
+                      : "bg-red-600/20 text-red-400"
+                    : isLight
+                      ? "text-gray-700 hover:bg-gray-100"
+                      : "text-gray-300 hover:bg-neutral-700/80 hover:text-white"
                 }`}
               >
                 {c.name}
@@ -145,7 +166,13 @@ export default function SearchableCountrySelect({
         id={id}
         onClick={() => setOpen((o) => !o)}
         className={`${inputBase} cursor-pointer text-left flex items-center justify-between gap-2 min-h-[46px] ${
-          !value ? "text-gray-500" : "text-white"
+          isLight
+            ? !value
+              ? "text-gray-400"
+              : "text-gray-900"
+            : !value
+              ? "text-gray-500"
+              : "text-white"
         }`}
         aria-haspopup="listbox"
         aria-expanded={open}
@@ -153,7 +180,7 @@ export default function SearchableCountrySelect({
       >
         <span>{selectedOption ? selectedOption.name : placeholder}</span>
         <svg
-          className={`w-4 h-4 text-gray-400 shrink-0 transition-transform ${open ? "rotate-180" : ""}`}
+          className={`w-4 h-4 shrink-0 transition-transform ${open ? "rotate-180" : ""} ${isLight ? "text-gray-500" : "text-gray-400"}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
