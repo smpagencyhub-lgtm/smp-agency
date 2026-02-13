@@ -10,10 +10,10 @@ const teamImages = [
   "/images/bethan.jpg",
   "/images/sophie.jpg",
   "/images/allaya5.jpg",
-  "/images/suki1.jpg",
+  "/images/suki2.jpg",
   "/images/allaya2.jpg",
   "/images/sophie1.jpg",
-  "/images/g-model (6).jpg",
+  "/images/g-model (5).jpg",
 ];
 
 // Duplicate the array to create the seamless infinite loop effect
