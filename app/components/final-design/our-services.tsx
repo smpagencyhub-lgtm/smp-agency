@@ -22,7 +22,7 @@ const services = [
     title: "MARKETING",
     icon: BarChart3,
     description:
-      "Marketing is often the biggest question mark for both creators and agencies. Most people understand the chatting side, but driving consistent traffic to a creator's page is where many struggle. At SMP, we focus on discovering which platforms and campaigns work best for you as an individual creator – there's no copy-and-paste approach here. Every creator needs a strategy built around their brand, niche, and goals. Our marketing account managers support you at every step, giving you access to over 20 active promotion methods, from social media marketing and our 3,000+ page meme network to podcasts and influencer collaborations.",
+      "Marketing is one of the biggest challenges for creators and agencies, especially when it comes to generating consistent, high-quality traffic. At SMP, we take a strategic and data-driven approach to growth — never using generic solutions. We identify the platforms and campaigns that work best for you as an individual creator, building a fully customized strategy around your brand, niche, and goals. Our dedicated marketing account managers guide you at every stage, providing access to over 20 proven promotion methods, including advanced social media campaigns, a 3,000+ meme page network, podcasts, and influencer collaborations — all designed to maximize visibility and drive long-term success.",
     image: "/images/service (1).jpg",
     align: "right",
   },
@@ -30,7 +30,7 @@ const services = [
     title: "CHATTING",
     icon: MessageCircle,
     description:
-      "Everyone knows that chatting is the real revenue driver on OnlyFans, and so handing that responsibility to the wrong team can be damaging. Poor communication, lack of cultural understanding, and generic messaging all show in your results. That's why SMP's UK / USA chat team go through vigorous training in order to represent creators with authenticity, emotional intelligence and care. The outcome is higher spend per fan, fewer chargebacks, increased renewals, and long-term trust. Our bespoke creator profile mapping system ensures that all creators receive the ultimate service, and with that, boost their earnings.",
+      "Chatting is the main revenue driver on OnlyFans, and the quality of communication directly impacts your earnings. Poor messaging, lack of cultural awareness, and inconsistent engagement can significantly reduce performance. That’s why SMP’s highly trained UK and USA chat teams represent creators with authenticity, emotional intelligence, and professionalism. Through rigorous training and our bespoke creator profile mapping system, every interaction reflects your unique voice and brand identity. This results in higher spending per fan, fewer chargebacks, stronger renewals, and long-term subscriber loyalty.",
     image: "/images/service (2).jpg",
     align: "left",
   },
@@ -38,7 +38,7 @@ const services = [
     title: "CONTENT STRATEGY & PRODUCTION",
     icon: Video,
     description:
-      "In such a fast-paced industry, the biggest question we hear is: what content should I be posting? The truth is, there isn't a one-size-fits-all answer. Finding the right content strategy is the first thing we work on with our creators, because redefining your brand and niche is often the difference between earning $10k and $100k a month. The industry is moving faster than ever, with over five million creators competing for attention. We help you understand what the market is actively responding to, while also shaping content that's unique to you, converts well, and drives real results.",
+      "In a fast-moving and highly competitive industry, having the right content strategy is essential for success. At SMP, defining your content direction is one of our top priorities. We help creators refine their brand positioning and niche, often making the difference between average and high-level earnings. With millions of creators competing for attention, our team analyzes market trends and audience behavior to develop content that is unique, high-performing, and conversion-focused — helping you stand out and achieve measurable results.",
     image: "/images/modf1.jpg",
     align: "right",
   },
@@ -46,7 +46,7 @@ const services = [
     title: "DMCA & CONTENT REMOVALS",
     icon: ShieldCheck,
     description:
-      "When growing your brand as a content creator, the last thing you should be worrying about is your content being leaked. At SMP, we have an in-house team dedicated to monitoring the web for stolen or reposted content. While leaks can't always be prevented, we take a proactive approach to removing them as quickly as possible. We use advanced AI tools to detect and auto-flag leaked content, alongside preparing and issuing DMCA notices to pages hosting our creators' material. This helps protect your income, your brand, and your long-term growth.",
+      "As your brand grows, protecting your content becomes critical. SMP provides dedicated protection through our in-house monitoring team that continuously scans the internet for stolen or reposted material. While leaks cannot always be prevented, we take immediate and proactive action using advanced AI detection tools to identify violations, auto-flag unauthorized content, and issue DMCA notices. This ensures your income is protected, your reputation remains secure, and your long-term growth stays uninterrupted.",
     image: "/images/sophie1.jpg",
     align: "left",
   },
@@ -54,7 +54,7 @@ const services = [
     title: "OFTV",
     icon: Tv,
     description:
-      "OFTV is one of the largest sources to drive fans to creators' pages, but getting featured on it is a difficult and daunting process. At SMP, we help with the full process, from content ideation, through to the videography and editing of videos. Our creative team will guide creators through every step, and deliver the pitch and application to our partners at OFTV.",
+      "OFTV is one of the most powerful platforms for driving exposure and attracting new fans, but gaining access can be complex and highly competitive. SMP manages the entire process for you — from content ideation and creative planning to professional videography, editing, and submission. Our experienced creative team supports you at every stage and handles the pitch and application process to maximize your chances of being featured and expanding your audience reach.",
     image: "/images/service (3).jpg",
     align: "right",
   },
@@ -62,40 +62,42 @@ const services = [
     title: "FORWARD PLANNING & TAX ADVICE",
     icon: FileText,
     description:
-      "Working alongside SMP doesn't just help you grow your OnlyFans revenue – it helps protect it. Wherever you're based, we work with trusted local partners who support creators with forward financial planning, so you keep and grow what you earn. From tax and VAT guidance to relocation planning, you'll have access to reliable, expert advice tailored to your situation. This means fewer mistakes, less stress, and smarter decisions long term. With the financial side handled properly, you're free to focus on building your brand and income without constant worry.",
+      "Working with SMP goes beyond growing your OnlyFans revenue — we help protect and secure your financial future. Through trusted global partners, we provide expert support in financial planning, tax and VAT guidance, and relocation strategy tailored to your situation. Our structured approach minimizes risk, reduces stress, and ensures smarter financial decisions, allowing you to focus fully on scaling your brand and maximizing your income.",
     image: "/images/service1.jpg",
     align: "left",
   },
 ];
+
 
 // --- DATA: Onboarding Steps ---
 const joinSteps = [
   {
     id: 1,
     title: "INITIAL CALL",
-    text: "We take time to understand you as a creator, your goals, and your current setup. This call is to make sure SMP is the right fit for you and that we can genuinely add value to your business.",
+    text: "We begin by understanding you as a creator — your goals, current setup, and long-term vision. This consultation ensures SMP is the right fit and allows us to identify how we can deliver the greatest value to your business from day one.",
   },
   {
     id: 2,
     title: "MARKETING DISCOVERY CALL",
-    text: "A one-hour deep-dive with our Head of Marketing and Head of Creative. We'll review what's worked for you in the past, what hasn't, define your brand, and decide which platforms we'll focus on to drive growth.",
+    text: "In this in-depth session with our Head of Marketing and Head of Creative, we analyze your past strategies, identify opportunities for improvement, define your brand positioning, and determine the most effective platforms to accelerate your growth.",
   },
   {
     id: 3,
     title: "CHAT DISCOVERY CALL",
-    text: "You'll speak with our Head of Client Delivery and Chat Operations Manager to discuss your previous chatting experiences, preferences, boundaries, and tone. This call exists to eliminate common teething issues and ensure that when we log into your account, we hit the ground running.",
+    text: "You’ll meet with our Head of Client Delivery and Chat Operations Manager to discuss your previous chatting experience, communication style, preferences, and boundaries. This ensures seamless account management and strong brand representation from the very start.",
   },
   {
     id: 4,
     title: "BRAND GUIDELINES & MARKETING STRATEGY WORKSHOP",
-    text: "This interactive session is built directly from your marketing discovery call. Our team will present your new brand guidelines and a tailored marketing roadmap. You'll have full input approving, refining, or adjusting elements, so everything stays on-brand.",
+    text: "Based on your discovery sessions, our team presents your customized brand guidelines and tailored marketing roadmap. You’ll have full input to review, refine, and approve every element, ensuring complete alignment with your identity.",
   },
   {
     id: 5,
     title: "FINAL CHECK-IN & ONBOARDING WRAP-UP",
-    text: "A final call with our Creator Success Manager. This is to confirm you're happy, ensure onboarding has been smooth, explain payments clearly, and answer any final questions before full rollout.",
+    text: "A final session with our Creator Success Manager to confirm your satisfaction, ensure a smooth onboarding experience, clarify payment structures, and address any remaining questions before full rollout.",
   },
 ];
+
 
 export default function OurServices() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -196,7 +198,7 @@ export default function OurServices() {
         </motion.div>
       </div>
 
-      <div className="max-w-[1920px] mx-auto px-6 relative z-10">
+      <div className="max-w-[1920px] mx-auto px-6 relative z-10 mt-5">
         {/* Main Title */}
         <SectionTitle
           eyebrow="What we offer"
@@ -339,7 +341,6 @@ export default function OurServices() {
         title="Apply Now"
         description="Fill in your details and we’ll get back to you within 24–48 hours."
         size="md"
-        // variant="light"
       >
         <ApplyNowForm
           loading={isSubmitting}

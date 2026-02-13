@@ -198,7 +198,7 @@ export default function BlogSection() {
         </motion.div>
       </div>
 
-      <div className="max-w-[1920px] mx-auto px-6 relative z-10">
+      <div className="max-w-[1920px] mx-auto px-6 relative z-10 mt-5">
         {/* Main Title */}
         <SectionTitle
           eyebrow="Latest insights"

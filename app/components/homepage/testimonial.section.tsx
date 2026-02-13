@@ -21,7 +21,7 @@ const testimonials = [
     name: "James Hardy",
     handle: "@jameshardyx93",
     quote: "I was honestly on the verge of giving up.",
-    text: "Before working with SMP, I was completely drained trying to handle everything on my own—messages, posting, promotions, nonstop. I always felt behind. After joining SMP, I finally had breathing room again. My earnings improved, and the burnout disappeared.",
+    text: "Before joining SMP, I was overwhelmed trying to manage everything myself  replying to messages, posting content, and handling promotions nonstop. It constantly felt like I was falling behind. After working with SMP, I finally regained balance and peace of mind. My income increased, and the stress and burnout completely disappeared.",
     imageSrc: "/images/jameshardy.jpg",
     instagramLink: "https://www.instagram.com/jameshardyx93",
   },
