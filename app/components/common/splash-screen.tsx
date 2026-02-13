@@ -65,10 +65,10 @@ const SplashScreen = ({ onFinishLoading }: SplashScreenProps) => {
           />
 
           <Image
-            src="/images/logo.png"
+            src="/images/final-logo/loader_200x200.png"
             alt="SMP Agency"
-            width={240}
-            height={240}
+            width={200}
+            height={200}
             priority
             className="object-contain drop-shadow-2xl"
           />
