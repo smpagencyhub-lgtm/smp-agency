@@ -1,8 +1,8 @@
 "use client";
 
-import Header from "../components/design-2/Header2";
-import Footer from "../components/design-1/Footer";
-import BlogPageSection from "../components/final-design/blog-page.section";
+import Header from "../components/common/Header2";
+import Footer from "../components/common/Footer";
+import BlogPageSection from "../components/homepage/blog-page.section";
 
 export default function BlogPage() {
   return (
@@ -12,9 +12,8 @@ export default function BlogPage() {
         <Header />
 
         {/* We add padding-top (pt-32) so the content isn't hidden behind the fixed Header */}
-        <main >
-           <BlogPageSection />
-          
+        <main>
+          <BlogPageSection />
         </main>
 
         <Footer />

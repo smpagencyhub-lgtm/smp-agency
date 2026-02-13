@@ -12,9 +12,9 @@ import {
   FileText,
 } from "lucide-react";
 import SectionTitle from "./SectionTitle";
-import Modal from "../design-2/Modal";
-import ApplyNowForm from "../design-2/ApplyNowForm";
-import { useApplyFormSubmit } from "../design-2/useApplyFormSubmit";
+import Modal from "../common/Modal";
+import ApplyNowForm from "../common/ApplyNowForm";
+import { useApplyFormSubmit } from "../common/useApplyFormSubmit";
 
 // --- DATA: Services ---
 const services = [
@@ -108,35 +108,92 @@ export default function OurServices() {
       id="our-services"
       className="relative overflow-hidden py-24 md:py-32 font-sans bg-gradient-to-b from-white via-gray-50/50 to-white"
     >
-      {/* Background shapes – Side Only */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ overflow: "visible" }}
-      >
-        {/* Left Side - Circle */}
+      {/* Background shapes – 4 SVGs framing the section */}
+      <div className="absolute inset-0 pointer-events-none z-1">
+        {/* 1. Top-left – organic / petal shape */}
         <motion.div
-          className="absolute top-1/3 left-0 w-56 h-56 border-4 border-theme-brand/30 rounded-full -translate-x-1/2"
+          className="absolute top-[5%] left-4 md:left-6 w-32 h-32 md:w-40 md:h-40"
           aria-hidden
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{
-            scale: { duration: 0.6, ease: "easeOut" },
-            opacity: { duration: 0.6 },
+            scale: { duration: 0.5, ease: "easeOut" },
+            opacity: { duration: 0.5 },
           }}
-        />
-        {/* Right Side - Diamond */}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.3 }}
+          >
+            <path d="M347.5 168.3C324 184 296 156 311.7 132.5 348.8 76.8 310.7 0 239.2 0s-108.6 75.8-70.9 132.5C184 156 156 184 132.5 168.3A85.2 85.2 0 0 0 0 239.2v1.6c0 68 75.8 108.6 132.5 70.9C156 296 184 324 168.3 347.6A85.2 85.2 0 0 0 239.2 480h1.6c68 0 108.6-75.8 70.9-132.5C296 324 324 296 347.6 311.7c55.6 37.1 132.4-1 132.4-72.5s-75.8-108.6-132.5-70.9Z" />
+          </svg>
+        </motion.div>
+        {/* 2. Bottom-left – rounded square / frame */}
         <motion.div
-          className="absolute bottom-1/3 right-0 w-48 h-48 border-4 border-theme-brand/35 -translate-x-1/2 rotate-45"
+          className="absolute bottom-[40%] left-4 md:left-6 w-32 h-32 md:w-40 md:h-40"
           aria-hidden
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{
-            scale: { duration: 0.6, delay: 0.2, ease: "easeOut" },
-            opacity: { duration: 0.6, delay: 0.2 },
+            scale: { duration: 0.5, delay: 0.15, ease: "easeOut" },
+            opacity: { duration: 0.5, delay: 0.15 },
           }}
-        />
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.3 }}
+          >
+            <path d="M356.5 65.3a42 42 0 0 0-35-65.3h-163a42 42 0 0 0-35 65.3c25.5 38.2-20 83.7-58.2 58.2a42 42 0 0 0-65.3 35v163a42 42 0 0 0 65.3 35c38.2-25.5 83.7 20 58.2 58.2a42 42 0 0 0 35 65.3h163a42 42 0 0 0 35-65.3c-25.5-38.2 20-83.7 58.2-58.2a42 42 0 0 0 65.3-35v-163a42 42 0 0 0-65.3-35c-38.2 25.5-83.7-20-58.2-58.2Z" />
+          </svg>
+        </motion.div>
+        {/* 3. Top-right – rounded arc / orbit */}
+        <motion.div
+          className="absolute top-[25%] right-4 md:right-6 w-32 h-32 md:w-40 md:h-40 scale-x-[-1]"
+          aria-hidden
+          initial={{ scale: 0.8, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{
+            scale: { duration: 0.5, delay: 0.2, ease: "easeOut" },
+            opacity: { duration: 0.5, delay: 0.2 },
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.3 }}
+          >
+            <path d="M398.7 240A239.4 239.4 0 0 0 480 60a60 60 0 0 0-60-60c-71.7 0-136 31.4-180 81.3A239.4 239.4 0 0 0 60 0 60 60 0 0 0 0 60c0 71.7 31.4 136 81.3 180A239.4 239.4 0 0 0 0 420a60 60 0 0 0 60 60c71.7 0 136-31.4 180-81.3A239.4 239.4 0 0 0 420 480a60 60 0 0 0 60-60c0-71.7-31.4-136-81.3-180Z" />
+          </svg>
+        </motion.div>
+        {/* 4. Bottom-right – square arc variant */}
+        <motion.div
+          className="absolute bottom-[10%] right-4 md:right-6 w-32 h-32 md:w-40 md:h-40 scale-x-[-1]"
+          aria-hidden
+          initial={{ scale: 0.8, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{
+            scale: { duration: 0.5, delay: 0.35, ease: "easeOut" },
+            opacity: { duration: 0.5, delay: 0.35 },
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.3 }}
+          >
+            <path d="M398.7 240A239.4 239.4 0 0 0 480 60V0h-60c-71.7 0-136 31.4-180 81.3A239.4 239.4 0 0 0 60 0H0v60c0 71.7 31.4 136 81.3 180A239.4 239.4 0 0 0 0 420v60h60c71.7 0 136-31.4 180-81.3A239.4 239.4 0 0 0 420 480h60v-60c0-71.7-31.4-136-81.3-180Z" />
+          </svg>
+        </motion.div>
       </div>
 
       <div className="max-w-[1920px] mx-auto px-6 relative z-10">

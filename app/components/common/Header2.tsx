@@ -48,16 +48,17 @@ function NavLink({
         const element = document.getElementById(targetId);
         if (element) {
           // Offset for fixed header (approx 80px)
-          const yOffset = -80; 
-          const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+          const yOffset = -80;
+          const y =
+            element.getBoundingClientRect().top + window.scrollY + yOffset;
           window.scrollTo({ top: y, behavior: "smooth" });
         }
-      } 
+      }
       // Case 2: We are on a different page -> Navigate then let useEffect handle scroll
       else {
         router.push(link.href);
       }
-      
+
       if (onClick) onClick();
       return;
     }
@@ -71,9 +72,9 @@ function NavLink({
     : "text-sm font-semibold text-gray-700 hover:text-theme-brand transition-colors relative group";
 
   return (
-    <Link 
-      href={link.href} 
-      onClick={handleClick} 
+    <Link
+      href={link.href}
+      onClick={handleClick}
       className={className}
       scroll={false} // Disable Next.js auto-scroll to prevent conflicts
     >
@@ -85,14 +86,26 @@ function NavLink({
   );
 }
 
-export default function Header() {
+type HeaderProps = {
+  applyModalOpen?: boolean;
+  onApplyModalOpenChange?: (open: boolean) => void;
+};
+
+export default function Header({
+  applyModalOpen: controlledApplyOpen,
+  onApplyModalOpenChange,
+}: HeaderProps = {}) {
   const { scrollY } = useScroll();
   const pathname = usePathname(); // Get current path
   const [hidden, setHidden] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [applyModalOpen, setApplyModalOpen] = useState(false);
+  const [internalApplyOpen, setInternalApplyOpen] = useState(false);
+
+  const applyModalOpen = onApplyModalOpenChange ? controlledApplyOpen ?? false : internalApplyOpen;
+  const setApplyModalOpen = onApplyModalOpenChange ?? setInternalApplyOpen;
+
   const { isSubmitting, submitError, handleSubmit } = useApplyFormSubmit(() =>
-    setApplyModalOpen(false)
+    setApplyModalOpen(false),
   );
 
   // --- NEW: Handle Cross-Page Scrolling ---
@@ -102,17 +115,18 @@ export default function Header() {
     if (window.location.hash) {
       const id = window.location.hash.substring(1); // remove #
       const element = document.getElementById(id);
-      
+
       if (element) {
         // Wait a tiny bit for the page to render, then scroll
         setTimeout(() => {
           const yOffset = -80; // Header height offset
-          const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+          const y =
+            element.getBoundingClientRect().top + window.scrollY + yOffset;
           window.scrollTo({ top: y, behavior: "smooth" });
         }, 100);
       }
     }
-  }, [pathname]); 
+  }, [pathname]);
 
   const scrollRef = useRef({ latest: 0, previous: 0 });
   const updateHidden = useDebouncedCallback(() => {
@@ -154,7 +168,7 @@ export default function Header() {
                 <div className="relative w-7 h-7 sm:w-8 sm:h-8">
                   <Image
                     src="/images/logo.png"
-                    alt="SMP Management logo"
+                    alt="SMP Agency logo"
                     fill
                     sizes="40px"
                     quality={80}
@@ -167,7 +181,7 @@ export default function Header() {
               <div className="flex flex-col leading-tight">
                 <span className="text-sm sm:text-base font-bold tracking-tight text-gray-900">
                   <span className="text-gray-900">SMP</span>{" "}
-                  <span className="text-theme-brand">MANAGEMENT</span>
+                  <span className="text-theme-brand">AGENCY</span>
                 </span>
               </div>
             </span>

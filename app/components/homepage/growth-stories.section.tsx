@@ -5,7 +5,7 @@ import { ArrowUpRight, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import SectionTitle from "./SectionTitle";
+import SectionTitle from "../final-design/SectionTitle";
 
 // --- DATA: Blog Stories ---
 const stories = [
@@ -65,14 +65,11 @@ export default function GrowthStoriesSection() {
 
   return (
     <section className="relative overflow-hidden py-24 md:py-32 font-sans bg-gradient-to-b from-white via-gray-50/50 to-white">
-      {/* Background shapes – Side Only */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ overflow: "visible" }}
-      >
-        {/* Left Side - Circle */}
+      {/* Background shapes – SVG decor, fully inside so they don’t affect layout */}
+      <div className="absolute inset-0 pointer-events-none z-1">
+        {/* Left Side - First shape (L-style) */}
         <motion.div
-          className="absolute top-1/3 left-0 w-56 h-56 border-4 border-theme-brand/30 rounded-full -translate-x-1/2"
+          className="absolute top-[50%] left-4 md:left-8 w-40 h-40 md:w-48 md:h-48"
           aria-hidden
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
@@ -81,10 +78,19 @@ export default function GrowthStoriesSection() {
             scale: { duration: 0.6, ease: "easeOut" },
             opacity: { duration: 0.6 },
           }}
-        />
-        {/* Right Side - Rounded Square */}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.35 }}
+          >
+            <path d="M320 0v160a160 160 0 1 0-320 0v320h160V320a160 160 0 1 0 320 0V0H320Z" />
+          </svg>
+        </motion.div>
+        {/* Right Side - Second shape */}
         <motion.div
-          className="absolute bottom-1/3 right-0 w-48 h-48 border-4 border-theme-brand/35 rounded-xl translate-x-1/2 -rotate-12"
+          className="absolute bottom-[20%] right-4 md:right-8 w-40 h-40 md:w-48 md:h-48"
           aria-hidden
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
@@ -93,7 +99,37 @@ export default function GrowthStoriesSection() {
             scale: { duration: 0.6, delay: 0.2, ease: "easeOut" },
             opacity: { duration: 0.6, delay: 0.2 },
           }}
-        />
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.35 }}
+          >
+            <path d="M320 0v240a160 160 0 1 0-320 0v240h160V240a160 160 0 1 0 320 0V0H320Z" />
+          </svg>
+        </motion.div>
+        {/* Third shape - right side top accent */}
+        <motion.div
+          className="absolute top-[18%] right-4 md:right-8 w-32 h-32 md:w-40 md:h-40"
+          aria-hidden
+          initial={{ scale: 0.8, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{
+            scale: { duration: 0.6, delay: 0.35, ease: "easeOut" },
+            opacity: { duration: 0.6, delay: 0.35 },
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.35 }}
+          >
+            <path d="M320 160a160 160 0 1 0-320 0v320h160V160h160ZM320 0v320H160a160 160 0 1 0 320 0V0H320Z" />
+          </svg>
+        </motion.div>
       </div>
 
       <div className="max-w-[1920px] mx-auto relative z-10 px-6">

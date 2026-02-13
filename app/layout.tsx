@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat, Dancing_Script } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "./Toaster";
+import SplashLayout from "./components/common/splash-layout";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -18,9 +19,9 @@ const dancingScript = Dancing_Script({
 });
 
 export const metadata: Metadata = {
-  title: "SMP Management",
+  title: "SMP Agency",
   description:
-    "Apply to become a model and start your journey as a content creator",
+    "SMP AGENCY is a leading content creation agency that helps businesses grow their audience and revenue through content marketing.",
 };
 
 export default function RootLayout({
@@ -32,11 +33,12 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="preload" as="video" href="/Videos/Ads1.mp4" />
+        <link rel="preload" as="video" href="/Videos/hero-background-vid.mov" />
       </head>
       <body
-        className={`${montserrat.variable} ${dancingScript.variable} antialiased`}
+        className={`${montserrat.variable} ${dancingScript.variable} antialiased bg-black`}
       >
-        {children}
+        <SplashLayout>{children}</SplashLayout>
         <Toaster />
       </body>
     </html>

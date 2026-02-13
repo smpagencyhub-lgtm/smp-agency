@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Instagram } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import SectionTitle from "./SectionTitle";
+import SectionTitle from "../final-design/SectionTitle";
 import {
   Carousel,
   type CarouselApi,
@@ -59,14 +59,11 @@ export default function TestimonialSection() {
 
   return (
     <section className="relative overflow-hidden py-24 md:py-32 font-sans bg-gradient-to-b from-white via-gray-50/50 to-white">
-      {/* Background shapes – Side Only */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ overflow: "visible" }}
-      >
-        {/* Left Side - Circle */}
+      {/* Background shapes – grid SVG, fully inside so they don’t affect layout */}
+      <div className="absolute inset-0 pointer-events-none z-1">
+        {/* Left Side - Grid SVG */}
         <motion.div
-          className="absolute top-1/2 left-0 w-56 h-56 border-4 border-theme-brand/30 rounded-full -translate-x-1/2 -translate-y-1/2"
+          className="absolute top-[22%] left-4 md:left-8 w-40 h-40 md:w-48 md:h-48"
           aria-hidden
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
@@ -75,10 +72,19 @@ export default function TestimonialSection() {
             scale: { duration: 0.6, ease: "easeOut" },
             opacity: { duration: 0.6 },
           }}
-        />
-        {/* Right Side - Rounded Square */}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.35 }}
+          >
+            <path d="M120 120h120v120H120zM0 240h120v120H0zM120 360h120v120H120zM0 0h120v120H0zM360 120h120v120H360zM240 240h120v120H240zM360 360h120v120H360zM240 0h120v120H240z" />
+          </svg>
+        </motion.div>
+        {/* Right Side - Same grid SVG (mirrored) */}
         <motion.div
-          className="absolute bottom-1/4 right-0 w-48 h-48 border-4 border-theme-brand/35 rounded-2xl translate-x-1/2 -rotate-12"
+          className="absolute bottom-[22%] right-4 md:right-8 w-40 h-40 md:w-48 md:h-48 scale-x-[-1]"
           aria-hidden
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
@@ -87,7 +93,16 @@ export default function TestimonialSection() {
             scale: { duration: 0.6, delay: 0.2, ease: "easeOut" },
             opacity: { duration: 0.6, delay: 0.2 },
           }}
-        />
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.35 }}
+          >
+            <path d="M120 120h120v120H120zM0 240h120v120H0zM120 360h120v120H120zM0 0h120v120H0zM360 120h120v120H360zM240 240h120v120H240zM360 360h120v120H360zM240 0h120v120H240z" />
+          </svg>
+        </motion.div>
       </div>
 
       <div className="max-w-[1920px] mx-auto relative z-10 px-6">
@@ -108,7 +123,7 @@ export default function TestimonialSection() {
           <Carousel
             opts={{ loop: true, align: "center" }}
             setApi={setApi}
-            className="w-full"
+            className="w-full relative pb-20 md:pb-0"
           >
             <CarouselContent className="-ml-5 md:-ml-6 py-3">
               {testimonials.map((item, index) => (
@@ -164,8 +179,8 @@ export default function TestimonialSection() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="left-0 md:-left-16 size-12 md:size-14 bg-white border-2 border-theme-brand/30 text-theme-brand hover:bg-theme-brand hover:text-white hover:border-theme-brand shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 z-20" />
-            <CarouselNext className="right-0 md:-right-16 size-12 md:size-14 bg-white border-2 border-theme-brand/30 text-theme-brand hover:bg-theme-brand hover:text-white hover:border-theme-brand shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 z-20" />
+            <CarouselPrevious className="top-auto bottom-0 left-1/2 -translate-x-full -mr-2 md:top-1/2 md:bottom-auto md:-left-16 md:translate-x-0 md:-translate-y-1/2 md:mr-0 size-12 md:size-14 bg-white border-2 border-theme-brand/30 text-theme-brand hover:bg-theme-brand hover:text-white hover:border-theme-brand shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 z-20" />
+            <CarouselNext className="top-auto bottom-0 left-1/2 ml-2 md:top-1/2 md:bottom-auto md:left-auto md:-right-16 md:-translate-y-1/2 size-12 md:size-14 bg-white border-2 border-theme-brand/30 text-theme-brand hover:bg-theme-brand hover:text-white hover:border-theme-brand shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 z-20" />
           </Carousel>
         </motion.div>
       </div>

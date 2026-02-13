@@ -1,25 +1,31 @@
 "use client";
 
-import Header from "./components/design-2/Header2";
-import Footer from "./components/design-1/Footer";
+import { useState } from "react";
+import Header from "./components/common/Header2";
+import Footer from "./components/common/Footer";
 
-import HeroSection from "./components/final-design/hero.section";
-import AboutSection from "./components/final-design/about.section";
-import TestimonialSection from "./components/final-design/testimonial.section";
-import ServicesSection from "./components/final-design/services.section";
-import PotentialEarningsSection from "./components/final-design/PotentialEarningsSection";
-import StatsSection from "./components/final-design/stats.section";
-import WorkWithUs from "./components/final-design/work-with-us.section";
-import CalendlySection from "./components/final-design/calendly.section";
-import GrowthStoriesSection from "./components/final-design/growth-stories.section";
-import FAQSection from "./components/final-design/faq.section";
+import HeroSection from "./components/homepage/hero.section";
+import AboutSection from "./components/homepage/about.section";
+import TestimonialSection from "./components/homepage/testimonial.section";
+import ServicesSection from "./components/homepage/services.section";
+import PotentialEarningsSection from "./components/homepage/PotentialEarningsSection";
+import StatsSection from "./components/homepage/stats.section";
+import WorkWithUs from "./components/homepage/work-with-us.section";
+import CalendlySection from "./components/homepage/calendly.section";
+import GrowthStoriesSection from "./components/homepage/growth-stories.section";
+import FAQSection from "./components/homepage/faq.section";
 
 export default function Home() {
+  const [applyModalOpen, setApplyModalOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-theme-bg">
-      <Header />
+      <Header
+        applyModalOpen={applyModalOpen}
+        onApplyModalOpenChange={setApplyModalOpen}
+      />
       <main>
-        <HeroSection />
+        <HeroSection onStartJourneyClick={() => setApplyModalOpen(true)} />
         <AboutSection />
         <TestimonialSection />
         <ServicesSection />

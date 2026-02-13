@@ -2,20 +2,29 @@
 
 import { motion } from "framer-motion";
 
-const HeroSection = () => {
+type HeroSectionProps = {
+  onStartJourneyClick?: () => void;
+};
+
+const HeroSection = ({ onStartJourneyClick }: HeroSectionProps) => {
   return (
-    <section className="relative min-h-screen overflow-hidden font-sans flex flex-col justify-center">
-      {/* VIDEO BACKGROUND – keep as-is */}
-      <div className="absolute inset-0 z-0">
+    <section className="relative min-h-screen overflow-hidden font-sans flex flex-col justify-center bg-black">
+      {/* Video background — solid bg shows immediately while video loads */}
+      <div className="absolute inset-0 z-0 bg-black">
         <video
           autoPlay
           loop
           muted
           playsInline
           preload="auto"
-          className="w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ background: "#000" }}
         >
           <source src="/Videos/hero-background-vid.mov" type="video/mp4" />
+          <source
+            src="/Videos/hero-background-vid.mov"
+            type="video/quicktime"
+          />
           Your browser does not support the video tag.
         </video>
 
@@ -29,9 +38,9 @@ const HeroSection = () => {
           <div className="flex flex-col items-center gap-4 max-w-4xl">
             {/* Eyebrow */}
             <motion.p
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
               className="text-red-400 text-xs font-semibold uppercase tracking-[0.2em] mb-4"
             >
               Elite creator management
@@ -44,8 +53,8 @@ const HeroSection = () => {
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}
                 transition={{
-                  duration: 0.6,
-                  delay: 0.15,
+                  duration: 0.4,
+                  delay: 0.05,
                   ease: [0.22, 1, 0.36, 1],
                 }}
               >
@@ -56,8 +65,8 @@ const HeroSection = () => {
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}
                 transition={{
-                  duration: 0.6,
-                  delay: 0.35,
+                  duration: 0.4,
+                  delay: 0.12,
                   ease: [0.22, 1, 0.36, 1],
                 }}
               >
@@ -70,8 +79,8 @@ const HeroSection = () => {
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{
-                duration: 0.6,
-                delay: 0.55,
+                duration: 0.4,
+                delay: 0.2,
                 ease: [0.22, 1, 0.36, 1],
               }}
               className="origin-center h-px w-12 bg-red-500 mb-4"
@@ -79,9 +88,9 @@ const HeroSection = () => {
 
             {/* Description */}
             <motion.p
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
+              transition={{ duration: 0.4, delay: 0.28, ease: "easeOut" }}
               className="text-gray-300 text-base md:text-lg max-w-2xl font-medium tracking-wide leading-relaxed mb-6"
             >
               The elite agency for creators who want to scale revenue, build a
@@ -90,12 +99,14 @@ const HeroSection = () => {
 
             {/* CTA */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.95, ease: "easeOut" }}
+              transition={{ duration: 0.35, delay: 0.36, ease: "easeOut" }}
               className="pt-4"
             >
               <motion.button
+                type="button"
+                onClick={onStartJourneyClick}
                 className="bg-theme-brand hover:bg-theme-brand-hover text-white text-base md:text-lg font-bold py-3.5 px-8 rounded-full transition-colors duration-300 shadow-lg border-2 border-transparent hover:border-red-400/30"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -112,7 +123,7 @@ const HeroSection = () => {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-white/70"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 0.6 }}
+        transition={{ delay: 0.6, duration: 0.4 }}
       >
         <span className="text-xs uppercase tracking-widest font-medium">
           Scroll

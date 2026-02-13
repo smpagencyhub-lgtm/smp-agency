@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import SectionTitle from "./SectionTitle";
+import SectionTitle from "../final-design/SectionTitle";
 
 // --- DATA: Blog Posts ---
 // We define this here so the list can render
@@ -89,35 +89,113 @@ export default function BlogSection() {
       id="blog"
       className="relative overflow-hidden py-24 md:py-32 font-sans bg-gradient-to-b from-white via-gray-50/50 to-white"
     >
-      {/* Background shapes – Side Only */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ overflow: "visible" }}
-      >
-        {/* Left Side - Rounded Square */}
+      {/* Background shapes – 5 SVGs framing the section */}
+      <div className="absolute inset-0 pointer-events-none z-1">
+        {/* 1. Top-left – tall L */}
         <motion.div
-          className="absolute top-1/4 left-0 w-48 h-48 border-4 border-theme-brand/30 rounded-xl -translate-x-1/2 rotate-12"
+          className="absolute top-[15%] left-4 md:left-6 w-32 h-32 md:w-40 md:h-40"
           aria-hidden
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{
-            scale: { duration: 0.6, ease: "easeOut" },
-            opacity: { duration: 0.6 },
+            scale: { duration: 0.5, ease: "easeOut" },
+            opacity: { duration: 0.5 },
           }}
-        />
-        {/* Right Side - Circle */}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.3 }}
+          >
+            <path d="M320 0v240a160 160 0 1 0-320 0v240h160V240a160 160 0 1 0 320 0V0H320Z" />
+          </svg>
+        </motion.div>
+        {/* 2. Bottom-left – tall L (same shape) */}
         <motion.div
-          className="absolute bottom-1/4 right-0 w-56 h-56 border-4 border-theme-brand/35 rounded-full translate-x-1/2"
+          className="absolute bottom-[20%] left-10 md:left-6 w-32 h-32 md:w-40 md:h-40 scale-y-[-1]"
           aria-hidden
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{
-            scale: { duration: 0.6, delay: 0.2, ease: "easeOut" },
-            opacity: { duration: 0.6, delay: 0.2 },
+            scale: { duration: 0.5, delay: 0.12, ease: "easeOut" },
+            opacity: { duration: 0.5, delay: 0.12 },
           }}
-        />
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.3 }}
+          >
+            <path d="M320 0v240a160 160 0 1 0-320 0v240h160V240a160 160 0 1 0 320 0V0H320Z" />
+          </svg>
+        </motion.div>
+        {/* 3. Top-right – split rectangle */}
+        <motion.div
+          className="absolute top-[10%] right-[30%] md:right-6 w-32 h-32 md:w-40 md:h-40 scale-x-[-1]"
+          aria-hidden
+          initial={{ scale: 0.8, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{
+            scale: { duration: 0.5, delay: 0.2, ease: "easeOut" },
+            opacity: { duration: 0.5, delay: 0.2 },
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.3 }}
+          >
+            <path d="M320 160a160 160 0 1 0-320 0v320h160V160h160ZM320 0v320H160a160 160 0 1 0 320 0V0H320Z" />
+          </svg>
+        </motion.div>
+        {/* 4. Bottom-right – quarter/corner */}
+        <motion.div
+          className="absolute bottom-[12%] right-4 md:right-6 w-32 h-32 md:w-40 md:h-40 scale-x-[-1]"
+          aria-hidden
+          initial={{ scale: 0.8, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{
+            scale: { duration: 0.5, delay: 0.28, ease: "easeOut" },
+            opacity: { duration: 0.5, delay: 0.28 },
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.3 }}
+          >
+            <path d="M240 0v120A120 120 0 0 1 120 0H0a240 240 0 0 0 240 240A240 240 0 0 0 0 480h120a120 120 0 0 1 120-120v120a240 240 0 1 0 0-480Z" />
+          </svg>
+        </motion.div>
+        {/* 5. Center-left – quarter circle variant */}
+        <motion.div
+          className="absolute bottom-[40%] right-0"
+          aria-hidden
+          initial={{ scale: 0.8, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{
+            scale: { duration: 0.5, delay: 0.35, ease: "easeOut" },
+            opacity: { duration: 0.5, delay: 0.35 },
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.3 }}
+          >
+            <path d="M240 120A120 120 0 0 1 120 0H0a240 240 0 0 0 240 240A240 240 0 0 0 0 480h120c0-66.3 53.7-120 120-120a120 120 0 1 0 0-240Z" />
+          </svg>
+        </motion.div>
       </div>
 
       <div className="max-w-[1920px] mx-auto px-6 relative z-10">
@@ -127,6 +205,7 @@ export default function BlogSection() {
           title="Our Blog"
           highlightStart={false}
           highlightEnd={true}
+          noMarginBottom={true}
         />
 
         {/* Subtitle */}

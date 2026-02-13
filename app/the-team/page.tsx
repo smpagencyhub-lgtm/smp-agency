@@ -1,7 +1,7 @@
 "use client";
 
-import Header from "../components/design-2/Header2";
-import Footer from "../components/design-1/Footer";
+import Header from "../components/common/Header2";
+import Footer from "../components/common/Footer";
 import TheTeamSection from "../components/final-design/the-team-section";
 
 export default function TheTeamPage() {

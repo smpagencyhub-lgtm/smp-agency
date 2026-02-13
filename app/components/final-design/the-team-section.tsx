@@ -24,35 +24,92 @@ export default function TheTeamSection() {
       id="the-team"
       className="relative overflow-hidden py-24 md:py-32 font-sans bg-gradient-to-b from-white via-gray-50/50 to-white"
     >
-      {/* Background shapes – Side Only */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ overflow: "visible" }}
-      >
-        {/* Left Side - Diamond */}
+      {/* Background shapes – 4 SVGs framing the section (2 diamond, 2 star) */}
+      <div className="absolute inset-0 pointer-events-none z-1">
+        {/* 1. Top-left – diamond/arrow */}
         <motion.div
-          className="absolute top-1/4 left-0 w-52 h-52 border-4 border-theme-brand -translate-x-1/2 rotate-45"
+          className="absolute top-[10%] left-4 md:left-6 w-32 h-32 md:w-40 md:h-40"
           aria-hidden
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{
-            scale: { duration: 0.6, ease: "easeOut" },
-            opacity: { duration: 0.6 },
+            scale: { duration: 0.5, ease: "easeOut" },
+            opacity: { duration: 0.5 },
           }}
-        />
-        {/* Right Side - Rounded Square */}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.3 }}
+          >
+            <path d="m320 320 160-80-160-80L240 0l-80 160L0 240l160 80 80 160 80-160z" />
+          </svg>
+        </motion.div>
+        {/* 2. Bottom-left – star */}
         <motion.div
-          className="absolute bottom-1/4 right-0 w-48 h-48 border-4 border-theme-brand rounded-xl translate-x-1/2 rotate-12"
+          className="absolute bottom-[20%] left-4 md:left-6 w-32 h-32 md:w-40 md:h-40"
           aria-hidden
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{
-            scale: { duration: 0.6, delay: 0.2, ease: "easeOut" },
-            opacity: { duration: 0.6, delay: 0.2 },
+            scale: { duration: 0.5, delay: 0.15, ease: "easeOut" },
+            opacity: { duration: 0.5, delay: 0.15 },
           }}
-        />
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.3 }}
+          >
+            <path d="M371.3 294.4 480 240l-108.7-54.4 38.4-115.3-115.3 38.4L240 0l-54.4 108.7L70.3 70.3l38.4 115.3L0 240l108.7 54.4-38.4 115.3 115.3-38.4L240 480l54.4-108.7 115.3 38.4-38.4-115.3z" />
+          </svg>
+        </motion.div>
+        {/* 3. Top-right – diamond/arrow (mirrored) */}
+        <motion.div
+          className="absolute top-[50%] right-4 md:right-6 w-32 h-32 md:w-40 md:h-40 scale-x-[-1]"
+          aria-hidden
+          initial={{ scale: 0.8, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{
+            scale: { duration: 0.5, delay: 0.2, ease: "easeOut" },
+            opacity: { duration: 0.5, delay: 0.2 },
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.3 }}
+          >
+            <path d="m320 320 160-80-160-80L240 0l-80 160L0 240l160 80 80 160 80-160z" />
+          </svg>
+        </motion.div>
+        {/* 4. Bottom-right – star (mirrored) */}
+        <motion.div
+          className="absolute bottom-[10%] right-4 md:right-6 w-32 h-32 md:w-40 md:h-40 scale-x-[-1]"
+          aria-hidden
+          initial={{ scale: 0.8, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{
+            scale: { duration: 0.5, delay: 0.35, ease: "easeOut" },
+            opacity: { duration: 0.5, delay: 0.35 },
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.3 }}
+          >
+            <path d="M371.3 294.4 480 240l-108.7-54.4 38.4-115.3-115.3 38.4L240 0l-54.4 108.7L70.3 70.3l38.4 115.3L0 240l108.7 54.4-38.4 115.3 115.3-38.4L240 480l54.4-108.7 115.3 38.4-38.4-115.3z" />
+          </svg>
+        </motion.div>
       </div>
 
       <div className="max-w-[1920px] mx-auto px-6 relative z-10">
@@ -358,8 +415,7 @@ export default function TheTeamSection() {
         >
           <div className="relative w-full h-[300px] md:h-[600px] rounded-3xl overflow-hidden border border-gray-200 shadow-2xl mb-12 group">
             <div className="absolute top-6 left-6 md:top-8 md:left-8 bg-theme-brand px-6 py-3 rounded-xl z-20 shadow-lg">
-              <h3 className="text-green-400  lg:text-2xl font-bold"> 
-              </h3>
+              <h3 className="text-green-400  lg:text-2xl font-bold"></h3>
             </div>
             <Image
               src="/images/gfinal.png"

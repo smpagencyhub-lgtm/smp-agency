@@ -4,7 +4,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useThrottledCallback } from "use-debounce";
 import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
 import { Users, Globe, DollarSign, Eye, MapPin } from "lucide-react";
-import SectionTitle from "./SectionTitle";
+import SectionTitle from "../final-design/SectionTitle";
 
 // --- Helper Component for Counting Numbers ---
 type CounterProps = {
@@ -89,7 +89,15 @@ const stats = [
 ];
 
 // --- Marquee Data ---
-const words = ["GROWTH", "SCALE", "REVENUE", "MANAGEMENT", "SMP", "DOMINANCE", "INNOVATION"];
+const words = [
+  "GROWTH",
+  "SCALE",
+  "REVENUE",
+  "MANAGEMENT",
+  "SMP",
+  "DOMINANCE",
+  "INNOVATION",
+];
 const repeatedWords = [...words, ...words, ...words]; // Triple it for smooth looping
 
 // --- Animation Variants ---
@@ -113,14 +121,11 @@ const itemVariants = {
 export default function StatsSection2() {
   return (
     <section className="relative overflow-hidden py-24 md:py-32 font-sans bg-gradient-to-b from-white via-gray-50/50 to-white">
-      {/* Background shapes – Side Only */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ overflow: "visible" }}
-      >
-        {/* Left Side - Rounded Square */}
+      {/* Background shapes – SVG decor, fully inside so they don’t affect layout */}
+      <div className="absolute inset-0 pointer-events-none z-1">
+        {/* Left Side - Bowtie / butterfly shape */}
         <motion.div
-          className="absolute top-1/2 left-0 w-48 h-48 border-4 border-theme-brand/30 rounded-2xl -translate-x-1/2 -translate-y-1/2 rotate-12"
+          className="absolute top-[20%] left-4 md:left-8 w-40 h-40 md:w-48 md:h-48"
           aria-hidden
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
@@ -129,10 +134,19 @@ export default function StatsSection2() {
             scale: { duration: 0.6, ease: "easeOut" },
             opacity: { duration: 0.6 },
           }}
-        />
-        {/* Right Side - Diamond */}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.35 }}
+          >
+            <path d="M320 240 206.6 70a56 56 0 0 0-93.2 0L0 240h160l113.4 170a56 56 0 0 0 93.2 0L480 240H320Z" />
+          </svg>
+        </motion.div>
+        {/* Right Side - Diamond / arrow shape */}
         <motion.div
-          className="absolute bottom-1/3 right-0 w-52 h-52 border-4 border-theme-brand/35 translate-x-1/2 rotate-45"
+          className="absolute bottom-[20%] right-4 md:right-8 w-40 h-40 md:w-48 md:h-48"
           aria-hidden
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
@@ -141,11 +155,19 @@ export default function StatsSection2() {
             scale: { duration: 0.6, delay: 0.2, ease: "easeOut" },
             opacity: { duration: 0.6, delay: 0.2 },
           }}
-        />
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.35 }}
+          >
+            <path d="M320 240 160 0 0 240h160l160 240 160-240H320z" />
+          </svg>
+        </motion.div>
       </div>
 
       <div className="max-w-[1920px] mx-auto px-6 relative z-10">
-        
         {/* ======================= */}
         {/* TOP MARQUEE (Moves Left) */}
         {/* ======================= */}
@@ -248,7 +270,7 @@ export default function StatsSection2() {
           >
             {repeatedWords.map((word, i) => (
               <div key={i} className="flex items-center gap-16">
-                 {/* MADE TEXT DARKER GRAY */}
+                {/* MADE TEXT DARKER GRAY */}
                 <span className="text-6xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-gray-600 to-transparent uppercase tracking-tighter">
                   {word}
                 </span>

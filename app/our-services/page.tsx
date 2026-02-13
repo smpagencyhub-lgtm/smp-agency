@@ -1,7 +1,7 @@
 "use client";
 
-import Header from "../components/design-2/Header2";
-import Footer from "../components/design-1/Footer";
+import Header from "../components/common/Header2";
+import Footer from "../components/common/Footer";
 import OurServices from "../components/final-design/our-services";
 
 export default function OurServicesPage() {

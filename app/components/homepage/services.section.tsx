@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import SectionTitle from "./SectionTitle";
+import SectionTitle from "../final-design/SectionTitle";
 
 const services = [
   {
@@ -44,14 +44,11 @@ const cardVariants = {
 export default function ServicesSection() {
   return (
     <section className="relative overflow-hidden py-24 md:py-32 font-sans bg-gradient-to-b from-white via-gray-50/50 to-white">
-      {/* Background shapes – Side Only */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ overflow: "visible" }}
-      >
-        {/* Left Side - Diamond */}
+      {/* Background shapes – SVG decor, fully inside so they don’t affect layout */}
+      <div className="absolute inset-0 pointer-events-none z-1">
+        {/* Left Side - Cross / plus shape */}
         <motion.div
-          className="absolute top-1/3 left-0 w-52 h-52 border-4 border-theme-brand/30 -translate-x-1/2 rotate-45"
+          className="absolute top-[50%] left-4 md:left-8 w-40 h-40 md:w-48 md:h-48"
           aria-hidden
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
@@ -60,10 +57,19 @@ export default function ServicesSection() {
             scale: { duration: 0.6, ease: "easeOut" },
             opacity: { duration: 0.6 },
           }}
-        />
-        {/* Right Side - Rounded Square */}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.35 }}
+          >
+            <path d="M360.5 240V120.5H240V0H0v240h120.5v120.5H240V480h240V240H360.5z" />
+          </svg>
+        </motion.div>
+        {/* Right Side - Two squares (diagonal) */}
         <motion.div
-          className="absolute bottom-1/3 right-0 w-48 h-48 border-4 border-theme-brand/35 rounded-xl translate-x-1/2 rotate-12"
+          className="absolute bottom-[20%] right-4 md:right-8 w-40 h-40 md:w-48 md:h-48"
           aria-hidden
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
@@ -72,13 +78,27 @@ export default function ServicesSection() {
             scale: { duration: 0.6, delay: 0.2, ease: "easeOut" },
             opacity: { duration: 0.6, delay: 0.2 },
           }}
-        />
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.35 }}
+          >
+            <path d="M0 0h240v240H0zM240 240h240v240H240z" />
+          </svg>
+        </motion.div>
       </div>
 
       <div className="max-w-[1920px] mx-auto relative z-10 px-6">
         {/* Title */}
         <div className="flex flex-col items-center">
-            <SectionTitle eyebrow="What we offer" title="Our Services" highlightStart={false} highlightEnd={true} />
+          <SectionTitle
+            eyebrow="What we offer"
+            title="Our Services"
+            highlightStart={false}
+            highlightEnd={true}
+          />
         </div>
 
         {/* Cards grid */}
@@ -96,7 +116,6 @@ export default function ServicesSection() {
               className="group rounded-3xl overflow-hidden bg-white border border-gray-200/90 shadow-lg hover:shadow-xl hover:border-red-500/20 transition-all duration-300 flex flex-col h-full"
             >
               <Link href="/our-services" className="flex flex-col h-full">
-                
                 {/* 1. IMAGE CONTAINER */}
                 <div className="relative w-full h-64 overflow-hidden bg-gray-100 flex-shrink-0">
                   <Image
@@ -112,14 +131,16 @@ export default function ServicesSection() {
 
                 {/* 2. TEXT CONTENT CONTAINER */}
                 <div className="flex flex-col flex-1 p-6 md:p-8">
-                  
                   {/* TITLE (Moved Here) */}
                   <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-theme-brand transition-colors">
                     {item.title}
                   </h3>
-                  
+
                   {/* Divider Line */}
-                  <div className="h-1 w-12 bg-theme-brand/20 mb-4 rounded-full group-hover:w-20 transition-all duration-300" aria-hidden />
+                  <div
+                    className="h-1 w-12 bg-theme-brand/20 mb-4 rounded-full group-hover:w-20 transition-all duration-300"
+                    aria-hidden
+                  />
 
                   {/* Description Text */}
                   <p className="text-gray-600 text-sm md:text-base leading-relaxed line-clamp-4 mb-6 flex-1 font-medium">
@@ -132,7 +153,6 @@ export default function ServicesSection() {
                     <ArrowRight className="w-4 h-4" />
                   </span>
                 </div>
-
               </Link>
             </motion.article>
           ))}

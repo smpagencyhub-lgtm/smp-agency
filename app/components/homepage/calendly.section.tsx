@@ -3,7 +3,7 @@
 import { Calendar, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import SectionTitle from "./SectionTitle";
+import SectionTitle from "../final-design/SectionTitle";
 
 // --- Animation Variants ---
 const floatingAnimation = {
@@ -26,14 +26,11 @@ const floatingAnimationReverse = {
 export default function CalendlySection() {
   return (
     <section className="relative overflow-hidden py-24 md:py-32 font-sans bg-gradient-to-b from-white via-gray-50/50 to-white">
-      {/* Background shapes – Side Only */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ overflow: "visible" }}
-      >
-        {/* Left Side - Rounded Square */}
+      {/* Background shapes – SVG decor, fully inside so they don’t affect layout */}
+      <div className="absolute inset-0 pointer-events-none z-1">
+        {/* Left Side - Four circles */}
         <motion.div
-          className="absolute top-1/3 left-0 w-48 h-48 border-4 border-theme-brand/30 rounded-xl -translate-x-1/2 rotate-12"
+          className="absolute top-[20%] left-4 md:left-8 w-40 h-40 md:w-48 md:h-48"
           aria-hidden
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
@@ -42,10 +39,24 @@ export default function CalendlySection() {
             scale: { duration: 0.6, ease: "easeOut" },
             opacity: { duration: 0.6 },
           }}
-        />
-        {/* Right Side - Diamond */}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.35 }}
+          >
+            <g>
+              <circle cx="120" cy="120" r="120" />
+              <circle cx="120" cy="360" r="120" />
+              <circle cx="360" cy="120" r="120" />
+              <circle cx="360" cy="360" r="120" />
+            </g>
+          </svg>
+        </motion.div>
+        {/* Right Side - Overlapping circles / Venn shape */}
         <motion.div
-          className="absolute bottom-1/3 right-0 w-52 h-52 border-4 border-theme-brand/35 translate-x-1/2 rotate-45"
+          className="absolute bottom-[20%] right-4 md:right-8 w-40 h-40 md:w-48 md:h-48"
           aria-hidden
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
@@ -54,7 +65,16 @@ export default function CalendlySection() {
             scale: { duration: 0.6, delay: 0.2, ease: "easeOut" },
             opacity: { duration: 0.6, delay: 0.2 },
           }}
-        />
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.35 }}
+          >
+            <path d="M450.9 169.7a99.4 99.4 0 0 0-140.6 0 99.4 99.4 0 1 0-140.6 0 99.4 99.4 0 1 0 0 140.6 99.4 99.4 0 1 0 140.6 0 99.4 99.4 0 0 0 140.6-140.6ZM169.7 310.3l140.6-140.6" />
+          </svg>
+        </motion.div>
       </div>
 
       <div className="max-w-[1920px] mx-auto relative z-10 px-6">

@@ -1,8 +1,8 @@
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import { ArrowLeft } from 'lucide-react';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
 
 // --- DATA ---
 export const blogPosts = [
@@ -10,7 +10,8 @@ export const blogPosts = [
     category: "Growth",
     title: "Boosting Creator Earnings",
     slug: "boosting-creator-earnings",
-    excerpt: "Explore strategies that management teams implement to steadily grow creator income while keeping subscribers engaged for the long term.",
+    excerpt:
+      "Explore strategies that management teams implement to steadily grow creator income while keeping subscribers engaged for the long term.",
     image: "/images/allaya (2).JPG",
     content: `
       <p>This is about increasing creator income strategically. Posting more content isn't enough; it requires smart planning to grow revenue sustainably.</p>
@@ -23,13 +24,14 @@ export const blogPosts = [
 
       <h3>Key Strategy 3: Long-Term Subscriber Value</h3>
       <p>Focus on retention strategies that keep followers engaged over months, not just quick spikes in revenue. This ensures sustainable growth.</p>
-    `
+    `,
   },
   {
     category: "Engagement",
     title: "Mastering Fan Interaction",
     slug: "mastering-fan-interaction",
-    excerpt: "See how tailored communication and smart engagement techniques convert casual followers into devoted, high-value fans.",
+    excerpt:
+      "See how tailored communication and smart engagement techniques convert casual followers into devoted, high-value fans.",
     image: "/images/allaya4.jpg",
     content: `
       <p>Fan engagement goes beyond posting content. It's about building genuine connections that inspire loyalty.</p>
@@ -42,13 +44,14 @@ export const blogPosts = [
 
       <h3>Reward Loyalty</h3>
       <p>Offer exclusive perks for loyal followers, like early access to content, shoutouts, or exclusive merchandise, to strengthen emotional investment.</p>
-    `
+    `,
   },
   {
     category: "Monetization",
     title: "Turning Content Into Profit",
     slug: "turning-content-into-profit",
-    excerpt: "Content alone isn’t enough. Discover how strategic funnels and pricing plans help maximize revenue from every post.",
+    excerpt:
+      "Content alone isn’t enough. Discover how strategic funnels and pricing plans help maximize revenue from every post.",
     image: "/images/modf1.jpg",
     content: `
       <p>Monetization is the bridge between creating content and sustaining a career. Let’s explore how to turn every piece of content into revenue.</p>
@@ -61,13 +64,14 @@ export const blogPosts = [
 
       <h3>Analytics-Driven Decisions</h3>
       <p>Use data to identify top-performing content and replicate its success. Investing in what works maximizes return on every post.</p>
-    `
+    `,
   },
   {
     category: "Security",
     title: "Keeping Creators & Brands Safe",
     slug: "keeping-creators-brands-safe",
-    excerpt: "Learn how professional management protects accounts through privacy measures and compliance while enabling fast growth.",
+    excerpt:
+      "Learn how professional management protects accounts through privacy measures and compliance while enabling fast growth.",
     image: "/images/modf2.jpg",
     content: `
       <p>Security is critical for creators managing personal brands. Protecting content, accounts, and data ensures longevity and trust.</p>
@@ -80,13 +84,14 @@ export const blogPosts = [
 
       <h3>Monitoring & Response</h3>
       <p>Regularly monitor accounts for suspicious activity and have a rapid response plan to minimize risks of hacks or breaches.</p>
-    `
+    `,
   },
   {
     category: "Analytics",
     title: "Growth Backed By Data",
     slug: "growth-backed-by-data",
-    excerpt: "Dive into how insights from metrics and user behavior inform smarter decisions and drive predictable growth.",
+    excerpt:
+      "Dive into how insights from metrics and user behavior inform smarter decisions and drive predictable growth.",
     image: "/images/g-model (1).JPEG",
     content: `
       <p>Data is the backbone of predictable growth. Tracking the right metrics allows creators to make smarter decisions.</p>
@@ -99,13 +104,14 @@ export const blogPosts = [
 
       <h3>Iterative Optimization</h3>
       <p>Use insights to continuously improve. Experiment, measure results, and refine approaches based on evidence rather than guesswork.</p>
-    `
+    `,
   },
   {
     category: "Branding",
     title: "Creating a Standout Persona",
     slug: "creating-standout-persona",
-    excerpt: "Effective branding builds emotional connections. Learn how thoughtful personas help creators shine in competitive markets.",
+    excerpt:
+      "Effective branding builds emotional connections. Learn how thoughtful personas help creators shine in competitive markets.",
     image: "/images/mod3.jpg",
     content: `
       <p>Strong branding makes creators memorable and builds trust. Crafting a persona is both art and strategy.</p>
@@ -118,13 +124,14 @@ export const blogPosts = [
 
       <h3>Emotional Connection</h3>
       <p>Engage your audience through storytelling, authenticity, and relatability. Fans follow brands they feel connected to.</p>
-    `
+    `,
   },
   {
     category: "Operations",
     title: "Scaling With Efficient Systems",
     slug: "scaling-with-efficient-systems",
-    excerpt: "Automation, team workflows, and organized schedules are crucial for growth. Discover how agencies simplify daily operations.",
+    excerpt:
+      "Automation, team workflows, and organized schedules are crucial for growth. Discover how agencies simplify daily operations.",
     image: "/images/modf3.jpg",
     content: `
       <p>Behind every successful creator is an organized operational system that keeps content consistent and scalable.</p>
@@ -137,13 +144,14 @@ export const blogPosts = [
 
       <h3>Efficient Planning</h3>
       <p>Use content calendars and project management software to plan ahead and ensure deadlines are met consistently.</p>
-    `
+    `,
   },
   {
     category: "Traffic",
     title: "Maximizing Organic & Paid Reach",
     slug: "maximizing-organic-paid-reach",
-    excerpt: "Learn how combining organic and paid strategies brings in quality subscribers without compromising account performance.",
+    excerpt:
+      "Learn how combining organic and paid strategies brings in quality subscribers without compromising account performance.",
     image: "/images/mod5.jpg",
     content: `
       <p>Driving traffic requires a balance between organic growth and paid campaigns to reach the right audience efficiently.</p>
@@ -156,13 +164,14 @@ export const blogPosts = [
 
       <h3>Measuring Success</h3>
       <p>Track conversions, engagement, and ROI to continually optimize your strategy for both organic and paid channels.</p>
-    `
+    `,
   },
   {
     category: "Retention",
     title: "Prioritizing Subscriber Loyalty",
     slug: "prioritizing-subscriber-loyalty",
-    excerpt: "Maintaining subscribers is as important as acquiring them. Explore proven methods to minimize churn and increase lifetime value.",
+    excerpt:
+      "Maintaining subscribers is as important as acquiring them. Explore proven methods to minimize churn and increase lifetime value.",
     image: "/images/modf4.jpg",
     content: `
       <p>Subscriber retention is key for stable growth. Loyal fans generate more revenue and spread positive word-of-mouth.</p>
@@ -175,10 +184,9 @@ export const blogPosts = [
 
       <h3>Retention Incentives</h3>
       <p>Offer loyalty rewards, referral bonuses, or early access to content to encourage long-term commitment.</p>
-    `
-  }
+    `,
+  },
 ];
-
 
 // Next.js 15: params is a Promise
 interface PageProps {
@@ -188,7 +196,7 @@ interface PageProps {
 }
 
 export default async function BlogPost({ params }: PageProps) {
-  const { slug } = await params; 
+  const { slug } = await params;
 
   const post = blogPosts.find((p) => p.slug === slug);
 
@@ -198,13 +206,12 @@ export default async function BlogPost({ params }: PageProps) {
 
   return (
     <article className="min-h-screen bg-gradient-to-b from-white via-gray-50/50 to-white font-sans pb-24">
-      
       {/* Hero Image Section */}
       <div className="relative w-full h-[50vh] md:h-[60vh] overflow-hidden">
-        <Image 
-          src={post.image} 
-          alt={post.title} 
-          fill 
+        <Image
+          src={post.image}
+          alt={post.title}
+          fill
           sizes="100vw"
           className="object-cover"
           priority
@@ -214,26 +221,32 @@ export default async function BlogPost({ params }: PageProps) {
 
       {/* Content Container */}
       <div className="max-w-4xl mx-auto px-6 -mt-32 relative z-10">
-        
         {/* Navigation */}
-        <Link 
-          href="/blog" 
+        <Link
+          href="/blog"
           className="inline-flex items-center gap-2 text-gray-600 hover:text-theme-brand transition-colors mb-8 group cursor-pointer"
         >
-          <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
-          <span className="text-sm font-bold uppercase tracking-wider">Back to Blog</span>
+          <ArrowLeft
+            size={20}
+            className="group-hover:-translate-x-1 transition-transform"
+          />
+          <span className="text-sm font-bold uppercase tracking-wider">
+            Back to Blog
+          </span>
         </Link>
 
         {/* Article Header */}
         <div className="relative bg-white border border-gray-200/90 rounded-3xl p-8 md:p-12 shadow-xl overflow-hidden">
           {/* Corner Accents */}
           <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-theme-brand/20 rounded-tl-3xl pointer-events-none" />
-          
+
           <div className="flex items-center gap-4 mb-6 flex-wrap">
             <span className="bg-theme-brand px-4 py-1.5 text-xs font-bold text-white uppercase tracking-widest rounded-full shadow-lg">
               {post.category}
             </span>
-            <span className="text-gray-500 text-sm font-medium">5 Min Read</span>
+            <span className="text-gray-500 text-sm font-medium">
+              5 Min Read
+            </span>
           </div>
 
           <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
@@ -246,13 +259,12 @@ export default async function BlogPost({ params }: PageProps) {
         </div>
 
         {/* Article Body */}
-        <div 
+        <div
           className="mt-12 bg-white border border-gray-200/90 rounded-3xl p-8 md:p-12 shadow-xl text-lg leading-relaxed
             [&>p]:mb-6 [&>p]:text-gray-600
             [&>h3]:text-2xl [&>h3]:font-bold [&>h3]:text-theme-brand [&>h3]:mt-10 [&>h3]:mb-4"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
-
       </div>
     </article>
   );

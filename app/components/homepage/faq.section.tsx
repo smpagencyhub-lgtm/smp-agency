@@ -3,10 +3,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
-import SectionTitle from "./SectionTitle";
-import Modal from "../design-2/Modal";
-import ApplyNowForm from "../design-2/ApplyNowForm";
-import type { ApplyNowFormData } from "../design-2/ApplyNowForm";
+import SectionTitle from "../final-design/SectionTitle";
+import Modal from "../common/Modal";
+import ApplyNowForm from "../common/ApplyNowForm";
+import type { ApplyNowFormData } from "../common/ApplyNowForm";
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -17,46 +17,56 @@ export default function FAQSection() {
   const faqs = [
     {
       question: "What does an OnlyFans agency actually do?",
-      answer: "Think of us as your business management team. While you focus on content creation, we handle the entire business infrastructure: daily chatting with fans, marketing your profile, analyzing pricing data, and maximizing revenue."
+      answer:
+        "Think of us as your business management team. While you focus on content creation, we handle the entire business infrastructure: daily chatting with fans, marketing your profile, analyzing pricing data, and maximizing revenue.",
     },
     {
       question: "How soon will I start earning more?",
-      answer: "Creators typically see an uplift within the first 14 days as we optimize pricing and chat flows. Bigger, consistent growth usually compounds between weeks 3 and 8."
+      answer:
+        "Creators typically see an uplift within the first 14 days as we optimize pricing and chat flows. Bigger, consistent growth usually compounds between weeks 3 and 8.",
     },
     {
       question: "How much money can I realistically make?",
-      answer: "There is no limit. Your earnings depend on the quality of your content and how the market reacts to your niche. We work with creators earning anywhere from $5k to $100k+ per month."
+      answer:
+        "There is no limit. Your earnings depend on the quality of your content and how the market reacts to your niche. We work with creators earning anywhere from $5k to $100k+ per month.",
     },
     {
       question: "How much work will I need to do?",
-      answer: "Your workload will significantly decrease. Your main responsibility will be content creation. SMP handles the 12+ hours of daily chatting, marketing, and admin."
+      answer:
+        "Your workload will significantly decrease. Your main responsibility will be content creation. SMP handles the 12+ hours of daily chatting, marketing, and admin.",
     },
     {
       question: "Can I make an OnlyFans without showing my face?",
-      answer: "The short answer is no—you cannot make an account completely anonymously because OnlyFans requires ID verification. However, publicly? Absolutely. We specialize in faceless strategies."
+      answer:
+        "The short answer is no—you cannot make an account completely anonymously because OnlyFans requires ID verification. However, publicly? Absolutely. We specialize in faceless strategies.",
     },
     {
       question: "Are OnlyFans agencies legal?",
-      answer: "Yes. SMP is a registered, compliant business entity. We operate under strict legal contracts that adhere to OnlyFans' Terms of Service."
+      answer:
+        "Yes. SMP is a registered, compliant business entity. We operate under strict legal contracts that adhere to OnlyFans' Terms of Service.",
     },
     {
       question: "What should tell me I need SMP?",
-      answer: "If you are struggling to make money despite posting content, or if you are burnt out from answering DMs at 3 AM, you need a team. If you've hit a revenue 'ceiling', we provide the infrastructure to scale."
+      answer:
+        "If you are struggling to make money despite posting content, or if you are burnt out from answering DMs at 3 AM, you need a team. If you've hit a revenue 'ceiling', we provide the infrastructure to scale.",
     },
     {
       question: "How can I join SMP?",
       // JSX ANSWER (Now functional)
       answer: (
         <span>
-          Click the <button 
-            onClick={() => setIsModalOpen(true)} 
+          Click the{" "}
+          <button
+            onClick={() => setIsModalOpen(true)}
             className="text-red-600 font-bold cursor-pointer hover:underline focus:outline-none"
           >
             Apply Now
-          </button> button to fill out our discovery form. We will assess your profile and guide you through the next steps.
+          </button>{" "}
+          button to fill out our discovery form. We will assess your profile and
+          guide you through the next steps.
         </span>
-      )
-    }
+      ),
+    },
   ];
 
   return (
@@ -64,14 +74,11 @@ export default function FAQSection() {
       id="faq"
       className="relative overflow-hidden py-24 md:py-32 font-sans bg-gradient-to-b from-white via-gray-50/50 to-white"
     >
-      {/* Background shapes – Side Only */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ overflow: "visible" }}
-      >
-        {/* Left Side - Circle */}
+      {/* Background shapes – SVG decor, fully inside so they don’t affect layout */}
+      <div className="absolute inset-0 pointer-events-none z-1">
+        {/* Left Side - Spiral / orbit shape */}
         <motion.div
-          className="absolute top-1/3 left-0 w-56 h-56 border-4 border-theme-brand/30 rounded-full -translate-x-1/2"
+          className="absolute top-[60%] right-4 md:right-8 w-40 h-40 md:w-48 md:h-48"
           aria-hidden
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
@@ -80,10 +87,19 @@ export default function FAQSection() {
             scale: { duration: 0.6, ease: "easeOut" },
             opacity: { duration: 0.6 },
           }}
-        />
-        {/* Right Side - Rounded Square */}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.35 }}
+          >
+            <path d="M343.3 282.8A239 239 0 0 1 480 240c-50.8 0-98-15.8-136.8-42.8 8.4-46.5 30.6-91 66.5-127-36 36-80.4 58.2-127 66.5C255.9 98 240 50.8 240 0c0 50.8-15.8 98-42.8 136.8-46.5-8.4-91-30.6-127-66.5 36 36 58.2 80.4 66.5 127C98 224.1 50.8 240 0 240c50.8 0 98 15.8 136.8 42.8-8.4 46.5-30.6 91-66.5 127 36-36 80.4-58.2 127-66.6A239 239 0 0 1 240 480c0-50.8 15.8-98 42.8-136.8 46.5 8.4 91 30.6 127 66.5-36-36-58.2-80.4-66.5-127Z" />
+          </svg>
+        </motion.div>
+        {/* Right Side - Quarter circle */}
         <motion.div
-          className="absolute bottom-1/3 right-0 w-48 h-48 border-4 border-theme-brand/35 rounded-xl translate-x-1/2 -rotate-12"
+          className="absolute bottom-[2%] left-4 md:left-8 w-40 h-40 md:w-48 md:h-48"
           aria-hidden
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
@@ -92,17 +108,47 @@ export default function FAQSection() {
             scale: { duration: 0.6, delay: 0.2, ease: "easeOut" },
             opacity: { duration: 0.6, delay: 0.2 },
           }}
-        />
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.35 }}
+          >
+            <path d="M480 0A339.4 339.4 0 0 1 0 0a339.4 339.4 0 0 1 0 480 339.4 339.4 0 0 1 480 0 339.4 339.4 0 0 1 0-480Z" />
+          </svg>
+        </motion.div>
+        {/* Third shape - Triangle accent (top right) */}
+        <motion.div
+          className="absolute top-[10%] left-4 md:left-8 w-32 h-32 md:w-40 md:h-40"
+          aria-hidden
+          initial={{ scale: 0.8, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{
+            scale: { duration: 0.6, delay: 0.35, ease: "easeOut" },
+            opacity: { duration: 0.6, delay: 0.35 },
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.35 }}
+          >
+            <path d="M480 240A240 240 0 0 1 240 0L0 240a240 240 0 0 1 240 240l240-240Z" />
+          </svg>
+        </motion.div>
       </div>
 
       <div className="max-w-[1920px] mx-auto relative z-10 px-6">
         <div className="flex flex-col items-center">
-            <SectionTitle
+          <SectionTitle
             eyebrow="Got questions?"
             title="Frequently Asked Questions"
             highlightStart={true}
             highlightEnd={true}
-            />
+          />
         </div>
 
         {/* Accordion */}
@@ -193,7 +239,6 @@ export default function FAQSection() {
           onCancel={() => setIsModalOpen(false)}
         />
       </Modal>
-
     </section>
   );
 }

@@ -6,9 +6,9 @@ import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 // Import your Modal and Form components
-import Modal from "../design-2/Modal";
-import ApplyNowForm from "../design-2/ApplyNowForm";
-import { useApplyFormSubmit } from "../design-2/useApplyFormSubmit";
+import Modal from "../common/Modal";
+import ApplyNowForm from "../common/ApplyNowForm";
+import { useApplyFormSubmit } from "../common/useApplyFormSubmit";
 
 // --- Animation Variants ---
 const containerVariants = {
@@ -77,14 +77,11 @@ export default function WorkWithUs() {
 
   return (
     <section className="relative overflow-hidden py-24 md:py-32 font-sans bg-gradient-to-b from-white via-gray-50/50 to-white">
-      {/* Professional Background Elements - Side Only */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ overflow: "visible" }}
-      >
-        {/* Left Side - Rounded Square */}
+      {/* Background shapes – chain/circle SVG, fully inside so they don’t affect layout */}
+      <div className="absolute inset-0 pointer-events-none z-1">
+        {/* Left Side - Chain / circle shape */}
         <motion.div
-          className="absolute top-1/3 left-0 w-48 h-48 border-4 border-theme-brand/30 rounded-xl -translate-x-1/2 rotate-12"
+          className="absolute top-[20%] left-4 md:left-8 w-40 h-40 md:w-48 md:h-48"
           aria-hidden
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
@@ -93,10 +90,19 @@ export default function WorkWithUs() {
             scale: { duration: 0.6, ease: "easeOut" },
             opacity: { duration: 0.6 },
           }}
-        />
-        {/* Right Side - Diamond */}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.35 }}
+          >
+            <path d="M450 210A180 180 0 0 1 270 30a30 30 0 1 0-60 0A180 180 0 0 1 30 210a30 30 0 1 0 0 60 180 180 0 0 1 180 180 30 30 0 1 0 60 0 180 180 0 0 1 180-180 30 30 0 1 0 0-60Z" />
+          </svg>
+        </motion.div>
+        {/* Right Side - Same shape (mirrored) */}
         <motion.div
-          className="absolute bottom-1/3 right-0 w-52 h-52 border-4 border-theme-brand/35 translate-x-1/2 rotate-45"
+          className="absolute bottom-[20%] right-4 md:right-8 w-40 h-40 md:w-48 md:h-48 scale-x-[-1]"
           aria-hidden
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
@@ -105,7 +111,16 @@ export default function WorkWithUs() {
             scale: { duration: 0.6, delay: 0.2, ease: "easeOut" },
             opacity: { duration: 0.6, delay: 0.2 },
           }}
-        />
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 480 480"
+            className="w-full h-full"
+            style={{ fill: "var(--theme-brand)", opacity: 0.35 }}
+          >
+            <path d="M450 210A180 180 0 0 1 270 30a30 30 0 1 0-60 0A180 180 0 0 1 30 210a30 30 0 1 0 0 60 180 180 0 0 1 180 180 30 30 0 1 0 60 0 180 180 0 0 1 180-180 30 30 0 1 0 0-60Z" />
+          </svg>
+        </motion.div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -173,7 +188,9 @@ export default function WorkWithUs() {
               Our global team—spanning the UK, US, and key markets—combines
               expertise in influencer marketing, talent management, and digital
               growth. We partner with{" "}
-              <span className="text-theme-brand font-semibold">80+ creators</span>{" "}
+              <span className="text-theme-brand font-semibold">
+                80+ creators
+              </span>{" "}
               to scale their brands and revenue with strategy, not just support.
             </motion.p>
 
@@ -254,7 +271,7 @@ export default function WorkWithUs() {
 
                   {/* Modern Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/70" />
-                  
+
                   {/* Subtle brand accent overlay */}
                   <div className="absolute inset-0 bg-theme-brand/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -277,7 +294,10 @@ export default function WorkWithUs() {
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.6, duration: 0.5, ease: "easeOut" }}
-                whileHover={{ scale: 1.05, borderColor: "rgba(142, 8, 7, 0.4)" }}
+                whileHover={{
+                  scale: 1.05,
+                  borderColor: "rgba(142, 8, 7, 0.4)",
+                }}
               >
                 <motion.div
                   animate={{ y: [0, -6, 0] }}
@@ -292,8 +312,12 @@ export default function WorkWithUs() {
                     <Sparkles className="w-4 h-4 text-theme-brand" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-lg font-bold text-gray-900 leading-none">80+</span>
-                    <span className="text-xs text-gray-600 font-medium uppercase tracking-wider">Creators</span>
+                    <span className="text-lg font-bold text-gray-900 leading-none">
+                      80+
+                    </span>
+                    <span className="text-xs text-gray-600 font-medium uppercase tracking-wider">
+                      Creators
+                    </span>
                   </div>
                 </motion.div>
               </motion.div>

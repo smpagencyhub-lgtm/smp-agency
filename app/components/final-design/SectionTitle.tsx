@@ -8,6 +8,7 @@ interface SectionTitleProps {
   className?: string;
   highlightStart?: boolean; // Highlight first word (default: true)
   highlightEnd?: boolean; // Highlight last word (default: false)
+  noMarginBottom?: boolean; // No margin bottom (default: true)
 }
 
 /**
@@ -25,6 +26,7 @@ export default function SectionTitle({
   className = "",
   highlightStart = true,
   highlightEnd = false,
+  noMarginBottom = false,
 }: SectionTitleProps) {
   // Split title into words
   const words = title.split(" ");
@@ -54,7 +56,7 @@ export default function SectionTitle({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`flex flex-col items-center mb-16 md:mb-24 ${className}`}
+      className={`flex flex-col items-center ${noMarginBottom ? "mb-10" : "mb-16 md:mb-24"}   ${className}`}
     >
       {/* Eyebrow text */}
       {eyebrow && (
@@ -70,7 +72,7 @@ export default function SectionTitle({
       )}
 
       {/* Main title with improved design */}
-      <div className="flex items-center justify-center flex-wrap gap-0">
+      <div className="flex items-center justify-center flex-wrap gap-x-2 gap-y-2 md:gap-0">
         {/* First word in red block (if highlightStart) */}
         {firstWord && (
           <motion.div
@@ -104,8 +106,8 @@ export default function SectionTitle({
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className={`text-theme-brand text-3xl md:text-5xl lg:text-6xl font-semibold uppercase tracking-tight leading-none ${
-              firstWord ? "ml-3 md:ml-4 lg:ml-5" : ""
-            } ${lastWord ? "mr-3 md:mr-4 lg:mr-5" : ""}`}
+              firstWord ? "md:ml-4 lg:ml-5" : ""
+            } ${lastWord ? "md:mr-4 lg:mr-5" : ""}`}
             style={{
               textShadow: "0 2px 8px rgba(142, 8, 7, 0.15)",
             }}

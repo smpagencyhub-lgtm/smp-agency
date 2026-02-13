@@ -4,11 +4,16 @@
 
 @custom-variant dark (&:is(.dark *));
 
+html,
+body {
+  background-color: #000;
+}
+
 :root {
-  --red-primary: #dc2626;
-  --red-secondary: #b91c1c;
-  --red-accent: #ef4444;
-  --red-dark: #991b1b;
+  --red-primary: #d10000;
+  --red-secondary: #e60000;
+  --red-accent: #ff4d4d;
+  --red-dark: #a80000;
   --gray-50: #f9fafb;
   --gray-100: #f3f4f6;
   --gray-200: #e5e7eb;
@@ -20,14 +25,14 @@
   --gray-800: #1f2937;
   --gray-900: #111827;
 
-  /* Design 2 color theme */
+  /* Design 2 color theme - red pepper */
   /* --theme-bg: #1a1a1a; */
   --theme-bg: #ffffff;
-  --theme-new-brand: #390d0d;
+  --theme-new-brand: #991b1d;
   --theme-text: #111827;
-  --theme-brand: #8e0807;
-  --theme-brand-hover: #a80908;
-  --theme-brand-muted: #b50a0a;
+  --theme-brand: #d10000;
+  --theme-brand-hover: #e60000;
+  --theme-brand-muted: #ff4d4d;
   --radius: 0.625rem;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -155,17 +160,17 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #dc2626, #b91c1c);
+  background: linear-gradient(180deg, #d10000, #e60000);
   border-radius: 5px;
   border: 2px solid #1a1a1a;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #ef4444, #dc2626);
+  background: linear-gradient(180deg, #ff4d4d, #d10000);
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background: linear-gradient(180deg, #b91c1c, #991b1b);
+  background: linear-gradient(180deg, #e60000, #a80000);
 }
 
 /* Performance optimizations */
@@ -178,7 +183,7 @@ html {
 .gradient-red-black {
   background: linear-gradient(
     135deg,
-    rgba(220, 38, 38, 0.1) 0%,
+    rgba(209, 0, 0, 0.2) 0%,
     rgba(0, 0, 0, 0.9) 100%
   );
 }
@@ -242,7 +247,7 @@ html {
   transition: box-shadow 0.3s ease;
 }
 .about-card-hover:hover {
-  box-shadow: 0 20px 40px rgba(220, 38, 38, 0.2);
+  box-shadow: 0 20px 40px rgba(209, 0, 0, 0.3);
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -270,11 +275,11 @@ html {
 
 /* Apply form: dark theme for react-phone-number-input */
 .apply-form-phone-input.PhoneInput {
-  --PhoneInput-color--focus: #dc2626;
+  --PhoneInput-color--focus: #d10000;
   --PhoneInputCountryFlag-borderColor: rgba(255, 255, 255, 0.2);
-  --PhoneInputCountryFlag-borderColor--focus: #dc2626;
+  --PhoneInputCountryFlag-borderColor--focus: #d10000;
   --PhoneInputCountrySelectArrow-color: rgba(255, 255, 255, 0.6);
-  --PhoneInputCountrySelectArrow-color--focus: #dc2626;
+  --PhoneInputCountrySelectArrow-color--focus: #d10000;
 }
 /* Phone country trigger: dark background and border */
 .apply-form-phone-input.PhoneInput .PhoneInputCountry {
@@ -304,8 +309,8 @@ html {
 }
 .apply-form-phone-input.PhoneInput .PhoneInputInput:focus {
   outline: none;
-  border-color: #dc2626;
-  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.2);
+  border-color: #d10000;
+  box-shadow: 0 0 0 2px rgba(209, 0, 0, 0.3);
 }
 .apply-form-phone-input.PhoneInput .PhoneInputCountrySelectArrow {
   border-bottom-color: rgba(255, 255, 255, 0.6);
@@ -314,7 +319,7 @@ html {
   .PhoneInputCountrySelect:focus
   + .PhoneInputCountryIcon
   + .PhoneInputCountrySelectArrow {
-  border-bottom-color: #dc2626;
+  border-bottom-color: #d10000;
 }
 .apply-form-phone-input.PhoneInput .PhoneInputCountryIcon--border {
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
@@ -322,7 +327,7 @@ html {
 .apply-form-phone-input.PhoneInput
   .PhoneInputCountrySelect:focus
   + .PhoneInputCountryIcon--border {
-  box-shadow: 0 0 0 1px #dc2626;
+  box-shadow: 0 0 0 1px #d10000;
 }
 
 @keyframes shine {
@@ -352,7 +357,7 @@ html {
   border-radius: 4px;
 }
 .legal-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #dc2626; /* Tailwind Red-600 */
+  background: #d10000; /* Red pepper brand */
 }
 
 /* 2. Animations */

@@ -26,7 +26,8 @@ function getClientIp(req: NextRequest): string {
   if (forwarded) {
     return forwarded.split(",")[0]?.trim() || "unknown";
   }
-  const ip = (req as NextRequest & { ip?: string }).ip ?? req.headers.get("x-real-ip");
+  const ip =
+    (req as NextRequest & { ip?: string }).ip ?? req.headers.get("x-real-ip");
   return ip || "unknown";
 }
 
@@ -67,13 +68,13 @@ function buildEmailContent(data: ApplyNowFormData) {
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL ||
     process.env.SITE_URL ||
-    "https://smpmanagement.com";
+    "https://smpagency.co.uk";
 
   const text = [
-    "SMP Management – New Talent Application",
+    "SMP Agency – New Talent Application",
     "------------------------------------------------------------",
     "",
-    "You have received a new talent application via the SMP Management website.",
+    "You have received a new talent application via the SMP Agency website.",
     "",
     "Applicant details:",
     `  • Stage name : ${data.stageName}`,
@@ -83,7 +84,7 @@ function buildEmailContent(data: ApplyNowFormData) {
     "",
     `Submitted at: ${submittedAt} (UTC)`,
     "",
-    "This notification was generated automatically by the SMP Management website.",
+    "This notification was generated automatically by the SMP Agency website.",
   ].join("\n");
 
   const html = `
@@ -107,14 +108,14 @@ function buildEmailContent(data: ApplyNowFormData) {
                               >
                                 <img
                                   src="cid:smp-logo"
-                                  alt="SMP Management"
+                                  alt="SMP Agency"
                                   style="border:none;display:block;outline:none;text-decoration:none;height:32px;width:auto;border-radius:8px;"
                                 />
                               </a>
                             </td>
                             <td style="vertical-align:middle;">
                               <p style="margin:0;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#9ca3af;">
-                                SMP MANAGEMENT
+                                SMP AGENCY
                               </p>
                               <h1 style="margin:2px 0 0;font-size:20px;line-height:1.4;color:#e5e7eb;">
                                 New Talent Application Received
@@ -124,7 +125,7 @@ function buildEmailContent(data: ApplyNowFormData) {
                         </table>
                       </td>
                       <td align="right" style="vertical-align:top;white-space:nowrap;font-size:11px;color:#9ca3af;">
-                        <span style="display:inline-block;padding:4px 10px;border-radius:999px;background-color:#1a0000;color:#fee2e2;border:1px solid #b91c1c;">
+                        <span style="display:inline-block;padding:4px 10px;border-radius:999px;background-color:#1a0000;color:#fecaca;border:1px solid #e63946;">
                           Internal notification
                         </span>
                       </td>
@@ -137,7 +138,7 @@ function buildEmailContent(data: ApplyNowFormData) {
                 <td style="padding:18px 24px 8px;">
                   <p style="margin:0 0 12px;font-size:13px;line-height:1.6;color:#e5e7eb;">
                     You have received a new application from a prospective creator via the
-                    <span style="color:#dc2626;">SMP Management</span> website. The applicant’s details are summarised below.
+                    <span style="color:#e63946;">SMP Agency</span> website. The applicant’s details are summarised below.
                   </p>
                 </td>
               </tr>
@@ -203,7 +204,7 @@ function buildEmailContent(data: ApplyNowFormData) {
                           <span style="color:#e5e7eb;font-weight:500;">${submittedAt} (UTC)</span>
                         </p>
                         <p style="margin:8px 0 0;">
-                          This notification was generated automatically by the SMP Management website.
+                          This notification was generated automatically by the SMP Agency website.
                         </p>
                       </td>
                     </tr>
@@ -224,8 +225,8 @@ function buildEmailContent(data: ApplyNowFormData) {
                         </p>
                       </td>
                       <td width="130" align="right" style="font-size:10px;color:#9ca3af;white-space:nowrap;padding-left:12px;">
-                        <span style="display:inline-block;padding:4px 8px;border-radius:999px;border:1px solid #b91c1c;background-color:#1a0000;color:#fee2e2;">
-                          SMP Management · Internal
+                        <span style="display:inline-block;padding:4px 8px;border-radius:999px;border:1px solid #e63946;background-color:#1a0000;color:#fecaca;">
+                          SMP Agency · Internal
                         </span>
                       </td>
                     </tr>
