@@ -55,7 +55,7 @@ const blogPosts = [
     slug: "creating-standout-persona",
     excerpt:
       "Effective branding builds emotional connections. Learn how thoughtful personas help creators shine in competitive markets.",
-    image: "/images/sophie322.jpg",
+    image: "/images/suki322.jpg",
   },
   {
     category: "Operations",

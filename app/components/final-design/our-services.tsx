@@ -47,7 +47,7 @@ const services = [
     icon: ShieldCheck,
     description:
       "As your brand grows, protecting your content becomes critical. SMP provides dedicated protection through our in-house monitoring team that continuously scans the internet for stolen or reposted material. While leaks cannot always be prevented, we take immediate and proactive action using advanced AI detection tools to identify violations, auto-flag unauthorized content, and issue DMCA notices. This ensures your income is protected, your reputation remains secure, and your long-term growth stays uninterrupted.",
-    image: "/images/sophie1.jpg",
+    image: "/images/suki2.jpg",
     align: "left",
   },
   {

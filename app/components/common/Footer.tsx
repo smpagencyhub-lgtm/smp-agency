@@ -12,7 +12,7 @@ export default function Footer() {
 
   const menuItems = [
     { name: "Home", href: "/" },
-    { name: "About Us", href: "/the-team" }, // Fixed link
+    { name: "About Us", href: "/the-team" },
     { name: "Our Services", href: "/our-services" },
     { name: "FAQ", href: "/#faq" },
   ];
@@ -96,7 +96,9 @@ export default function Footer() {
               <ul className="space-y-3">
                 <li>
                   <a
-                    href="#"
+                    href="https://www.instagram.com/smpagencyy"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-gray-600 hover:text-theme-brand transition-colors duration-300 text-sm inline-flex items-center space-x-2"
                   >
                     <span>Instagram</span>
@@ -104,7 +106,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="mailto:smpagencyhub@gmail.com"
                     className="text-gray-600 hover:text-theme-brand transition-colors duration-300 text-sm inline-flex items-center space-x-2"
                   >
                     <span>Email</span>

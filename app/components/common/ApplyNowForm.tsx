@@ -16,8 +16,9 @@ const countryList = [...countries]
   .map((c) => ({ name: c.name.common, code: c.cca2 }));
 
 export interface ApplyNowFormData {
-  stageName: string;
+  name: string; // Changed from stageName to name
   phone: string;
+  email: string; // Added email
   instagram: string;
   country: string;
 }
@@ -34,8 +35,9 @@ export default function ApplyNowForm({
   loading,
 }: ApplyNowFormProps) {
   const [formData, setFormData] = useState<ApplyNowFormData>({
-    stageName: "",
+    name: "",
     phone: "",
+    email: "",
     instagram: "",
     country: "",
   });
@@ -48,18 +50,25 @@ export default function ApplyNowForm({
   }, [error]);
 
   const isFormEmpty =
-    !formData.stageName.trim() &&
+    !formData.name.trim() &&
     !(formData.phone || "").trim() &&
+    !formData.email.trim() &&
     !formData.country.trim() &&
     !formData.instagram.trim();
 
   const validate = (): string | null => {
-    if (!formData.stageName.trim()) {
-      return "Please enter your stage name.";
+    if (!formData.name.trim()) {
+      return "Please enter your name.";
     }
 
     if (!formData.phone || !formData.phone.trim()) {
       return "Please enter a valid phone number.";
+    }
+
+    // Basic email regex validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim() || !emailRegex.test(formData.email)) {
+      return "Please enter a valid email address.";
     }
 
     if (!formData.country.trim()) {
@@ -102,7 +111,9 @@ export default function ApplyNowForm({
     const validationError = validate();
     if (validationError) {
       setError(validationError);
-      toast.warning("Please check your details", { description: validationError });
+      toast.warning("Please check your details", {
+        description: validationError,
+      });
       return;
     }
 
@@ -130,9 +141,7 @@ export default function ApplyNowForm({
               <p className="text-sm font-semibold text-white">
                 Submitting application
               </p>
-              <p className="text-xs text-gray-500">
-                Please wait a moment…
-              </p>
+              <p className="text-xs text-gray-500">Please wait a moment…</p>
             </div>
           </div>
         </div>
@@ -140,116 +149,143 @@ export default function ApplyNowForm({
 
       <form
         onSubmit={handleSubmit}
-        className={`relative space-y-4 sm:space-y-5 px-4 py-4 sm:px-6 sm:py-5 ${loading ? "pointer-events-none" : ""}`}
+        className={`relative space-y-4 sm:space-y-5 px-4 py-4 sm:px-6 sm:py-5 ${
+          loading ? "pointer-events-none" : ""
+        }`}
       >
-      {error && (
-        <div className="rounded-lg bg-theme-brand/20 border border-theme-brand/50 text-theme-brand-muted px-4 py-3 text-sm">
-          {error}
-        </div>
-      )}
-      <div>
-        <label
-          htmlFor="stageName"
-          className="block text-sm font-medium text-gray-300 mb-1.5"
-        >
-          Stage Name *
-        </label>
-        <input
-          type="text"
-          id="stageName"
-          name="stageName"
-          required
-          value={formData.stageName}
-          onChange={handleChange}
-          className={inputBase}
-          placeholder="Your stage / display name"
-        />
-      </div>
+        {error && (
+          <div className="rounded-lg bg-theme-brand/20 border border-theme-brand/50 text-theme-brand-muted px-4 py-3 text-sm">
+            {error}
+          </div>
+        )}
 
-      <div>
-        <label
-          htmlFor="phone"
-          className="block text-sm font-medium text-gray-300 mb-1.5"
-        >
-          Phone *
-        </label>
-        <PhoneInput
-          international
-          defaultCountry="US"
-          value={formData.phone || undefined}
-          onChange={(value) =>
-            setFormData((prev) => ({ ...prev, phone: value || "" }))
-          }
-          placeholder="Enter phone number"
-          className="apply-form-phone-input"
-          numberInputProps={{
-            id: "phone",
-            name: "phone",
-            required: true,
-          }}
-        />
-      </div>
-
-      <div>
-        <label
-          htmlFor="instagram"
-          className="block text-sm font-medium text-gray-300 mb-1.5"
-        >
-          Instagram
-        </label>
-        <div className="relative">
-          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none">
-            @
-          </span>
+        {/* 1. Name Field */}
+        <div>
+          <label
+            htmlFor="name"
+            className="block text-sm font-medium text-gray-300 mb-1.5"
+          >
+            Full Name *
+          </label>
           <input
             type="text"
-            id="instagram"
-            name="instagram"
-            value={formData.instagram}
-            onChange={handleInstagramChange}
-            className={`${inputBase} pl-8`}
-            placeholder="username"
+            id="name"
+            name="name"
+            required
+            value={formData.name}
+            onChange={handleChange}
+            className={inputBase}
+            placeholder="Your actual name"
           />
         </div>
-      </div>
 
-      <div>
-        <label
-          htmlFor="country"
-          className="block text-sm font-medium text-gray-300 mb-1.5"
-        >
-          Country *
-        </label>
-        <SearchableCountrySelect
-          id="country"
-          options={countryList}
-          value={formData.country}
-          onChange={(value) =>
-            setFormData((prev) => ({ ...prev, country: value }))
-          }
-          required
-          placeholder="Select country"
-        />
-      </div>
-
-      <div className="flex flex-col-reverse sm:flex-row gap-3 pt-4 sm:pt-5">
-        {onCancel && (
-          <button
-            type="button"
-            onClick={onCancel}
-            className="flex-1 px-4 py-3 sm:py-3 rounded-lg border border-neutral-600 text-gray-300 hover:bg-neutral-800 hover:border-neutral-500 transition-colors font-medium"
+        {/* 2. Phone Field */}
+        <div>
+          <label
+            htmlFor="phone"
+            className="block text-sm font-medium text-gray-300 mb-1.5"
           >
-            Cancel
+            Phone *
+          </label>
+          <PhoneInput
+            international
+            defaultCountry="US"
+            value={formData.phone || undefined}
+            onChange={(value) =>
+              setFormData((prev) => ({ ...prev, phone: value || "" }))
+            }
+            placeholder="Enter phone number"
+            className="apply-form-phone-input"
+            numberInputProps={{
+              id: "phone",
+              name: "phone",
+              required: true,
+            }}
+          />
+        </div>
+
+        {/* 3. Country Field */}
+        <div>
+          <label
+            htmlFor="country"
+            className="block text-sm font-medium text-gray-300 mb-1.5"
+          >
+            Country *
+          </label>
+          <SearchableCountrySelect
+            id="country"
+            options={countryList}
+            value={formData.country}
+            onChange={(value) =>
+              setFormData((prev) => ({ ...prev, country: value }))
+            }
+            required
+            placeholder="Select country"
+          />
+        </div>
+
+        {/* 4. Email Field */}
+        <div>
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-300 mb-1.5"
+          >
+            Email *
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            value={formData.email}
+            onChange={handleChange}
+            className={inputBase}
+            placeholder="your@email.com"
+          />
+        </div>
+
+        {/* 5. Instagram Field */}
+        <div>
+          <label
+            htmlFor="instagram"
+            className="block text-sm font-medium text-gray-300 mb-1.5"
+          >
+            Instagram
+          </label>
+          <div className="relative">
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none">
+              @
+            </span>
+            <input
+              type="text"
+              id="instagram"
+              name="instagram"
+              value={formData.instagram}
+              onChange={handleInstagramChange}
+              className={`${inputBase} pl-8`}
+              placeholder="username"
+            />
+          </div>
+        </div>
+
+        <div className="flex flex-col-reverse sm:flex-row gap-3 pt-4 sm:pt-5">
+          {onCancel && (
+            <button
+              type="button"
+              onClick={onCancel}
+              className="flex-1 px-4 py-3 sm:py-3 rounded-lg border border-neutral-600 text-gray-300 hover:bg-neutral-800 hover:border-neutral-500 transition-colors font-medium"
+            >
+              Cancel
+            </button>
+          )}
+          <button
+            type="submit"
+            disabled={!!loading}
+            className="flex-1 px-4 py-3 sm:py-3 bg-theme-brand hover:bg-theme-brand-hover text-white font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-theme-brand/50 focus:ring-offset-2 focus:ring-offset-neutral-900"
+          >
+            {loading ? "Sending..." : "Submit"}
           </button>
-        )}
-        <button
-          type="submit"
-          disabled={!!loading}
-          className="flex-1 px-4 py-3 sm:py-3 bg-theme-brand hover:bg-theme-brand-hover text-white font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-theme-brand/50 focus:ring-offset-2 focus:ring-offset-neutral-900"
-        >
-          {loading ? "Sending..." : "Submit"}
-        </button>
-      </div>
+        </div>
       </form>
     </div>
   );

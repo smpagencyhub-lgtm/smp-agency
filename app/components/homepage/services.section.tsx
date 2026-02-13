@@ -20,7 +20,7 @@ const services = [
   {
     title: "Content Strategy",
     text: "Knowing what content to post can make or break earnings in a fast-paced industry. There's no one-size-fits-all solution—the gap between average and top performance comes from clear branding and a defined niche. SMP guides creators to understand audience demand and craft content that is unique, engaging, and designed to drive meaningful growth.",
-    image: "/images/sophie322.jpg",
+    image: "/images/suki2.jpg",
   },
 ];
 

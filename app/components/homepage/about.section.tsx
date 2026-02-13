@@ -8,11 +8,11 @@ import SectionTitle from "../final-design/SectionTitle";
 // Defined all 7 images as requested
 const teamImages = [
   "/images/bethan.jpg",
-  "/images/sophie.jpg",
+  "/images/suki322.jpg",
   "/images/allaya5.jpg",
   "/images/suki2.jpg",
   "/images/allaya2.jpg",
-  "/images/sophie1.jpg",
+  "/images/suki1.jpg",
   "/images/g-model (5).jpg",
 ];
 
