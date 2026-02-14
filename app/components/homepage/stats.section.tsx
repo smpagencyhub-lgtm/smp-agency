@@ -83,7 +83,7 @@ const stats = [
     label: "Global Locations",
     value: 3,
     suffix: "",
-    description: "UK • USA • POLAND",
+    description: "DUBAI • USA • UK",
     icon: MapPin,
   },
 ];
