@@ -23,7 +23,7 @@ const services = [
     icon: BarChart3,
     description:
       "Marketing is one of the biggest challenges for creators and agencies, especially when it comes to generating consistent, high-quality traffic. At SMP, we take a strategic and data-driven approach to growth — never using generic solutions. We identify the platforms and campaigns that work best for you as an individual creator, building a fully customized strategy around your brand, niche, and goals. Our dedicated marketing account managers guide you at every stage, providing access to over 20 proven promotion methods, including advanced social media campaigns, a 3,000+ meme page network, podcasts, and influencer collaborations — all designed to maximize visibility and drive long-term success.",
-    image: "/images/service (1).jpg",
+    image: "/images/starmodel/IMG_1982.jpg",
     align: "right",
   },
   {
@@ -39,7 +39,7 @@ const services = [
     icon: Video,
     description:
       "In a fast-moving and highly competitive industry, having the right content strategy is essential for success. At SMP, defining your content direction is one of our top priorities. We help creators refine their brand positioning and niche, often making the difference between average and high-level earnings. With millions of creators competing for attention, our team analyzes market trends and audience behavior to develop content that is unique, high-performing, and conversion-focused — helping you stand out and achieve measurable results.",
-    image: "/images/modf1.jpg",
+    image: "/images/starmodel/bray1.jpg",
     align: "right",
   },
   {

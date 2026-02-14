@@ -7,7 +7,6 @@ import { ArrowUpRight } from "lucide-react";
 import SectionTitle from "../final-design/SectionTitle";
 
 // --- DATA: Blog Posts ---
-// We define this here so the list can render
 const blogPosts = [
   {
     category: "Growth",
@@ -15,7 +14,7 @@ const blogPosts = [
     slug: "boosting-creator-earnings",
     excerpt:
       "Explore strategies that management teams implement to steadily grow creator income while keeping subscribers engaged for the long term.",
-    image: "/images/allaya (2).JPG",
+    image: "/images/starmodel/IMG_1982.jpg",
   },
   {
     category: "Engagement",
@@ -39,7 +38,7 @@ const blogPosts = [
     slug: "keeping-creators-brands-safe",
     excerpt:
       "Learn how professional management protects accounts through privacy measures and compliance while enabling fast growth.",
-    image: "/images/modf2.jpg",
+    image: "/images/starmodel/IMG_1715.jpg",
   },
   {
     category: "Analytics",
@@ -55,7 +54,7 @@ const blogPosts = [
     slug: "creating-standout-persona",
     excerpt:
       "Effective branding builds emotional connections. Learn how thoughtful personas help creators shine in competitive markets.",
-    image: "/images/suki322.jpg",
+    image: "/images/starmodel/bray1.jpg",
   },
   {
     category: "Operations",
@@ -63,7 +62,7 @@ const blogPosts = [
     slug: "scaling-with-efficient-systems",
     excerpt:
       "Automation, team workflows, and organized schedules are crucial for growth. Discover how agencies simplify daily operations.",
-    image: "/images/modf3.jpg",
+    image: "/images/starmodel/dean4.jpg",
   },
   {
     category: "Traffic",
@@ -71,7 +70,7 @@ const blogPosts = [
     slug: "maximizing-organic-paid-reach",
     excerpt:
       "Learn how combining organic and paid strategies brings in quality subscribers without compromising account performance.",
-    image: "/images/mod5.jpg",
+    image: "/images/starmodel/bray2.jpg",
   },
   {
     category: "Retention",
@@ -79,7 +78,7 @@ const blogPosts = [
     slug: "prioritizing-subscriber-loyalty",
     excerpt:
       "Maintaining subscribers is as important as acquiring them. Explore proven methods to minimize churn and increase lifetime value.",
-    image: "/images/modf4.jpg",
+    image: "/images/allaya5.jpg",
   },
 ];
 
@@ -237,14 +236,16 @@ export default function BlogSection() {
                 {/* Image Container - Linked */}
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="relative h-56 w-full overflow-hidden block cursor-pointer"
+                  // UPDATED: h-[450px] allows full portrait images on all screens (mobile & desktop)
+                  className="relative h-[450px] w-full overflow-hidden block cursor-pointer"
                 >
                   <Image
                     src={post.image}
                     alt={post.title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    // Added object-top so faces are prioritized
+                    className="object-cover object-top group-hover:scale-110 transition-transform duration-700"
                   />
                   {/* Subtle Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
