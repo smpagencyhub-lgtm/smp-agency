@@ -169,30 +169,33 @@ export default function TheTeamSection() {
               </div>
               <div className="space-y-6 text-gray-600 text-base md:text-lg leading-relaxed">
                 <p>
-                  With a foundation in{" "}
+                  Arthur Turner is a British entrepreneur, creator manager, and
+                  creative strategist based in Dubai. He specialises in{" "}
                   <span className="text-gray-900 font-semibold">
-                    corporate real estate and high-stakes negotiation
+                    scaling OnlyFans creators through disciplined execution
                   </span>
-                  , Arthur bridges the gap between traditional business
-                  professionalism and the fast-paced creator economy. His
-                  expertise lies in organizational management, ensuring that
-                  creativity is backed by flawless execution.
+                  , content strategy, and psychology-driven sales systems that
+                  turn attention into consistent income.
                 </p>
                 <p>
-                  Arthur brings clarity to an industry that often feels chaotic,
-                  providing creators with a stable, strategic path to growth. By
-                  applying a rigorous business mindset, he identifies market
-                  shifts before they happen, allowing SMP to establish dominance
-                  early.
+                  After exiting an e-commerce business in 2023, Arthur
+                  transitioned full-time into creator management, bringing a
+                  strong background in sales and marketing into the creator
+                  economy. Having worked alongside major names in UK
+                  entertainment and culture including{" "}
+                  <span className="text-gray-900 font-semibold">
+                    Maya Jama, Stormzy, and Aitch
+                  </span>
+                  , he developed a deep understanding of what drives creator
+                  growth — and transferred that expertise directly into the
+                  OnlyFans space.
                 </p>
                 <p>
-                  His focus is on building connections with{" "}
+                  Today, Arthur leads SMP with a focus on{" "}
                   <span className="text-theme-brand font-semibold">
-                    unicorn-level clients
-                  </span>{" "}
-                  and creating an infrastructure where talent can thrive without
-                  operational bottlenecks. This advantage has been key to SMP’s
-                  rapid expansion and market leadership.
+                    elite creator management
+                  </span>
+                  , team structure, and high-performance execution.
                 </p>
               </div>
               <div className="mt-8 h-1 w-24 bg-theme-brand rounded-full" />
@@ -415,7 +418,7 @@ export default function TheTeamSection() {
         >
           <div className="relative w-full h-[300px] md:h-[600px] rounded-3xl overflow-hidden border border-gray-200 shadow-2xl mb-12 group">
             <div className="absolute top-6 left-6 md:top-8 md:left-8 bg-theme-brand px-6 py-3 rounded-xl z-20 shadow-lg">
-              <h3 className="text-green-400  lg:text-2xl font-bold"></h3>
+              <h3 className="text-green-400 lg:text-2xl font-bold"></h3>
             </div>
             <Image
               src="/images/gfinal.png"
