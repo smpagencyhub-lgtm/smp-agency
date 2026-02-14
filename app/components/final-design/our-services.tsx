@@ -249,13 +249,15 @@ export default function OurServices() {
 
                     {/* Image Side */}
                     <div className="flex-1 w-full flex justify-center">
-                      <div className="relative w-full max-w-md h-[300px] md:h-[380px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 group-hover:scale-[1.02] transition-transform duration-500">
+                      {/* UPDATED: Increased height to ensure full image visibility on both mobile (450px) and desktop (600px) */}
+                      <div className="relative w-full max-w-md h-[450px] md:h-[600px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 group-hover:scale-[1.02] transition-transform duration-500">
                         <Image
                           src={service.image}
                           alt={service.title}
                           fill
                           sizes="(max-width: 768px) 100vw, 384px"
-                          className="object-cover"
+                          // Added object-top to prioritize faces if cropping still occurs slightly
+                          className="object-cover object-top"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       </div>

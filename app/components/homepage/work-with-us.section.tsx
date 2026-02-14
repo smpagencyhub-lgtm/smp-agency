@@ -185,7 +185,7 @@ export default function WorkWithUs() {
               variants={textRevealVariants}
               className="text-base md:text-lg text-gray-700 leading-relaxed font-medium"
             >
-              Our global team—spanning the UK, US, and key markets—combines
+              Our global team—spanning the UK, US, Dubai, and key markets—combines
               expertise in influencer marketing, talent management, and digital
               growth. We partner with{" "}
               <span className="text-theme-brand font-semibold">

@@ -14,7 +14,7 @@ const services = [
   },
   {
     title: "Chatting",
-    text: "Fan interaction drives most revenue on platforms like OnlyFans, so doing it right is essential. SMP's UK and US chat team receives extensive training to match the creator's voice authentically and understand fan psychology. This approach boosts income, encourages subscription renewals, and builds lasting trust, because at SMP, results speak louder than words.",
+    text: "Fan interaction drives most revenue on platforms like OnlyFans, so doing it right is essential. SMP's UK , US and Dubai chat team receives extensive training to match the creator's voice authentically and understand fan psychology. This approach boosts income, encourages subscription renewals, and builds lasting trust, because at SMP, results speak louder than words.",
     image: "/images/b-model (2).jpg",
   },
   {

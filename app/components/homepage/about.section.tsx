@@ -7,16 +7,14 @@ import SectionTitle from "../final-design/SectionTitle";
 
 // Defined all 7 images as requested
 const teamImages = [
-  "/images/starmodel/dean1.jpg",
-  "/images/suki322.jpg",
-  "/images/allaya5.jpg",
-  "/images/starmodel/bray2.jpg",
-  "/images/suki2.jpg",
-  "/images/allaya2.jpg",
-  "/images/starmodel/dean4.jpg",
-  "/images/suki1.jpg",
+  "/images/starmodel/suki09.jpg",
   "/images/g-model (5).jpg",
+  "/images/starmodel/dean4.jpg",
+  "/images/allaya5.jpg",
   "/images/starmodel/bray1.jpg",
+  "/images/starmodel/trulin.jpg",
+  "/images/starmodel/zak2.jpg",
+  "/images/b-model (2).jpg",
 ];
 
 // Duplicate the array to create the seamless infinite loop effect

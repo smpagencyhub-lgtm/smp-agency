@@ -4,6 +4,9 @@ import { useState } from "react";
 import Header from "./components/common/Header2";
 import Footer from "./components/common/Footer";
 
+
+import WelcomePopup from "./components/common/WelcomePopup";
+
 import HeroSection from "./components/homepage/hero.section";
 import AboutSection from "./components/homepage/about.section";
 import TestimonialSection from "./components/homepage/testimonial.section";
@@ -20,6 +23,12 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-theme-bg">
+      {/* The WelcomePopup sits here. 
+         When the user clicks "CLICK HERE" inside the popup, 
+         it triggers setApplyModalOpen(true), opening your main form.
+      */}
+      <WelcomePopup onOpenApply={() => setApplyModalOpen(true)} />
+
       <Header
         applyModalOpen={applyModalOpen}
         onApplyModalOpenChange={setApplyModalOpen}
