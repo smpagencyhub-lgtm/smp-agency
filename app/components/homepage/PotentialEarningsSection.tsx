@@ -22,13 +22,11 @@ const Icons = {
       <path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z" />
     </svg>
   ),
-  // UPDATED: Exact Instagram Icon provided
   Instagram: (props: React.SVGProps<SVGSVGElement>) => (
     <svg viewBox="0 0 448 512" fill="currentColor" {...props}>
       <path d="M224.1 141c-63.6 0-115.1 51.5-115.1 115.1S160.5 371.2 224.1 371.2 339.2 319.7 339.2 256 287.7 141 224.1 141zm0 189.6c-41.9 0-75.9-34-75.9-75.9s34-75.9 75.9-75.9 75.9 34 75.9 75.9-34 75.9-75.9 75.9zm146.4-194.3c0 14.9-12 26.9-26.9 26.9s-26.9-12-26.9-26.9 12-26.9 26.9-26.9 26.9 12 26.9 26.9zm76.1 27.2c-1.7-35.7-9.9-67.3-36.3-93.7s-58-34.6-93.7-36.3C293.6 32 260.4 32 224 32s-69.6 0-92.5 1.7c-35.7 1.7-67.3 9.9-93.7 36.3S3.6 92.3 1.9 128C0 151 0 184.2 0 224s0 69.6 1.9 92.5c1.7 35.7 9.9 67.3 36.3 93.7s58 34.6 93.7 36.3C154.4 480 187.6 480 224 480s69.6 0 92.5-1.9c35.7-1.7 67.3-9.9 93.7-36.3s34.6-58 36.3-93.7C448 293.6 448 260.4 448 224s0-69.6-1.9-92.5zM398.8 388c-7.8 19.6-23 34.8-42.6 42.6-29.5 11.7-99.6 9-132.2 9s-102.7 2.6-132.2-9c-19.6-7.8-34.8-23-42.6-42.6-11.7-29.5-9-99.6-9-132.2s-2.6-102.7 9-132.2c7.8-19.6 23-34.8 42.6-42.6 29.5-11.7 99.6-9 132.2-9s102.7-2.6 132.2 9c19.6 7.8 34.8 23 42.6 42.6 11.7 29.5 9 99.6 9 132.2s2.7 102.7-9 132.2z" />
     </svg>
   ),
-  // TikTok Icon
   TikTok: (props: React.SVGProps<SVGSVGElement>) => (
     <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
       <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z" />
@@ -44,41 +42,42 @@ const Icons = {
       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
     </svg>
   ),
-  ThumbsDown: (props: React.SVGProps<SVGSVGElement>) => (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      {...props}
-    >
-      <path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17" />
+  // Tinder Icon
+  Tinder: (props: React.SVGProps<SVGSVGElement>) => (
+    <svg viewBox="0 0 100 100" fill="none" {...props}>
+      <path
+        d="M50 10 C65 30, 75 40, 75 60 C75 78, 62 90, 50 90 C38 90, 25 78, 25 60 C25 45, 35 35, 45 25 C48 32, 46 40, 50 45 C55 38, 60 30, 50 10 Z"
+        fill="#FF4458"
+      />
     </svg>
   ),
-  Adult18: (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <circle
-        cx="12"
-        cy="12"
-        r="11"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
+  // Bumble Icon
+  Bumble: (props: React.SVGProps<SVGSVGElement>) => (
+    <svg viewBox="0 0 100 100" fill="none" {...props}>
+      <polygon points="20,15 80,15 95,50 80,85 20,85 5,50" fill="#FBC02D" />
+      <rect x="32" y="30" width="36" height="10" rx="5" fill="#FFFFFF" />
+      <rect x="22" y="48" width="56" height="14" rx="7" fill="#FFFFFF" />
+      <rect x="36" y="68" width="28" height="10" rx="5" fill="#FFFFFF" />
+    </svg>
+  ),
+  // ADDED: Hinge Icon
+  Hinge: (props: React.SVGProps<SVGSVGElement>) => (
+    <svg viewBox="0 0 100 100" fill="none" {...props}>
+      <path
+        d="M30 20 L30 80 L40 80 L40 55 Q40 45 50 45 Q60 45 60 55 L60 80 L70 80 L70 20 L60 20 L60 45 Q60 55 50 55 Q40 55 40 45 L40 20 Z"
+        fill="#111111"
       />
-      <text
-        x="12"
-        y="16"
-        fontSize="10"
-        fontWeight="900"
-        textAnchor="middle"
-        fill="currentColor"
-        stroke="none"
-        style={{ fontFamily: "Arial, sans-serif" }}
-      >
-        18+
-      </text>
+    </svg>
+  ),
+  // ADDED: Grindr Icon
+  Grindr: (props: React.SVGProps<SVGSVGElement>) => (
+    <svg viewBox="0 0 100 100" fill="none" {...props}>
+      <path
+        d="M20 35 Q20 20 35 18 L65 18 Q80 20 80 35 L80 60 Q80 75 65 82 L35 82 Q20 75 20 60 Z"
+        fill="#F4B400"
+      />
+      <ellipse cx="38" cy="50" rx="8" ry="5" fill="#FFFFFF" />
+      <ellipse cx="62" cy="50" rx="8" ry="5" fill="#FFFFFF" />
     </svg>
   ),
 };
@@ -448,11 +447,9 @@ export default function PotentialEarningsSection() {
                   {trafficQuality === "B" && (
                     <div className="flex gap-3 animate-in fade-in slide-in-from-bottom-2">
                       <div className="bg-pink-50 p-1.5 rounded-full border border-pink-100">
-                        {/* UPDATED: Exact Instagram Icon provided */}
                         <Icons.Instagram className="w-5 h-5 text-pink-600" />
                       </div>
                       <div className="bg-gray-50 p-1.5 rounded-full border border-gray-200">
-                        {/* TikTok */}
                         <Icons.TikTok className="w-5 h-5 text-black" />
                       </div>
                       <div className="bg-orange-50 p-1.5 rounded-full border border-orange-100">
@@ -465,11 +462,21 @@ export default function PotentialEarningsSection() {
                   )}
                   {trafficQuality === "C" && (
                     <div className="flex gap-4 animate-in fade-in slide-in-from-bottom-2">
-                      <div className="bg-red-50 p-1.5 rounded-full border border-red-100">
-                        <Icons.ThumbsDown className="w-5 h-5 text-red-500" />
+                      {/* Tinder */}
+                      <div className="bg-rose-50 p-1.5 rounded-full border border-rose-100">
+                        <Icons.Tinder className="w-6 h-6" />
                       </div>
-                      <div className="bg-red-50 p-1.5 rounded-full border border-red-100">
-                        <Icons.Adult18 className="w-6 h-6 text-red-600" />
+                      {/* Bumble */}
+                      <div className="bg-yellow-50 p-1.5 rounded-full border border-yellow-100">
+                        <Icons.Bumble className="w-6 h-6" />
+                      </div>
+                      {/* ADDED: Hinge */}
+                      <div className="bg-gray-50 p-1.5 rounded-full border border-gray-200">
+                        <Icons.Hinge className="w-6 h-6" />
+                      </div>
+                      {/* ADDED: Grindr */}
+                      <div className="bg-orange-50 p-1.5 rounded-full border border-orange-100">
+                        <Icons.Grindr className="w-6 h-6" />
                       </div>
                     </div>
                   )}
