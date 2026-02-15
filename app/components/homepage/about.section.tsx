@@ -7,13 +7,12 @@ import SectionTitle from "../final-design/SectionTitle";
 
 // Defined all 7 images as requested
 const teamImages = [
-  "/images/starmodel/suki09.jpg",
+  "/images/starmodel/bray1.jpg",
+  "/images/suki2.jpg",
+  "/images/allaya5.jpg",
+  "/images/starmodel/zak2.jpg",
   "/images/g-model (5).jpg",
   "/images/starmodel/dean4.jpg",
-  "/images/allaya5.jpg",
-  "/images/starmodel/bray1.jpg",
-  "/images/starmodel/trulin.jpg",
-  "/images/starmodel/zak2.jpg",
   "/images/b-model (2).jpg",
 ];
 

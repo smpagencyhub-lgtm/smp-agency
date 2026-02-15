@@ -16,7 +16,7 @@ const stories = [
       "Discover the proven strategies management teams use to consistently increase creator earnings while maintaining long term subscriber value.",
     content:
       "Scaling creator income isn't just about posting more content; it's about strategic optimization. Management teams focus on analyzing subscriber retention rates, optimizing pricing tiers, and implementing upsell strategies that feel organic rather than pushy. By leveraging data analytics, we can identify peak engagement times and tailor content drops to maximize revenue per user (ARPU) while ensuring long-term subscriber value remains high.",
-    imageSrc: "/images/starmodel/suki09.jpg",
+    imageSrc: "/images/suki2.jpg",
   },
   {
     category: "Branding",
@@ -25,7 +25,7 @@ const stories = [
       "Strong branding creates emotional connection. Learn how curated personas help creators stand out in crowded markets.",
     content:
       "In a crowded digital market, a strong persona is your most valuable asset. It goes beyond just aesthetics; it's about the tone of voice, the values you project, and the story you tell. We help creators distill their authentic traits into a cohesive brand identity that resonates deeply with their target audience, creating an emotional connection that converts casual followers into loyal superfans.",
-    imageSrc: "/images/starmodel/IMG_1715.jpg",
+    imageSrc: "/images/allaya2.jpg",
   },
   {
     category: "Operations",

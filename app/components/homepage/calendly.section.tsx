@@ -87,7 +87,7 @@ export default function CalendlySection() {
             className="absolute hidden md:block left-0 lg:left-8 xl:left-12 top-1/2 -translate-y-1/2 w-[280px] h-[420px] shadow-2xl rounded-xl overflow-hidden z-0 border border-gray-200/50 opacity-60 hover:opacity-100 transition-opacity"
           >
             <Image
-              src="/images/starmodel/trulin.jpg"
+              src="/images/g-model (5).jpg"
               alt="Decoration"
               fill
               sizes="280px"
@@ -102,7 +102,7 @@ export default function CalendlySection() {
             className="absolute hidden md:block right-0 lg:right-8 xl:right-12 bottom-1/2 translate-y-1/2 w-[280px] h-[420px] shadow-2xl rounded-xl overflow-hidden z-0 border border-gray-200/50 opacity-60 hover:opacity-100 transition-opacity"
           >
             <Image
-              src="/images/allaya2.jpg"
+              src="/images/starmodel/IMG_1982.jpg"
               alt="Decoration"
               fill
               sizes="280px"

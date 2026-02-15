@@ -18,15 +18,6 @@ import {
 const testimonials = [
   {
     id: 1,
-    name: "James Hardy",
-    handle: "@jameshardyx93",
-    quote: "I was honestly on the verge of giving up.",
-    text: "Before joining SMP, I was overwhelmed trying to manage everything myself replying to messages, posting content, and handling promotions nonstop. It constantly felt like I was falling behind. After working with SMP, I finally regained balance and peace of mind. My income increased, and the stress and burnout completely disappeared.",
-    imageSrc: "/images/jameshardy.jpg",
-    instagramLink: "https://www.instagram.com/jameshardyx93",
-  },
-  {
-    id: 2,
     name: "Olga",
     handle: "@olgagabrielaofficial",
     quote: "My income doubled in just a few months.",
@@ -34,6 +25,17 @@ const testimonials = [
     imageSrc: "/images/g-model (5).jpg",
     instagramLink: "https://www.instagram.com/olgagabrielaofficial",
   },
+  
+  {
+    id: 2,
+    name: "James Hardy",
+    handle: "@jameshardyx93",
+    quote: "I was honestly on the verge of giving up.",
+    text: "Before joining SMP, I was overwhelmed trying to manage everything myself replying to messages, posting content, and handling promotions nonstop. It constantly felt like I was falling behind. After working with SMP, I finally regained balance and peace of mind. My income increased, and the stress and burnout completely disappeared.",
+    imageSrc: "/images/jameshardy.jpg",
+    instagramLink: "https://www.instagram.com/jameshardyx93",
+  },
+  
   {
     id: 3,
     name: "Allaya",

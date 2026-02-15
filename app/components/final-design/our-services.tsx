@@ -31,7 +31,7 @@ const services = [
     icon: MessageCircle,
     description:
       "Chatting is the main revenue driver on OnlyFans, and the quality of communication directly impacts your earnings. Poor messaging, lack of cultural awareness, and inconsistent engagement can significantly reduce performance. That’s why SMP’s highly trained UK and USA chat teams represent creators with authenticity, emotional intelligence, and professionalism. Through rigorous training and our bespoke creator profile mapping system, every interaction reflects your unique voice and brand identity. This results in higher spending per fan, fewer chargebacks, stronger renewals, and long-term subscriber loyalty.",
-    image: "/images/service (2).jpg",
+    image: "/images/g-model (5).jpg",
     align: "left",
   },
   {
