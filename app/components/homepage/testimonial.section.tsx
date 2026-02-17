@@ -45,6 +45,24 @@ const testimonials = [
     imageSrc: "/images/allaya5.jpg",
     instagramLink: "https://www.instagram.com/ayajanets",
   },
+  {
+    id: 4,
+    name: "Bray",
+    handle: "@bcbrne1",
+    quote: "I never thought earning more could feel this effortless.",
+    text: "Before SMP, I was working nonstop but my income barely reflected the effort I was putting in. I was overwhelmed and stretched thin trying to manage everything alone. Once SMP stepped in and optimized the systems behind the scenes, my income started increasing consistently. Now I work fewer hours, earn more than I used to, and finally feel secure about my financial growth.",
+    imageSrc: "/images/starmodel/bray1.jpg",
+    instagramLink: "https://www.instagram.com/bcbrne1/",
+  },
+  {
+    id: 5,
+    name: "Dean",
+    handle: "@dean.brn3",
+    quote: "I finally have consistent income and consistent peace of mind.",
+    text: "Before SMP, my income fluctuated and the pressure was constant. I was overwhelmed trying to juggle messages, content, and promotions. Once SMP streamlined everything, my income became more predictable and significantly higher. Now I earn more while working fewer hours, and the stress is completely gone.",
+    imageSrc: "/images/starmodel/dean1.jpg",
+    instagramLink: "https://www.instagram.com/dean.brn3/",
+  },
 ];
 
 export default function TestimonialSection() {
